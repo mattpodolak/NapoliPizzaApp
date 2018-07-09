@@ -3,7 +3,6 @@ import MainActivity from './Modules/MainActivity' ;
 import SecondActivity from './Modules/SecondActivity' ;
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
-import * as firebase from 'firebase';
 
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
