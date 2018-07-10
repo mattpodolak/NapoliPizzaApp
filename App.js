@@ -3,7 +3,8 @@ import MainActivity from './Modules/MainActivity' ;
 import SecondActivity from './Modules/SecondActivity' ;
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
-
+import CustomerModal from './Modules/CustomerModal' ;
+import {StyleSheet, Dimensions} from 'react-native';
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
 const RootDrawer = createDrawerNavigator(
@@ -24,7 +25,7 @@ const RootStack = createStackNavigator(
       screen: RootDrawer,
     },
     MyModal: {
-      screen: MainModal,
+      screen: CustomerModal,
     },
   },
   {
