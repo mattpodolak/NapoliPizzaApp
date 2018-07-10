@@ -55,11 +55,15 @@
         "desc": "2 Medium Pizzas - 3 toppings each",
         "price": "32.99",
         "pizzas": "2",
+        "size": "Medium",
         "toppings": "3",
         "default_toppings": null,
-        "addon":  {
-          "Upgrade to Large": "2.00"
-        },
+        "addon":  [
+          {
+            "name":"Upgrade to Large",
+            "price":"2.00"
+          }
+        ],
         "extras": {
           "Wings": "10",
           "Garlic bread with cheese": "True",
@@ -69,31 +73,165 @@
         }
       },
       {
-        "name": "Mega Deal",
-        "desc": "2 Medium Pizzas - 3 toppings each",
-        "price": "32.99",
-        "pizzas": "2",
-        "toppings": "3",
+        "name": "Large Pepperoni",
+        "desc": "Walk-In Special",
+        "price": "10.99",
+        "pizzas": "1",
+        "size": "Large",
+        "toppings": "1",
         "default_toppings": {
           "Meat": [
-
+            {
+              "name": "Pepperoni",
+              "default": "true"
+            },
+            {
+              "name": "Ham",
+              "default": null
+            },
+            {
+              "name": "Bacon",
+              "default": null
+            },
+            {
+              "name": "Chicken",
+              "default": null
+            },
+            {
+              "name": "Italian Sausage",
+              "default": null
+            }
           ],
           "Cheese": [
-
+            {
+              "name": "Cheddar",
+              "default": null
+            },
+            {
+              "name": "Parmesan",
+              "default": null
+            },
+            {
+              "name": "X-Cheese",
+              "default": null
+            },
+            {
+              "name": "Double Cheese(2)",
+              "default": null
+            },
+            {
+              "name": "Feta",
+              "default": null
+            }
           ],
           "Vegetable": [
-            
+            {
+              "name": "Mushrooms",
+              "default": null
+            },
+            {
+              "name": "Green Peppers",
+              "default": null
+            },
+            {
+              "name": "Green Olives",
+              "default": null
+            },
+            {
+              "name": "Black Olives",
+              "default": null
+            },
+            {
+              "name": "Hot Peppers",
+              "default": null
+            },
+            {
+              "name": "Red Peppers",
+              "default": null
+            },
+            {
+              "name": "Jalapenos",
+              "default": null
+            },
+            {
+              "name": "Brocoli",
+              "default": null
+            },
+            {
+              "name": "Onions",
+              "default": null
+            },
+            {
+              "name": "Pineapple",
+              "default": null
+            },
+            {
+              "name": "Tomatoes",
+              "default": null
+            },
+            {
+              "name": "Sun Dried Tomatoes",
+              "default": null
+            },
+            {
+              "name": "Spinach",
+              "default": null
+            }
           ]
         },
-        "addon":  {
-          "Upgrade to Large": "2.00"
-        },
+        "addon":  [
+          {
+            "name":"Upgrade to Large",
+            "price":"2.00"
+          }
+        ],
+        "extras": {
+          "Wings": "0",
+          "Garlic bread with cheese": null,
+          "Pop": "0",
+          "Dip": "0",
+          "Pasta": null
+        }
+      },
+      {
+        "name": "Supreme Special",
+        "desc": "1 Large Pizza - 3 toppings",
+        "price": "24.99",
+        "pizzas": "1",
+        "size": "Large",
+        "toppings": "3",
+        "default_toppings": null,
+        "addon":  [
+          {
+            "name":"Upgrade to X-Large",
+            "price":"2.00"
+          }
+        ],
         "extras": {
           "Wings": "10",
           "Garlic bread with cheese": "True",
           "Pop": "4",
           "Dip": "2",
-          "Pasta": "True"
+          "Pasta": null
+        }
+      },
+      {
+        "name": "X-Large Deal",
+        "desc": "1 X-Large Pizza - 3 toppings",
+        "price": "18.99",
+        "pizzas": "1",
+        "size": "X-Large",
+        "toppings": "3",
+        "default_toppings": null,
+        "addon":  [
+          null
+        ],
+        "extras": {
+          "Wings": "0",
+          "Garlic bread with cheese": null,
+          "Pop": "3",
+          "Dip": "2",
+          "Pasta": null
         }
       }
     ]

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 class SecondActivity extends Component
 {
@@ -13,7 +13,14 @@ class SecondActivity extends Component
  {
     return(
         <View style = { styles.MainContainer }>
-        <Text style = { styles.ActivityNameTextCss }> This Is SecondActivity. </Text>
+            <TouchableOpacity
+                onPress={(event) => {
+                    // onPress event fires with an event object
+                    const { navigate } = this.props.navigation;
+                    navigate('Cart', { name: 'Mega Deal', category: 'pizza_deals' });
+                }}>
+                <Text>TOUCH ME</Text>
+            </TouchableOpacity>
         </View>
     );
  }
