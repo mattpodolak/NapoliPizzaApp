@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, StatusBar, Platform } from 'react-native';
+import { Ionicons as Icon } from '@expo/vector-icons';
+import { DrawerActions } from 'react-navigation';
 
 class SecondActivity extends Component
 {
@@ -12,12 +14,22 @@ class SecondActivity extends Component
  render()
  {
     return(
-        <View style = { styles.MainContainer }>
+        <View style = { styles.container }>
+        	<StatusBar barStyle="dark-content" />
+				<View style={styles.header}>
+					<TouchableOpacity
+						onPress={() => {
+							this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+						}}
+					>
+						<Icon name="md-menu" size={30} />
+					</TouchableOpacity>
+				</View>
             <TouchableOpacity
                 onPress={(event) => {
                     // onPress event fires with an event object
                     const { navigate } = this.props.navigation;
-                    navigate('Cart', { name: 'Mega Deal', category: 'pizza_deals' });
+                    navigate('ToppingModal', { name: 'Mega Deal', category: 'pizza_deals' });
                 }}>
                 <Text>TOUCH ME</Text>
             </TouchableOpacity>
@@ -27,8 +39,13 @@ class SecondActivity extends Component
 }
  
 const styles = StyleSheet.create({
- 
-     MainContainer: {
+    container: {
+		flex: 1,
+		paddingTop: StatusBar.currentHeight,
+		backgroundColor: '#FFF',
+    },
+    header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
+    MainContainer: {
     
         flex:1,
         justifyContent: 'center',
@@ -36,12 +53,12 @@ const styles = StyleSheet.create({
       
      },
     
-     ActivityNameTextCss: {
+    ActivityNameTextCss: {
     
         textAlign: 'center',
         fontSize: 20,
         color: '#000',
-     },
+    },
     
     });
  
