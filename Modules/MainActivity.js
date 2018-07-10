@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
-import {ScrollView, FlatList} from 'react-native'
+import {ScrollView, FlatList} from 'react-native';
+import custom_json from './Modules/src/structure/custom_json';
 
 const LOGO_URL = 'https://i.imgur.com/BbYaucd.png';
 
