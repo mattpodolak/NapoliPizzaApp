@@ -1,0 +1,126 @@
+{
+    "Meat" : [
+        {
+            "name": "Pepperoni",
+            "value" : "1"
+        },
+        {
+            "name": "Chicken",
+            "value" : "2"
+        },
+        {
+            "name": "Ham",
+            "value" : "1"
+        },
+        {
+            "name": "Bacon",
+            "value" : "1"
+        },
+        {
+            "name": "Italian Sausage",
+            "value" : "1"
+        }
+    ],
+    "Cheese" : [
+        {
+            "name": "Cheddar",
+            "value" : "1"
+        },
+        {
+            "name": "Parmesan",
+            "value" : "1"
+        },
+        {
+            "name": "X-Cheese",
+            "value" : "1"
+        },
+        {
+            "name": "Double Cheese",
+            "value" : "2"
+        },      
+        {
+            "name": "Feta",
+            "value" : "1"
+        }         
+    ],
+    "Vegetable" : [
+        {
+            "name": "Mushroom",
+            "value" : "1"
+        },
+        {
+            "name": "Green peppers",
+            "value" : "1"
+        },
+        {
+            "name": "Green Olives",
+            "value" : "1"
+        },        
+        {
+            "name": "Black Olives",
+            "value" : "1"
+        },  
+        {
+            "name": "Hot Peppers",
+            "value" : "1"
+        },    
+        {
+            "name": "Red Peppers",
+            "value" : "1"
+        },   
+        {
+            "name": "Jalapenos",
+            "value" : "1"
+        },   
+        {
+            "name": "Broccoli",
+            "value" : "1"
+        },   
+        {
+            "name": "Onions",
+            "value" : "1"
+        },   
+        {
+            "name": "Pineapple",
+            "value" : "1"
+        },   
+        {
+            "name": "Tomatoes",
+            "value" : "1"
+        },
+        {
+            "name": "Sun Dried Tomatoes",
+            "value" : "1"
+        }, 
+        {
+            "name": "Spinach",
+            "value" : "1"
+        }        
+    ],
+    "Free_Toppings" : [
+        {
+            "name": "Thin Crust",
+            "value" : "1"
+        },
+        {
+            "name": "Thick Crust",
+            "value" : "1"
+        },
+        {
+            "name": "Whole Wheat",
+            "value" : "1"
+        },
+        {
+            "name": "Extra Sauce",
+            "value" : "1"
+        },
+        {
+            "name": "Chili Pepper",
+            "value" : "1"
+        },
+        {
+            "name": "Fresh Garlic",
+            "value" : "1"
+        }          
+    ]
+}
