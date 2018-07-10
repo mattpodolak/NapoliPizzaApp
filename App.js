@@ -5,6 +5,7 @@ import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
 import CustomerModal from './Modules/CustomerModal' ;
 import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
 const RootDrawer = createDrawerNavigator(
