@@ -3,6 +3,7 @@ import MainActivity from './Modules/MainActivity' ;
 import SecondActivity from './Modules/SecondActivity' ;
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
+import TestModal from './Modules/TestModal' ;
 import {StyleSheet, Dimensions} from 'react-native';
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
@@ -24,7 +25,7 @@ const RootStack = createStackNavigator(
       screen: RootDrawer,
     },
     MyModal: {
-      screen: MainModal,
+      screen: TestModal,
     },
   },
   {
