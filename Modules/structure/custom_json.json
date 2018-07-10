@@ -47,7 +47,55 @@
       {
         "name": "Ultra Meat Lovers",
         "price" : "13"
+      }
+    ],
+    "pizza_deals": [
+      {
+        "name": "Mega Deal",
+        "desc": "2 Medium Pizzas - 3 toppings each",
+        "price": "32.99",
+        "pizzas": "2",
+        "toppings": "3",
+        "default_toppings": null,
+        "addon":  {
+          "Upgrade to Large": "2.00"
+        },
+        "extras": {
+          "Wings": "10",
+          "Garlic bread with cheese": "True",
+          "Pop": "4",
+          "Dip": "2",
+          "Pasta": "True"
+        }
       },
+      {
+        "name": "Mega Deal",
+        "desc": "2 Medium Pizzas - 3 toppings each",
+        "price": "32.99",
+        "pizzas": "2",
+        "toppings": "3",
+        "default_toppings": {
+          "Meat": [
+
+          ],
+          "Cheese": [
+
+          ],
+          "Vegetable": [
+            
+          ]
+        },
+        "addon":  {
+          "Upgrade to Large": "2.00"
+        },
+        "extras": {
+          "Wings": "10",
+          "Garlic bread with cheese": "True",
+          "Pop": "4",
+          "Dip": "2",
+          "Pasta": "True"
+        }
+      }
     ]
 }
 

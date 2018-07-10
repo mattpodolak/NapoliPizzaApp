@@ -12,11 +12,9 @@ class SecondActivity extends Component
  render()
  {
     return(
-       <View style = { styles.MainContainer }>
- 
-          <Text style = { styles.ActivityNameTextCss }> This Is SecondActivity. </Text>
- 
-       </View>
+        <View style = { styles.MainContainer }>
+        <Text style = { styles.ActivityNameTextCss }> This Is SecondActivity. </Text>
+        </View>
     );
  }
 }
