@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Button, View, StyleSheet, ScrollView } from 'react-native';
+import { Alert, Button, View, StyleSheet, ScrollView, Text } from 'react-native';
 
 import t from 'tcomb-form-native';
 
@@ -50,14 +50,35 @@ export default class CustomerModal extends Component {
         const value = this._form.getValue(); // use that ref to get the form value
         console.log('value: ', value);  
         customerInfo = value
-        Alert.alert(
-            'Customer data saved'
-        )
+        if(value != null){
+            this.props.navigation.goBack()
+            Alert.alert(
+                'Customer data saved'
+            )
+        }
+        else{
+            Alert.alert(
+                'Required fields missing'
+            ) 
+        }
+    }
+    clearData = () => {
+        customerInfo = {
+            firstName: null,
+            lastName: null,
+            email: null,
+            addressOne: null,
+            addressTwo: null,
+            postalCode: null,
+            city: null
+        };
+        this.forceUpdate()
     }
     render() {
         return (
         <ScrollView>
             <View style={styles.container}>
+                <Text style={{ fontSize: 25 }}>Customer Info Form</Text>
                 <Form 
                 ref={c => this._form = c} // assign a ref
                 type={User} 
@@ -76,6 +97,7 @@ export default class CustomerModal extends Component {
                 <View style={{marginBottom: 15}} />
                 <Button 
                     title="Clear Data"
+                    onPress={this.clearData}
                 />
             </View>
         </ScrollView>
@@ -87,6 +109,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     marginTop: 50,
+    marginBottom: 150,
     padding: 20,
     backgroundColor: '#ffffff',
   },
