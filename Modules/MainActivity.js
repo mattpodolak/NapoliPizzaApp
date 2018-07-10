@@ -11,9 +11,13 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
-import {ScrollView, FlatList} from 'react-native'
-
+import {ScrollView, FlatList} from 'react-native';
+ 
 const LOGO_URL = 'https://i.imgur.com/BbYaucd.png';
+
+//json
+const custom_data = require('./structure/custom_json.json');
+
 
 const styles = StyleSheet.create({
 	container: {
@@ -84,60 +88,90 @@ export default class MainActivity extends React.Component {
                 flexWrap: 'wrap',
             }}>
 
+
                 <ScrollView style={styles.header}>
                     {/* PIZZA DEALS ROW */}
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>PIZZA DEALS</Text>
+                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                            // data array
-                            data={[
-                                {
-                                    key: 'pizza_1',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '$10',
-                                },
-                                {
-                                    key: 'pizza_2',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '$10',
-                                },
-                                {
-                                    key: 'pizza_3',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '$10',
-                                },
-                                {
-                                    key: 'pizza_4',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '$10',
-                                },
-                                {
-                                    key: 'pizza_5',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '$10',
-                                },
-                                {
-                                    key: 'pizza_6',
-                                    image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                    price: '10',
-                                },
-                            ]}
-                            
-                            // render items
-                            renderItem={({item, index}) => 
-                                    <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                        <Text style={styles.item}>
-                                            {item.key}
-                                        </Text>
-                                        <Image style={styles.image}
-                                            source={{uri: item.image_url}}
-                                        />
-                                        <Text style={styles.price}>
-                                            {item.price}
-                                        </Text>
-                                    </View>
-                            }
-                        />
+                                // data array
+                                data={[
+                                    {
+                                        key: custom_data.specialty[0].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[0].price,
+                                    },
+                                    {
+                                        key: custom_data.specialty[1].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[1].price,
+                                    },
+                                    {
+                                        key: custom_data.specialty[2].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[2].price,
+                                    },
+                                    {
+                                        key: custom_data.specialty[3].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[3].price,
+                                    },
+                                    {
+                                        key: custom_data.specialty[4].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[4].price,
+                                    },
+                                    {
+                                        key: custom_data.specialty[5].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[5].price,
+									},
+                                    {
+                                        key: custom_data.specialty[6].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[6].price,
+									},
+                                    {
+                                        key: custom_data.specialty[7].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[7].price,
+									},
+                                    {
+                                        key: custom_data.specialty[8].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[8].price,
+									},
+                                    {
+                                        key: custom_data.specialty[9].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[9].price,
+									},
+                                    {
+                                        key: custom_data.specialty[10].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[10].price,
+									},
+                                    {
+                                        key: custom_data.specialty[11].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specialty[11].price,
+                                    }								
+                                ]}
+								// render items
+                                renderItem={({item, index}) => 
+                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
+                                            <Text style={styles.item}>
+                                                {item.key}
+                                            </Text>
+                                            <Image style={styles.image}
+                                                source={{uri: item.image_url}}
+                                            />
+                                            <Text style={styles.price}>
+                                                {item.price}
+                                            </Text>
+                                        </View>
+                                }
+                            />
                     </View>
 
                     {/* SPECIALTY PIZZA ROW */}

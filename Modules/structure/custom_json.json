@@ -1,0 +1,53 @@
+{
+    "specialty": [
+      {
+        "name": "Meat Lovers",
+        "price" : "13"
+      },
+      {
+        "name": "Plain Cheese",
+        "price" : "13"
+      },
+      {
+        "name": "Deluxe",
+        "price" : "13"
+      },
+      {
+        "name": "Mexican",
+        "price" : "13"
+      },
+      {
+        "name": "Greek",
+        "price" : "13"
+      },
+      {
+        "name": "Vegetarian",
+        "price" : "13"
+      },
+      {
+        "name": "Canadian",
+        "price" : "13"
+      },
+      {
+        "name": "Hawaiian",
+        "price" : "13"
+      },
+      {
+        "name": "Mediterranean",
+        "price" : "13"
+      },
+      {
+        "name": "Garden Pizza",
+        "price" : "13"
+      },
+      {
+        "name": "Napoli Special Pesto",
+        "price" : "13"
+      },
+      {
+        "name": "Ultra Meat Lovers",
+        "price" : "13"
+      },
+    ]
+}
+
