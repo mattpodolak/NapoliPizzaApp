@@ -90,11 +90,11 @@ export default class MainActivity extends React.Component {
 
 
                 <ScrollView style={styles.header}>
-                    {/* PIZZA DEALS ROW */}
+                    {/* SPECIALTY PIZZA */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+                                // data array 12 items
                                 data={[
                                     {
                                         key: custom_data.specialty[0].name,
@@ -159,72 +159,96 @@ export default class MainActivity extends React.Component {
                                 ]}
 								// render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('Cart', { prices: '111111' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
                                 }
                             />
                     </View>
 
-                    {/* SPECIALTY PIZZA ROW */}
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
+                    {/* PIZZA DEALS ROW */}
+                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>PIZZA DEALS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+                                // data array 8 items
                                 data={[
-                                    {
-                                        key: 'special_pizza_1',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'special_pizza_2',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'special_pizza_3',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'special_pizza_4',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'special_pizza_5',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'special_pizza_6',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+									{
+										key: custom_data.pizza_deals[0].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[0].price,
+									},
+									{
+										key: custom_data.pizza_deals[1].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[1].price,
+									},
+									{
+										key: custom_data.pizza_deals[2].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[2].price,
+									},
+									{
+										key: custom_data.pizza_deals[3].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[3].price,
+									},
+									{
+										key: custom_data.pizza_deals[4].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[4].price,
+									},									
+									{
+										key: custom_data.pizza_deals[5].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[5].price,
+									},
+									{
+										key: custom_data.pizza_deals[6].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[6].price,
+									},
+									{
+										key: custom_data.pizza_deals[7].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pizza_deals[7].price,
+									}
                                 ]}
                                 
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+								<View>
+									<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+										onPress={(event) => {
+										// onPress event fires with an event object
+										const { navigate } = this.props.navigation;
+										navigate('Cart', { prices: '111111' });
+									}}>
+										<Text style={styles.item}>
+											{item.key}
+										</Text>
+										<Image style={styles.image}
+											source={{uri: item.image_url}}
+										/>
+										<Text style={styles.price}>
+											{item.price}
+										</Text>
+									</TouchableOpacity>
+								</View>
                                 }
                             />
                     </View>
@@ -233,38 +257,48 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>WINGS AND SANDWICHES</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+                                // data array 8 items
                                 data={[
                                     {
-                                        key: 'wings_sandwiches_1',
+                                        key: custom_data.wingsandsandwiches[0].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.wingsandsandwiches[0].price,
                                     },
                                     {
-                                        key: 'wings_sandwiches_2',
+                                        key: custom_data.wingsandsandwiches[1].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.wingsandsandwiches[1].price,
                                     },
                                     {
-                                        key: 'wings_sandwiches_3',
+                                        key: custom_data.wingsandsandwiches[2].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.wingsandsandwiches[2].prices,
                                     },
                                     {
-                                        key: 'wings_sandwiches_4',
+                                        key: custom_data.wingsandsandwiches[3].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.wingsandsandwiches[3].prices,
                                     },
                                     {
-                                        key: 'wings_sandwiches_5',
+                                        key: custom_data.wingsandsandwiches[4].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.wingsandsandwiches[4].prices,
                                     },
                                     {
-                                        key: 'wings_sandwiches_6',
+                                        key: custom_data.wingsandsandwiches[5].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+                                        price: custom_data.wingsandsandwiches[5].prices,
+									},
+                                    {
+                                        key: custom_data.wingsandsandwiches[6].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.wingsandsandwiches[6].prices,
+									},
+                                    {
+                                        key: custom_data.wingsandsandwiches[7].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.wingsandsandwiches[7].prices,
+									},
                                 ]}
                                 
                                 // render items
@@ -288,53 +322,75 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+                                // data array 9 items
                                 data={[
                                     {
-                                        key: 'specials_1',
+                                        key: custom_data.specials[0].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.specials[0].price,
                                     },
                                     {
-                                        key: 'specials_2',
+                                        key: custom_data.specials[1].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.specials[1].price,
                                     },
                                     {
-                                        key: 'specials_3',
+                                        key: custom_data.specials[2].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.specials[2].price,
                                     },
                                     {
-                                        key: 'specials_4',
+                                        key: custom_data.specials[3].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.specials[3].price,
                                     },
                                     {
-                                        key: 'specials_5',
+                                        key: custom_data.specials[4].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
+                                        price: custom_data.specials[4].price,
                                     },
                                     {
-                                        key: 'specials_6',
+                                        key: custom_data.specials[5].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+                                        price: custom_data.specials[5].price,
+									},
+                                    {
+                                        key: custom_data.specials[6].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specials[6].price,
+									},
+                                    {
+                                        key: custom_data.specials[7].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specials[7].price,
+									},
+                                    {
+                                        key: custom_data.specials[8].name,
+                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+                                        price: custom_data.specials[8].price,
+									},
                                 ]}
                                 
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('Cart', { prices: '111111' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
                                 }
                             />
                     </View>
@@ -343,53 +399,65 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PITAS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
-                                data={[
-                                    {
-                                        key: 'pita_1',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'pita_2',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'pita_3',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'pita_4',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'pita_5',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'pita_6',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+                                // data array 7 items
+								data={[
+									{
+										key: custom_data.pitas[0].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[0].price,
+									},
+									{
+										key: custom_data.pitas[1].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[1].price,
+									},
+									{
+										key: custom_data.pitas[2].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[2].price,
+									},
+									{
+										key: custom_data.pitas[3].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[3].price,
+									},
+									{
+										key: custom_data.pitas[4].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[4].price,
+									},
+									{
+										key: custom_data.pitas[5].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[5].price,
+									},
+									{
+										key: custom_data.pitas[6].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[6].price,
+									},
                                 ]}
                                 
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('Cart', { prices: '111111' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
                                 }
                             />
                     </View>
@@ -400,52 +468,49 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
                                 // data array
-                                data={[
-                                    {
-                                        key: 'side_1',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'side_2',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'side_3',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'side_4',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'side_5',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'side_6',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+								data={[
+									{
+										key: custom_data.sides[0].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.sides[0].price,
+									},
+									{
+										key: custom_data.sides[1].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.sides[1].price,
+									},
+									{
+										key: custom_data.sides[2].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.sides[2].price,
+									},
+									{
+										key: custom_data.sides[3].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.sides[3].price,
+									},
                                 ]}
                                 
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('Cart', { prices: '111111' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
                                 }
                             />
                     </View>
@@ -456,52 +521,44 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
                                 // data array
-                                data={[
-                                    {
-                                        key: 'salad_1',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'salad_2',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'salad_3',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'salad_4',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'salad_5',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '$10',
-                                    },
-                                    {
-                                        key: 'salad_6',
-                                        image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: '10',
-                                    },
+								data={[
+									{
+										key: custom_data.salads[0].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.salads[0].price,
+									},
+									{
+										key: custom_data.salads[1].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.salads[1].price,
+									},
+									{
+										key: custom_data.salads[2].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.salads[2].price,
+									},
                                 ]}
                                 
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('Cart', { prices: '111111' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
                                 }
                             />
                     </View>

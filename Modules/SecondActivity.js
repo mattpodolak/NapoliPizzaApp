@@ -14,8 +14,8 @@ class SecondActivity extends Component
     return(
        <View style = { styles.MainContainer }>
  
-          <Text style = { styles.ActivityNameTextCss }> This Is SecondActivity. </Text>
- 
+            <Text style = { styles.ActivityNameTextCss }> zomething </Text>
+            <Text>{this.props.navigation.state.params.prices}</Text>
        </View>
     );
  }
