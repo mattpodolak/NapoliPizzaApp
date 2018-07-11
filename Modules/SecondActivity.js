@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
-
+import * as utils from './scripts/scripts.js';
 
 initialArr = [
     {
@@ -33,6 +33,7 @@ class SecondActivity extends Component
     title: 'Cart',
  };
 
+ /*
 calculatePrice(item){
     console.log('calculating price...')
     var total = 0;
@@ -50,6 +51,7 @@ calculatePrice(item){
     console.log(total);
     return total;
 }
+*/
 
 render()
 {   
@@ -75,7 +77,7 @@ render()
                                             {buttonInfo.name}{'\n'}
                                             Price: {buttonInfo.price}{'\n'}
                                             Size: {buttonInfo.size}{'\n'}
-                                            Total Price: {this.calculatePrice(buttonInfo)}
+                                            Total Price: {utils.calculatePrice(buttonInfo)}
                                             
                                         </Text>
                                     </View>
