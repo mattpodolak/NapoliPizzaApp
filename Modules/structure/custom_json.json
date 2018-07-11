@@ -27,7 +27,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -57,7 +58,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -87,7 +89,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -117,7 +120,9 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
+				
 		  	}
 		},
 		{
@@ -147,7 +152,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -177,7 +183,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -207,7 +214,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -237,7 +245,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -267,7 +276,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -297,7 +307,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -327,7 +338,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -357,7 +369,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		}
 	],
@@ -379,7 +392,8 @@
 				"Garlic bread with cheese": "True",
 				"Pop": "4",
 				"Dip": "2",
-				"Pasta": "True"
+				"Pasta": "True",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -399,7 +413,8 @@
 				"Garlic bread with cheese": null,
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": null
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -419,7 +434,8 @@
 				"Garlic bread with cheese": "True",
 				"Pop": "4",
 				"Dip": "2",
-				"Pasta": null
+				"Pasta": null,
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -438,7 +454,8 @@
 				"Garlic bread with cheese": null,
 				"Pop": "3",
 				"Dip": "2",
-				"Pasta": null
+				"Pasta": null,
+				"Chips": "False"
 		  	}
 		}
 	],
@@ -457,7 +474,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -474,7 +492,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -491,7 +510,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -508,7 +528,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -525,7 +546,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -542,7 +564,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -559,7 +582,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -576,7 +600,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		}
 	],
@@ -598,7 +623,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "1",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -618,7 +644,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "1",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -644,7 +671,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -666,7 +694,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -688,7 +717,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -705,7 +735,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "1",
 				"Dip": "1",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -722,7 +753,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -739,7 +771,8 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -756,42 +789,173 @@
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
-				"Pasta": "False"
+				"Pasta": "False",
+				"Chips": "False"
 		  	}
 		}
 	],
 	"pitas" : [
 		{
 			"name": "Chicken Club",
-			"price": "8.99"
+			"desc": "Chicken Club",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Chicken Mexicanna",
-			"price": "8.99"
+			"desc": "Chicken Mexicanna",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
+		},
+		{
+			"name": "Chicken Greek",
+			"desc": "Chicken Greek",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Chicken Caesar",
-			"price": "8.99"
+			"desc": "Chicken Caesar",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Double Pepperoni & Cheese",
-			"price": "8.99"
+			"desc": "Double Pepperoni & Cheese",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Meatballs & Cheese",
-			"price": "8.99"
+			"desc": "Meatballs & Cheese",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Veggie",
-			"price": "8.99"
+			"desc": "Veggie",
+			"price": "8.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Panzo & Pop (2)",
-			"price": "21.99"
+			"desc": "Panzo & Pop (2)",
+			"price": "21.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "2",
+				"Dip": "2",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Panzo & Pop (1)",
-			"price": "10.99"
+			"desc": "Panzo & Pop (1)",
+			"price": "10.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "2",
+				"Dip": "2",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		}
 	],
 	"sides" : [
