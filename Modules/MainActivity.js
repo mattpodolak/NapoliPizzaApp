@@ -166,7 +166,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -218,7 +218,7 @@ export default class MainActivity extends React.Component {
 										const { navigate } = this.props.navigation;
 										navigate('Cart', { prices: '111111' });
 									}}>
-										<Text style={styles.item}>
+										<Text style={styles.price}>
 											{item.key}
 										</Text>
 										<Image style={styles.image}
@@ -284,7 +284,7 @@ export default class MainActivity extends React.Component {
                                 // render items
                                 renderItem={({item, index}) => 
                                         <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
+                                            <Text style={styles.price}>
                                                 {item.key}
                                             </Text>
                                             <Image style={styles.image}
@@ -360,7 +360,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -437,7 +437,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -490,7 +490,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -538,7 +538,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}

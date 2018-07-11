@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView, Linking} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
+
+
+
+
+// order formatting
+const message_item = "TESTTTTTTT";
+
+// mailto
+const body_message = "mailto://napolipizzabarrie@gmail.com?subject=EMAILTEST&body=" + message_item;
+
+
 
 initialArr = [
     {
@@ -25,38 +36,24 @@ initialArr = [
     }
   ];
 
-class SecondActivity extends Component
-{
-    
- static navigationOptions =
- {
-    title: 'Cart',
- };
+class Anchor extends React.Component {
+    _handlePress = () => {
+        console.log("Link clicked for " + this.props.href);
+        Linking.openURL(this.props.href);
+        this.props.onPress && this.props.onPress();
+    };
 
- /*
-calculatePrice(item){
-    console.log('calculating price...')
-    var total = 0;
-    total += item.price;
-    console.log(total);
-    // add on section
-    if (item.addon.price){
-        total += item.addon.price;
-        console.log(total);
+render() {
+    return (
+        <Button title={this.props.title} onPress={this._handlePress} />
+        );
     }
-    // check size
-    if (item.size == 'Medium'){
-        total += 100;
-    }
-    console.log(total);
-    return total;
 }
-*/
 
-render()
-{   
-    return(
-<View style={styles.container}>
+export default class Example extends React.Component {
+    render() {
+      return (
+        <View style={styles.container}>
             <StatusBar barStyle="dark-content" />
                 <View style={styles.header}>
                     <TouchableOpacity
@@ -72,7 +69,6 @@ render()
                             {initialArr.map((buttonInfo) => {
                                 return (
                                     <View key={buttonInfo.id}>
-
                                         <Text style={styles.item}>
                                             {buttonInfo.name}{'\n'}
                                             Price: {buttonInfo.price}{'\n'}
@@ -84,14 +80,18 @@ render()
                                 );
                             })}
                         </ScrollView>
+                        
+                        {/* mail */}
+                        <Anchor href={body_message} title="SEND ORDER" />
                     </View>
                     
                 </View>
         </View>
-    );
- }
+      );
+        
+    }
 }
- 
+
 const styles = StyleSheet.create({
     container: {
 		flex: 1,
@@ -139,4 +139,4 @@ const styles = StyleSheet.create({
     });
  
  
-export default SecondActivity;
+//export default SecondActivity;
