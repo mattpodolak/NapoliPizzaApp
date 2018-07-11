@@ -19,6 +19,10 @@
         {
             "name": "Italian Sausage",
             "value" : "1"
+        },
+        {
+            "name": "Beef Salami",
+            "value": "1"
         }
     ],
     "Cheese" : [
@@ -49,7 +53,7 @@
             "value" : "1"
         },
         {
-            "name": "Green peppers",
+            "name": "Green Peppers",
             "value" : "1"
         },
         {
@@ -99,27 +103,35 @@
     ],
     "Free_Toppings" : [
         {
-            "name": "Thin Crust",
+            "name" : "Thin Crust",
             "value" : "1"
         },
         {
-            "name": "Thick Crust",
+            "name" : "Thick Crust",
             "value" : "1"
         },
         {
-            "name": "Whole Wheat",
+            "name" : "Whole Wheat",
             "value" : "1"
         },
         {
-            "name": "Extra Sauce",
+            "name" : "Extra Sauce",
             "value" : "1"
         },
         {
-            "name": "Chili Pepper",
+            "name" : "Chili Pepper",
             "value" : "1"
         },
         {
-            "name": "Fresh Garlic",
+            "name" : "Fresh Garlic",
+            "value" : "1"
+        },
+        {
+            "name" : "White Sauce",
+            "value" : "1"
+        },
+        {
+            "name" : "Pesto Sauce",
             "value" : "1"
         }          
     ]
