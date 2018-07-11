@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
-import * as utils from './scripts/scripts.js';
+import * as utils from './structure/scripts.js';
 
 initialArr = [
     {

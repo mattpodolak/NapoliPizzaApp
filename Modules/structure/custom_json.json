@@ -759,7 +759,7 @@
 		},
 		{
 			"name": "Light Snack Deal #1",
-			"desc": "Light Snack Deal #1",
+			"desc": "with chicken nuggets",
 			"price": "20",
 			"pizzas": "0",
 			"size": null,
@@ -777,7 +777,7 @@
 		},
 		{
 			"name": "Light Snack Deal #2",
-			"desc": "Light Snack Deal #2",
+			"desc": "with chicken wings",
 			"price": "20",
 			"pizzas": "0",
 			"size": null,
@@ -785,7 +785,7 @@
 			"default_toppings": null,
 			"addon":  null,
 		  	"extras": {
-				"Wings": "0",
+				"Wings": "10",
 				"Garlic bread with cheese": "False",
 				"Pop": "0",
 				"Dip": "0",
