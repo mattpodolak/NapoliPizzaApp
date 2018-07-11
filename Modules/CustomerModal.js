@@ -15,7 +15,7 @@ const User = t.struct({
   city: t.String
 });
 
-const customerInfo = {
+export const customerInfo = {
     firstName: null,
     lastName: null,
     email: null,

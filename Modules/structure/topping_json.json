@@ -27,6 +27,10 @@
     ],
     "Cheese" : [
         {
+            "name": "Mozzarella",
+            "value" : "1"
+        },
+        {
             "name": "Cheddar",
             "value" : "1"
         },
@@ -104,35 +108,35 @@
     "Free_Toppings" : [
         {
             "name" : "Thin Crust",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Thick Crust",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Whole Wheat",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Extra Sauce",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Chili Pepper",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Fresh Garlic",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "White Sauce",
-            "value" : "1"
+            "value" : "0"
         },
         {
             "name" : "Pesto Sauce",
-            "value" : "1"
+            "value" : "0"
         }          
     ]
 }

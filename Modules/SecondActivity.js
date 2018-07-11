@@ -4,6 +4,8 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
+export var cartArr = [];
+
 initialArr = [
     {
         id: 1,
@@ -26,70 +28,57 @@ initialArr = [
   ];
 
 class SecondActivity extends Component
-{
-    
- static navigationOptions =
- {
-    title: 'Cart',
- };
-
- /*
-calculatePrice(item){
-    console.log('calculating price...')
-    var total = 0;
-    total += item.price;
-    console.log(total);
-    // add on section
-    if (item.addon.price){
-        total += item.addon.price;
-        console.log(total);
-    }
-    // check size
-    if (item.size == 'Medium'){
-        total += 100;
-    }
-    console.log(total);
-    return total;
-}
-*/
-
-render()
-{   
-    return(
-<View style={styles.container}>
-            <StatusBar barStyle="dark-content" />
+{  
+    static navigationOptions =
+    {
+        title: 'Cart',
+    };
+    addtoCart= () => {
+        this.category = this.props.navigation.state.params.category;
+        this.name = this.props.navigation.state.params.name;
+        this.custom = this.props.navigation.state.params.form;
+        cartArr.push(
+            {
+                name: this.name,
+                category: this.category,
+                custom: this.custom
+            },
+        );
+    }  
+    render()
+    {
+        this.addtoCart()
+        return(
+            <View style={styles.container}>
+                <StatusBar barStyle="dark-content" />
                 <View style={styles.header}>
                     <TouchableOpacity
                         onPress={() => {
                             this.props.navigation.dispatch(DrawerActions.toggleDrawer());
-                        }}
-                    >
-                        <Icon name="md-menu" size={30} />
+                        }}>
+                    <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
                     {/* MAP CART */}
                     <View>
                         <ScrollView>
-                            {initialArr.map((buttonInfo) => {
+                            {cartArr.map((buttonInfo) => {
                                 return (
                                     <View key={buttonInfo.id}>
-
                                         <Text style={styles.item}>
                                             {buttonInfo.name}{'\n'}
                                             Price: {buttonInfo.price}{'\n'}
                                             Size: {buttonInfo.size}{'\n'}
-                                            Total Price: {utils.calculatePrice(buttonInfo)}
-                                            
+                                            Total Price: {utils.calculatePrice()}  
                                         </Text>
                                     </View>
                                 );
                             })}
                         </ScrollView>
-                    </View>
-                    
+                    </View>       
                 </View>
-        </View>
-    );
- }
+            </View>
+        );
+    }
 }
  
 const styles = StyleSheet.create({

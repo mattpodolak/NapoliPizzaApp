@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import { Alert, View, Text, Button, StyleSheet, ScrollView } from 'react-native';
 import t from 'tcomb-form-native';
 
 var formStylesheet = require('./src/FormStyles.js');
@@ -12,6 +12,7 @@ var all_toppings = [
   'Bacon', 
   'Chicken', 
   'Italian Sausage', 
+  'Mozzarella',
   'Cheddar', 
   'Parmesan', 
   'X-Cheese', 
@@ -28,7 +29,7 @@ var all_toppings = [
   'Onions', 
   'Pineapple', 
   'Tomatoes', 
-  'Sun Dried Tomoatoes', 
+  'Sun Dried Tomatoes', 
   'Spinach', 
   'Thin Crust', 
   'Thick Crust', 
@@ -173,6 +174,16 @@ class MainModal extends React.Component {
     handleSubmit = () => {
       const value = this._form.getValue(); // use that ref to get the form value
       console.log('value: ', value);  
+      if(value != null){
+        // goes to cart
+        const { navigate } = this.props.navigation;
+        navigate('Cart', { name: this.name, category: this.cat, form: value });
+      }
+      else{
+        Alert.alert(
+          'Required fields missing'
+        )
+      }
     }
     findItem= () => {
       this.name = this.props.navigation.state.params.name;
@@ -191,6 +202,14 @@ class MainModal extends React.Component {
           this.extras = custom_data[category][i].extras;
           break;
         }
+      }
+      //Add default toppings
+      this.defaultToppings = {
+        "addOns": null,
+        "dips": null,
+        "pops": null,
+        "specialNotes": null,
+        "toppings": this.default_toppings,
       }
       //Add extras to description
       if(this.extras.Wings != '0'){
@@ -444,7 +463,7 @@ class MainModal extends React.Component {
               ref={c => this._form = c} // assign a ref
               type={this.PizzaForm} 
               options={options} // pass the options via props
-              //value={customerInfo}
+              value={this.defaultToppings}
             />
             <Button
               title="Add to Cart"

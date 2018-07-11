@@ -7,7 +7,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Mozzarella, Feta, Spinach, White Sauce"],
+			"default_toppings": ["Mozzarella", "Feta", "Spinach", "White Sauce"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -34,7 +34,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Pepperoni, Bacon, Italian Sausage, Ham"],
+			"default_toppings": ["Pepperoni", "Bacon", "Italian Sausage", "Ham"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -96,7 +96,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Pepperoni, Mushrooms, Green Peppers, Onions, Bacon"],
+			"default_toppings": ["Pepperoni", "Mushrooms", "Green Peppers", "Onions", "Bacon"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -127,7 +127,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Hot Peppers, Chicken, Onions, Jalapenos"],
+			"default_toppings": ["Hot Peppers", "Chicken", "Onions", "Jalapenos"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -154,12 +154,12 @@
 		},
 		{
 			"name": "Greek",
-			"desc": "Red Peppers, Chicken, Onion, Black Olives, White Sauce",
+			"desc": "Red Peppers, Chicken, Onions, Black Olives, White Sauce",
 			"price": "12.99",
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Red Peppers, Chicken, Onion, Black Olives, White Sauce"],
+			"default_toppings": ["Red Peppers", "Chicken", "Onions", "Black Olives", "White Sauce"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -185,12 +185,12 @@
 		},
 		{
 			"name": "Vegetarian",
-			"desc": "Mushrooms, Green Peppers, Onions, Tomato",
+			"desc": "Mushrooms, Green Peppers, Onions, Tomatoes",
 			"price": "12.99",
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Mushrooms, Green Peppers, Onions, Tomato"],
+			"default_toppings": ["Mushrooms", "Green Peppers", "Onions", "Tomatoes"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -221,7 +221,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Pepperoni, Bacon, Mushrooms, Black Olives"],
+			"default_toppings": ["Pepperoni", "Bacon", "Mushrooms", "Black Olives"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -247,12 +247,12 @@
 		},
 		{
 			"name": "Hawaiian",
-			"desc": "Ham, Pineapple, Bacon, Onion",
+			"desc": "Ham, Pineapple, Bacon, Onions",
 			"price": "12.99",
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Ham, Pineapple, Bacon, Onion"],
+			"default_toppings": ["Ham", "Pineapple", "Bacon", "Onions"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -278,12 +278,12 @@
 		},
 		{
 			"name": "Mediterranean",
-			"desc": "Sun Dried Tomatoes, Black Olives, Feta, Onion, Green Olives",
+			"desc": "Sun Dried Tomatoes, Black Olives, Feta, Onions, Green Olives",
 			"price": "12.99",
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Sun Dried Tomatoes, Black Olives, Feta, Onion, Green Olives"],
+			"default_toppings": ["Sun Dried Tomatoes", "Black Olives", "Feta", "Onions", "Green Olives"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -314,7 +314,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Broccoli, Spinach, Feta, Tomatoes, White Sauce"],
+			"default_toppings": ["Broccoli", "Spinach", "Feta", "Tomatoes", "White Sauce"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -345,7 +345,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Pesto Sauce, Chicken"],
+			"default_toppings": ["Pesto Sauce", "Chicken"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
@@ -376,7 +376,7 @@
 			"pizzas": "1",
 			"size": "Medium",
 			"toppings": "0",
-			"default_toppings": ["Beef Salami, Italian Sausage, Tomatoes, Hot Peppers, Black Olives"],
+			"default_toppings": ["Beef Salami", "Italian Sausage", "Tomatoes", "Hot Peppers", "Black Olives"],
 			"addon":  [
 				{
 					"name": "Upgrade to Large",
