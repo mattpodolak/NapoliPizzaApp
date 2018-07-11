@@ -117,7 +117,7 @@
 			"price": "6.49"
 		}
 	],
-	"specials" : [
+	"freedelivery" : [
 		{
 			"name": "Large Pizza",
 			"price": "20"
@@ -223,7 +223,7 @@
 		{
 			"name": "Greek",
 			"price": "6.45"
-		},
+		}
 	]
 }
 

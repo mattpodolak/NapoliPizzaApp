@@ -324,57 +324,57 @@ export default class MainActivity extends React.Component {
                             />
                     </View>
 
-                    {/* SPECIALS ROW */}
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALS</Text>
+                    {/* FREE DELIVERY ROW */}
+                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>FREE DELIVERY</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array 9 items
 								/*
                                 data={[
                                     {
-                                        key: custom_data.specials[0].name,
+                                        key: custom_data.freedelivery[0].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[0].price,
+                                        price: custom_data.freedelivery[0].price,
                                     },
                                     {
-                                        key: custom_data.specials[1].name,
+                                        key: custom_data.freedelivery[1].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[1].price,
+                                        price: custom_data.freedelivery[1].price,
                                     },
                                     {
-                                        key: custom_data.specials[2].name,
+                                        key: custom_data.freedelivery[2].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[2].price,
+                                        price: custom_data.freedelivery[2].price,
                                     },
                                     {
-                                        key: custom_data.specials[3].name,
+                                        key: custom_data.freedelivery[3].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[3].price,
+                                        price: custom_data.freedelivery[3].price,
                                     },
                                     {
-                                        key: custom_data.specials[4].name,
+                                        key: custom_data.freedelivery[4].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[4].price,
+                                        price: custom_data.freedelivery[4].price,
                                     },
                                     {
-                                        key: custom_data.specials[5].name,
+                                        key: custom_data.freedelivery[5].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[5].price,
+                                        price: custom_data.freedelivery[5].price,
 									},
                                     {
-                                        key: custom_data.specials[6].name,
+                                        key: custom_data.freedelivery[6].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[6].price,
+                                        price: custom_data.freedelivery[6].price,
 									},
                                     {
-                                        key: custom_data.specials[7].name,
+                                        key: custom_data.freedelivery[7].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[7].price,
+                                        price: custom_data.freedelivery[7].price,
 									},
                                     {
-                                        key: custom_data.specials[8].name,
+                                        key: custom_data.freedelivery[8].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.specials[8].price,
+                                        price: custom_data.freedelivery[8].price,
 									},
                                 ]}
                                 
