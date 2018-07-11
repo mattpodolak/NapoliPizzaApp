@@ -94,7 +94,6 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
 						<FlatList horizontal={true}
-								/*
                                 // data array 12 items
                                 data={[
                                     {
@@ -179,7 +178,6 @@ export default class MainActivity extends React.Component {
 										</TouchableOpacity>
 									</View>
 								}
-								*/
                             />
                     </View>
 
@@ -187,7 +185,6 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PIZZA DEALS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-								/*
 								// data array 8 items
                                 data={[
 									{
@@ -209,26 +206,6 @@ export default class MainActivity extends React.Component {
 										key: custom_data.pizza_deals[3].name,
 										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
 										price: custom_data.pizza_deals[3].price,
-									},
-									{
-										key: custom_data.pizza_deals[4].name,
-										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-										price: custom_data.pizza_deals[4].price,
-									},									
-									{
-										key: custom_data.pizza_deals[5].name,
-										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-										price: custom_data.pizza_deals[5].price,
-									},
-									{
-										key: custom_data.pizza_deals[6].name,
-										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-										price: custom_data.pizza_deals[6].price,
-									},
-									{
-										key: custom_data.pizza_deals[7].name,
-										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-										price: custom_data.pizza_deals[7].price,
 									}
                                 ]}
                                 
@@ -253,7 +230,6 @@ export default class MainActivity extends React.Component {
 									</TouchableOpacity>
 								</View>
 								}
-								*/
                             />
                     </View>
 
@@ -262,7 +238,6 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array 8 items
-								/*
                                 data={[
                                     {
                                         key: custom_data.wingsandsandwiches[0].name,
@@ -320,7 +295,6 @@ export default class MainActivity extends React.Component {
                                             </Text>
                                         </View>
 								}
-								*/
                             />
                     </View>
 
@@ -329,7 +303,6 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array 9 items
-								/*
                                 data={[
                                     {
                                         key: custom_data.freedelivery[0].name,
@@ -399,7 +372,6 @@ export default class MainActivity extends React.Component {
 										</TouchableOpacity>
 									</View>
 								}
-								*/
                             />
                     </View>
 
@@ -408,7 +380,6 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array 7 items
-								/*
 								data={[
 									{
 										key: custom_data.pitas[0].name,
@@ -478,7 +449,6 @@ export default class MainActivity extends React.Component {
 										</TouchableOpacity>
 									</View>
 								}
-								*/
                             />
                     </View>
 
@@ -488,7 +458,6 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array
-								/*
 								data={[
 									{
 										key: custom_data.sides[0].name,
@@ -533,7 +502,6 @@ export default class MainActivity extends React.Component {
 										</TouchableOpacity>
 									</View>
 								}
-								*/
                             />
                     </View>
 
@@ -543,7 +511,6 @@ export default class MainActivity extends React.Component {
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
 								// data array
-								/*
 								data={[
 									{
 										key: custom_data.salads[0].name,
@@ -583,7 +550,6 @@ export default class MainActivity extends React.Component {
 										</TouchableOpacity>
 									</View>
 								}
-								*/
                             />
                     </View>
 
