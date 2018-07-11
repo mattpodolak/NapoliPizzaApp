@@ -936,7 +936,7 @@
 				"Pop": "2",
 				"Dip": "2",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -954,7 +954,7 @@
 				"Pop": "2",
 				"Dip": "2",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		}
 	],
@@ -974,7 +974,7 @@
 				"Pop": "0",
 				"Dip": "0",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -992,7 +992,7 @@
 				"Pop": "0",
 				"Dip": "0",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -1013,7 +1013,7 @@
 				"Pop": "0",
 				"Dip": "0",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		},
 		{
@@ -1031,23 +1031,64 @@
 				"Pop": "0",
 				"Dip": "0",
 				"Pasta": "False",
-				"Chips": "True"
+				"Chips": "False"
 		  	}
 		}
 	],
 	"salads" : [
 		{
-			"name": "Caesar",
-			"price": "6.45"
+			"name": "Caesar Salad",
+			"desc": "Caesar Salad",
+			"price": "6.45",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "False"
+		  	}
 		},
 		{
-			"name": "Chicken Caesar",
-			"price": "7.45"
+			"name": "Chicken Caesar Salad",
+			"desc": "Chicken Caesar Salad",
+			"price": "7.45",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "False"
+		  	}
 		},
 		{
-			"name": "Greek",
-			"price": "6.45"
+			"name": "Greek Salad",
+			"desc": "Greek Salad",
+			"price": "6.45",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "False"
+		  	}
 		}
 	]
 }
-
