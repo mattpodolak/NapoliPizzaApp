@@ -583,43 +583,181 @@
 	"freedelivery" : [
 		{
 			"name": "Large Pizza",
-			"price": "20"
+			"desc": "Large Pizza",
+			"price": "20",
+			"pizzas": "1",
+			"size": "Large",
+			"toppings": "1",
+			"default_toppings": null,
+			"addon":  [{
+				"name": "Second Pizza for 1/2 Price",
+				"price":"10"
+			}],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "1",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
 			"name": "Medium Pizza",
-			"price": "20"
+			"desc": "Medium Pizza",
+			"price": "20",
+			"pizzas": "1",
+			"size": "Medium",
+			"toppings": "2",
+			"default_toppings": null,
+			"addon":  [{
+				"name": "Second Pizza for 1/2 Price",
+				"price":"10"
+			}],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "1",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
-			"name": "Pizza and Wings Party",
-			"price": "27.50"
+			"name": "Pizza & Wings Party",
+			"desc": "Pizza & Wings Party",
+			"price": "27.50",
+			"pizzas": "1",
+			"size": "Large",
+			"toppings": "2",
+			"default_toppings": null,
+			"addon":  [
+				{
+					"name": "Second Pizza for 1/2 Price",
+					"price":"10"
+				},
+				{
+					"name": "10 Extra Wings",
+					"price":"9"
+				}
+			],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
-			"name": "40 Wings",
-			"price": "37.50"
+			"name": "40 Wings Party",
+			"desc": "40 Wings Party",
+			"price": "37.50",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  [
+				{
+					"name": "10 Extra Wings",
+					"price":"9"
+				}
+			],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
-			"name": "20 Wings",
-			"price": "22.50"
+			"name": "20 Wings Party",
+			"desc": "20 Wings Party",
+			"price": "27.50",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  [
+				{
+					"name" : "10 Extra Wings",
+					"price" : "9"
+				}
+			],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
 			"name": "Calzone",
-			"price": "20"
+			"desc": "Calzone",
+			"price": "20",
+			"pizzas": "0",
+			"size": null,
+			"toppings": "3",
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "1",
+				"Dip": "1",
+				"Pasta": "False"
+		  	}
 		},
 		{
-			"name": "10 Wings",
-			"price": "8.99"
-		},
-		{
-			"name": "2 Sandwiches",
-			"price": "20"
+			"name": "Two Oven Baked Sandwiches",
+			"desc": "Two Oven Baked Sandwiches",
+			"price": "20",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
 			"name": "Light Snack Deal #1",
-			"price": "20"
+			"desc": "Light Snack Deal #1",
+			"price": "20",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		},
 		{
 			"name": "Light Snack Deal #2",
-			"price": "8.99"
+			"desc": "Light Snack Deal #2",
+			"price": "20",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False"
+		  	}
 		}
 	],
 	"pitas" : [
