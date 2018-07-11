@@ -81,16 +81,27 @@ var all_pita = [
 ]
 
 var all_salad = [
-
+  'Caesar',
+  'Chicken Caesar',
+  'Greek'
 ]
 
 var all_sandwich = [
-
+  'Pizza Sub',
+  'Meatballs',
+  'Chicken',
+  'Veggie'
 ]
 
 var all_pasta = [
   'Penne',
   'Lasagna'
+]
+
+var pasta_special = [
+  'Penne',
+  'Lasagna',
+  'Spaghetti'
 ]
 
 const Toppings = t.enums.of(all_toppings, 'Toppings');
@@ -102,6 +113,7 @@ const Pitas = t.enums.of(all_pita, 'Pitas');
 const Salads = t.enums.of(all_salad, 'Salads');
 const Sandwiches = t.enums.of(all_sandwich, 'Sandwiches');
 const Pasta = t.enums.of(all_pasta, 'Pasta');
+const PastaSpecial = t.enums.of(pasta_special, 'PastaSpecial');
 
 var options = {
   stylesheet: formStylesheet,
@@ -120,12 +132,21 @@ var options = {
       },
       calzoneToppings:{
         label: 'Calzone Toppings',
-    },
+      },
+      panzoToppings:{
+        label: 'Panzo 1 Toppings',
+      },
+      panzoToppings2:{
+        label: 'Panzo 2 Toppings',
+      },
       pops:{
         label: 'Add Pops',
       },
       dips:{
         label: 'Add Dips',
+      },
+      chips:{
+        label: 'Pick Type of Chips',
       },
       wings:{
         label: 'Pick Wing Flavour',
@@ -133,12 +154,18 @@ var options = {
       pasta:{
         label: 'Pick Penne or Lasagna',
       },
+      pastaSpecial:{
+        label: 'Pick a Pasta',
+      },
       sandwich:{
         label: 'Pick Sandwich 1',
       },
-      sandwich:{
+      sandwich2:{
         label: 'Pick Sandwich 2',
       },
+      salad:{
+        label: 'Pick a Salad',
+      }
   }
 };
 
@@ -178,6 +205,9 @@ class MainModal extends React.Component {
       if(this.extras.Pasta == 'True'){
         this.desc = this.desc + ', Penne or Lasagna'
       }
+      if(this.extras.Chips == 'True'){
+        this.desc = this.desc + ', Chips'
+      }
       if(this.extras["Garlic bread with cheese"] == 'True'){
         this.desc = this.desc + ', Garlic bread with cheese'
       }
@@ -189,12 +219,12 @@ class MainModal extends React.Component {
           this.addonArr.push(this.addon[i].name + ' +$' + this.addon[i].price);
         }
       }
-      console.log('num ');     
+      console.log('num ', this.name);     
     }
     generateContent= () => {
       if(parseInt(this.num_pizzas) > 0){
         //CALZONE
-        if(this.name == 'Calzone'){
+        if(this.name == "Calzone"){
           this.PizzaForm = t.struct({
             specialNotes: t.maybe(t.String),
             addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
@@ -203,9 +233,42 @@ class MainModal extends React.Component {
             dips: t.maybe(t.list(Dips)),
           });
         }
+        //1 Panzo 1 Pop
+        else if(this.name == "1 Panzo, 1 Pop"){
+          this.PizzaForm = t.struct({
+            specialNotes: t.maybe(t.String),
+            addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+            panzoToppings: t.maybe(t.list(Toppings)), 
+            pops: t.maybe(t.list(Pops)),
+            dips: t.maybe(t.list(Dips)),
+          });
+        }
+        //2 Panzo 2 Pop
+        else if(this.name == "2 Panzo, 2 Pop"){
+          this.PizzaForm = t.struct({
+            specialNotes: t.maybe(t.String),
+            addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+            panzoToppings: t.maybe(t.list(Toppings)),
+            panzoToppings2: t.maybe(t.list(Toppings)), 
+            pops: t.maybe(t.list(Pops)),
+            dips: t.maybe(t.list(Dips)),
+          });
+        }
         //ONE PIZZA
-        if(parseInt(this.num_pizzas) == 1){
-          if(parseInt(this.extras.Wings) > 0){
+        else if(parseInt(this.num_pizzas) == 1){
+          //Free delivery medium and large pizza
+          if(this.name == 'Medium Pizza' || this.name == 'Large Pizza'){
+            //Pizza with no extras
+            this.PizzaForm = t.struct({
+              specialNotes: t.maybe(t.String),
+              addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+              toppings: t.maybe(t.list(Toppings)), 
+              toppings2: t.maybe(t.list(Toppings)), //Incase they select a second pizza
+              pops: t.maybe(t.list(Pops)),
+              dips: t.maybe(t.list(Dips)),
+            });
+          }
+          else if(parseInt(this.extras.Wings) > 0){
             if(this.extras.Pasta == 'True'){
               //Pizza with wings and pasta
               this.PizzaForm = t.struct({
@@ -216,6 +279,18 @@ class MainModal extends React.Component {
                 dips: t.maybe(t.list(Dips)),
                 wings: Wings,
                 pasta: Pasta
+              });
+            }
+            else if(this.name == 'Pizza & Wings Party'){
+              //Pizza with wings
+              this.PizzaForm = t.struct({
+                specialNotes: t.maybe(t.String),
+                addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+                toppings: t.maybe(t.list(Toppings)), 
+                toppings2: t.maybe(t.list(Toppings)), //Incase they select a second pizza
+                pops: t.maybe(t.list(Pops)),
+                dips: t.maybe(t.list(Dips)),
+                wings:Wings
               });
             }
             else{
@@ -295,20 +370,61 @@ class MainModal extends React.Component {
           });
         }
       }
-      //Two Oven Baked Sandwiches
-      else if(this.name == 'Two Oven Baked Sandwiches'){
+      //Light Snack Deal #1
+      else if(this.name == 'Light Snack Deal #1'){
         this.PizzaForm = t.struct({
           specialNotes: t.maybe(t.String),
           addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
-          sandwich: Sandwiches,
-          sandwich1: Sandwiches,
+          salad: Salads,
           pops: t.maybe(t.list(Pops)),
+        });
+      }
+      //Light Snack Deal #2
+      else if(this.name == 'Light Snack Deal #2'){
+        this.PizzaForm = t.struct({
+          specialNotes: t.maybe(t.String),
+          addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+          salad: Salads,
+          wings: Wings,
+          pops: t.maybe(t.list(Pops)),
+        });
+      }
+      //Wings
+      else if(parseInt(this.extras.Wings) > 0){
+        this.PizzaForm = t.struct({
+          specialNotes: t.maybe(t.String),
+          addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+          wings: Wings,
+          pops: t.maybe(t.list(Pops)),
+          dips: t.maybe(t.list(Dips)),
+        });
+      }
+      //Pitas
+      else if(this.extras.Chips == 'True'){
+        this.PizzaForm = t.struct({
+          specialNotes: t.maybe(t.String),
+          addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+          chips: t.maybe(t.list(Chips)),
+          pops: t.maybe(t.list(Pops)),
+          dips: t.maybe(t.list(Dips)),
+        });
+      }
+      //Pasta Special
+      else if (this.name == 'Pasta Special'){
+        this.PizzaForm = t.struct({
+          specialNotes: t.maybe(t.String),
+          addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+          pastaSpecial: PastaSpecial,
+          pops: t.maybe(t.list(Pops)),
+          dips: t.maybe(t.list(Dips)),
         });
       }
       else{
         this.PizzaForm = t.struct({
           specialNotes: t.maybe(t.String),
           addOns: t.maybe(t.enums.of(this.addonArr, 'Add Ons')),
+          pops: t.maybe(t.list(Pops)),
+          dips: t.maybe(t.list(Dips)),
         });
       }
     }
