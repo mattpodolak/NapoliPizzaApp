@@ -216,7 +216,7 @@ export default class MainActivity extends React.Component {
 										onPress={(event) => {
 										// onPress event fires with an event object
 										const { navigate } = this.props.navigation;
-										navigate('Cart', { prices: '111111' });
+										navigate('ToppingModal', { name: item.key, category: 'pizza_deals' });
 									}}>
 										<Text style={styles.item}>
 											{item.key}
@@ -280,20 +280,26 @@ export default class MainActivity extends React.Component {
                                         price: custom_data.wingsandsandwiches[7].price,
 									},
                                 ]}
-                                
                                 // render items
                                 renderItem={({item, index}) => 
-                                        <View style={{paddingRight: 10, alignItems: 'center'}}>
-                                            <Text style={styles.item}>
-                                                {item.key}
-                                            </Text>
-                                            <Image style={styles.image}
-                                                source={{uri: item.image_url}}
-                                            />
-                                            <Text style={styles.price}>
-                                                {item.price}
-                                            </Text>
-                                        </View>
+									<View>
+										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('ToppingModal', { name: item.key, category: 'wingsandsandwiches' });
+										}}>
+											<Text style={styles.item}>
+												{item.key}
+											</Text>
+											<Image style={styles.image}
+												source={{uri: item.image_url}}
+											/>
+											<Text style={styles.price}>
+												{item.price}
+											</Text>
+										</TouchableOpacity>
+									</View>
 								}
                             />
                     </View>
@@ -358,7 +364,7 @@ export default class MainActivity extends React.Component {
 											onPress={(event) => {
 											// onPress event fires with an event object
 											const { navigate } = this.props.navigation;
-											navigate('Cart', { prices: '111111' });
+											navigate('ToppingModal', { name: item.key, category: 'freedelivery' });
 										}}>
 											<Text style={styles.item}>
 												{item.key}
@@ -435,7 +441,7 @@ export default class MainActivity extends React.Component {
 											onPress={(event) => {
 											// onPress event fires with an event object
 											const { navigate } = this.props.navigation;
-											navigate('Cart', { prices: '111111' });
+											navigate('ToppingModal', { name: item.key, category: 'pitas' });
 										}}>
 											<Text style={styles.item}>
 												{item.key}
@@ -488,7 +494,7 @@ export default class MainActivity extends React.Component {
 											onPress={(event) => {
 											// onPress event fires with an event object
 											const { navigate } = this.props.navigation;
-											navigate('Cart', { prices: '111111' });
+											navigate('ToppingModal', { name: item.key, category: 'sides' });
 										}}>
 											<Text style={styles.item}>
 												{item.key}
@@ -536,7 +542,7 @@ export default class MainActivity extends React.Component {
 											onPress={(event) => {
 											// onPress event fires with an event object
 											const { navigate } = this.props.navigation;
-											navigate('Cart', { prices: '111111' });
+											navigate('ToppingModal', { name: item.key, category: 'salads' });
 										}}>
 											<Text style={styles.item}>
 												{item.key}
@@ -553,16 +559,7 @@ export default class MainActivity extends React.Component {
                             />
                     </View>
 
-                </ScrollView>
-
-                {/* BUTTON */}    
-                <Button
-                    onPress={() => {
-                        Alert.alert('Hithere!');
-                    }}
-                    title="Submit"
-                />                
-
+                </ScrollView>              
             </View>	
 				</View>
 			</View>
