@@ -252,32 +252,32 @@ export default class MainActivity extends React.Component {
                                     {
                                         key: custom_data.wingsandsandwiches[2].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[2].prices,
+                                        price: custom_data.wingsandsandwiches[2].price,
                                     },
                                     {
                                         key: custom_data.wingsandsandwiches[3].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[3].prices,
+                                        price: custom_data.wingsandsandwiches[3].price,
                                     },
                                     {
                                         key: custom_data.wingsandsandwiches[4].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[4].prices,
+                                        price: custom_data.wingsandsandwiches[4].price,
                                     },
                                     {
                                         key: custom_data.wingsandsandwiches[5].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[5].prices,
+                                        price: custom_data.wingsandsandwiches[5].price,
 									},
                                     {
                                         key: custom_data.wingsandsandwiches[6].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[6].prices,
+                                        price: custom_data.wingsandsandwiches[6].price,
 									},
                                     {
                                         key: custom_data.wingsandsandwiches[7].name,
                                         image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
-                                        price: custom_data.wingsandsandwiches[7].prices,
+                                        price: custom_data.wingsandsandwiches[7].price,
 									},
                                 ]}
                                 
