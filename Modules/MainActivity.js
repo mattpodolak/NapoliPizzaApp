@@ -93,7 +93,8 @@ export default class MainActivity extends React.Component {
                     {/* SPECIALTY PIZZA */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
-                        <FlatList horizontal={true}
+						<FlatList horizontal={true}
+								/*
                                 // data array 12 items
                                 data={[
                                     {
@@ -177,7 +178,8 @@ export default class MainActivity extends React.Component {
 											</Text>
 										</TouchableOpacity>
 									</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
@@ -185,7 +187,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PIZZA DEALS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array 8 items
+								/*
+								// data array 8 items
                                 data={[
 									{
 										key: custom_data.pizza_deals[0].name,
@@ -249,7 +252,8 @@ export default class MainActivity extends React.Component {
 										</Text>
 									</TouchableOpacity>
 								</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
@@ -257,7 +261,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>WINGS AND SANDWICHES</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array 8 items
+								// data array 8 items
+								/*
                                 data={[
                                     {
                                         key: custom_data.wingsandsandwiches[0].name,
@@ -315,6 +320,7 @@ export default class MainActivity extends React.Component {
                                             </Text>
                                         </View>
 								}
+								*/
                             />
                     </View>
 
@@ -322,7 +328,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array 9 items
+								// data array 9 items
+								/*
                                 data={[
                                     {
                                         key: custom_data.specials[0].name,
@@ -391,7 +398,8 @@ export default class MainActivity extends React.Component {
 											</Text>
 										</TouchableOpacity>
 									</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
@@ -399,7 +407,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PITAS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array 7 items
+								// data array 7 items
+								/*
 								data={[
 									{
 										key: custom_data.pitas[0].name,
@@ -458,7 +467,8 @@ export default class MainActivity extends React.Component {
 											</Text>
 										</TouchableOpacity>
 									</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
@@ -467,7 +477,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SIDES</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+								// data array
+								/*
 								data={[
 									{
 										key: custom_data.sides[0].name,
@@ -511,7 +522,8 @@ export default class MainActivity extends React.Component {
 											</Text>
 										</TouchableOpacity>
 									</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
@@ -520,7 +532,8 @@ export default class MainActivity extends React.Component {
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SALADS</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
                         <FlatList horizontal={true}
-                                // data array
+								// data array
+								/*
 								data={[
 									{
 										key: custom_data.salads[0].name,
@@ -559,7 +572,8 @@ export default class MainActivity extends React.Component {
 											</Text>
 										</TouchableOpacity>
 									</View>
-                                }
+								}
+								*/
                             />
                     </View>
 
