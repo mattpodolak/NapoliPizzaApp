@@ -27,6 +27,9 @@ const RootStack = createStackNavigator(
     MyModal: {
       screen: CustomerModal,
     },
+    ToppingModal: {
+      screen: MainModal,
+    },
   },
   {
     mode: 'modal',

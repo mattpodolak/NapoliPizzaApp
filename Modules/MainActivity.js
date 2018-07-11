@@ -66,7 +66,7 @@ export default class MainActivity extends React.Component {
                         onPress={() => this.props.navigation.navigate('MyModal')}
                         title="Edit Customer Info"
                         color="#000"
-                        />
+                    />
                 </View>
 				<View
 					style={{

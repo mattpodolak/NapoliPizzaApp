@@ -93,8 +93,13 @@ render()
 }
  
 const styles = StyleSheet.create({
- 
-     MainContainer: {
+    container: {
+		flex: 1,
+		paddingTop: StatusBar.currentHeight,
+		backgroundColor: '#FFF',
+    },
+    header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
+    MainContainer: {
     
         flex:1,
         justifyContent: 'center',
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
       
      },
     
-     ActivityNameTextCss: {
+    ActivityNameTextCss: {
     
         textAlign: 'center',
         fontSize: 20,
