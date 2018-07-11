@@ -961,19 +961,78 @@
 	"sides" : [
 		{
 			"name": "Potato Wedges",
-			"price": "5.99"
+			"desc": "Potato Wedges",
+			"price": "5.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Bread Sticks",
-			"price": "5.99"
+			"desc": "Bread Sticks",
+			"price": "5.99",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Garlic Bread",
-			"price": "2.25"
+			"desc": "Garlic Bread",
+			"price": "2.25",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  [{
+				"name": "with Cheese",
+				"price": "1.50"
+			}],
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		},
 		{
 			"name": "Dipping Sauce",
-			"price": "0.96"
+			"desc": "Dipping Sauce",
+			"price": "0.96",
+			"pizzas": "0",
+			"size": null,
+			"toppings": null,
+			"default_toppings": null,
+			"addon":  null,
+		  	"extras": {
+				"Wings": "0",
+				"Garlic bread with cheese": "False",
+				"Pop": "0",
+				"Dip": "0",
+				"Pasta": "False",
+				"Chips": "True"
+		  	}
 		}
 	],
 	"salads" : [
