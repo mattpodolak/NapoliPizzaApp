@@ -1,3 +1,7 @@
+// json
+const item_data = require('./custom_json.json');
+const topping_data = require('./topping_json.json');
+
 // calculate price
 export function calculatePrice(item){
     console.log('calculating price...')
@@ -15,4 +19,13 @@ export function calculatePrice(item){
     }
     console.log(total);
     return total;
+}
+// format toppings list
+export function formatToppings(item){
+
+}
+
+// format description
+export function formatDesc(item){
+
 }

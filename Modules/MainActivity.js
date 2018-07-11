@@ -445,6 +445,16 @@ export default class MainActivity extends React.Component {
 										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
 										price: custom_data.pitas[6].price,
 									},
+									{
+										key: custom_data.pitas[7].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[7].price,
+									},
+									{
+										key: custom_data.pitas[8].name,
+										image_url: 'https://s.hswstatic.com/gif/easy_personal_pizza-100x100.jpg',
+										price: custom_data.pitas[8].price,
+									},
                                 ]}
                                 
                                 // render items

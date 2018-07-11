@@ -1,6 +1,6 @@
 {
     "specialty": [
-    	{
+    {
 			"name": "Meat Lovers",
         	"price" : "13"
       	},
@@ -84,15 +84,146 @@
 		}
 	],
 	"wingsandsandwiches" : [
-
+		{
+			"name": "10 Wings",
+			"price": "8.99"
+		},
+		{
+			"name": "20 Wings",
+			"price": "15.99"
+		},
+		{
+			"name": "40 Wings",
+			"price": "30.99"
+		},
+		{
+			"name": "Steak",
+			"price": "6.49"
+		},
+		{
+			"name": "Pizza Sub",
+			"price": "6.49"
+		},
+		{
+			"name": "Meatball",
+			"price": "6.49"
+		},
+		{
+			"name": "Chicken",
+			"price": "6.49"
+		},
+		{
+			"name": "Veggie",
+			"price": "6.49"
+		}
 	],
 	"specials" : [
+		{
+			"name": "Large Pizza",
+			"price": "20"
+		},
+		{
+			"name": "Medium Pizza",
+			"price": "20"
+		},
+		{
+			"name": "Pizza and Wings Party",
+			"price": "27.50"
+		},
+		{
+			"name": "40 Wings",
+			"price": "37.50"
+		},
+		{
+			"name": "20 Wings",
+			"price": "22.50"
+		},
+		{
+			"name": "Calzone",
+			"price": "20"
+		},
+		{
+			"name": "10 Wings",
+			"price": "8.99"
+		},
+		{
+			"name": "2 Sandwiches",
+			"price": "20"
+		},
+		{
+			"name": "Light Snack Deal #1",
+			"price": "20"
+		},
+		{
+			"name": "Light Snack Deal #2",
+			"price": "8.99"
+		}
 	],
 	"pitas" : [
+		{
+			"name": "Chicken Club",
+			"price": "8.99"
+		},
+		{
+			"name": "Chicken Mexicanna",
+			"price": "8.99"
+		},
+		{
+			"name": "Chicken Caesar",
+			"price": "8.99"
+		},
+		{
+			"name": "Double Pepperoni & Cheese",
+			"price": "8.99"
+		},
+		{
+			"name": "Meatballs & Cheese",
+			"price": "8.99"
+		},
+		{
+			"name": "Veggie",
+			"price": "8.99"
+		},
+		{
+			"name": "Panzo & Pop (2)",
+			"price": "21.99"
+		},
+		{
+			"name": "Panzo & Pop (1)",
+			"price": "10.99"
+		}
 	],
 	"sides" : [
+		{
+			"name": "Potato Wedges",
+			"price": "5.99"
+		},
+		{
+			"name": "Bread Sticks",
+			"price": "5.99"
+		},
+		{
+			"name": "Garlic Bread",
+			"price": "2.25"
+		},
+		{
+			"name": "Dipping Sauce",
+			"price": "0.96"
+		}
 	],
 	"salads" : [
+		{
+			"name": "Caesar",
+			"price": "6.45"
+		},
+		{
+			"name": "Chicken Caesar",
+			"price": "7.45"
+		},
+		{
+			"name": "Greek",
+			"price": "6.45"
+		},
 	]
 }
 
