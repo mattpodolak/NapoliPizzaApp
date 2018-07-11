@@ -25,14 +25,6 @@ class SecondActivity extends Component
 						<Icon name="md-menu" size={30} />
 					</TouchableOpacity>
 				</View>
-            <TouchableOpacity
-                onPress={(event) => {
-                    // onPress event fires with an event object
-                    const { navigate } = this.props.navigation;
-                    navigate('ToppingModal', { name: 'Mega Deal', category: 'pizza_deals' });
-                }}>
-                <Text>TOUCH ME</Text>
-            </TouchableOpacity>
         </View>
     );
  }
