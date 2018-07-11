@@ -6,15 +6,6 @@ import * as utils from './structure/scripts.js';
 
 
 
-
-// order formatting
-const message_item = "TESTTTTTTT";
-
-// mailto
-const body_message = "mailto://napolipizzabarrie@gmail.com?subject=EMAILTEST&body=" + message_item;
-
-
-
 initialArr = [
     {
         id: 1,
@@ -33,14 +24,39 @@ initialArr = [
             dip: 2,
             pasta: 'true'
         }
+    },
+    {
+        id: 2,
+        price: 299,
+        name: "Versace Pizza",
+        toppings: 3,
+        size: 'Gucci',
+        addon: {
+            name: 'Upgrade to large',
+            price: 2
+
+        },
+        extras: {
+            wings: 10,
+            pop: 4,
+            dip: 2,
+            pasta: 'true'
+        }
     }
   ];
 
-class Anchor extends React.Component {
+const body_message = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZA&body=";
+
+// mail component
+class AnchorMail extends React.Component {
     _handlePress = () => {
-        console.log("Link clicked for " + this.props.href);
-        Linking.openURL(this.props.href);
         this.props.onPress && this.props.onPress();
+        var msg = [];
+        initialArr.map((cart_info) => {
+            msg.push(utils.formatDesc(cart_info));
+        })
+        console.log("email sent...");
+        Linking.openURL(body_message + "ORDER: \n\n" + msg.toString().replace(new RegExp(',', 'g'), ''));
     };
 
 render() {
@@ -50,7 +66,7 @@ render() {
     }
 }
 
-export default class Example extends React.Component {
+export default class Cart extends React.Component {
     render() {
       return (
         <View style={styles.container}>
@@ -61,7 +77,7 @@ export default class Example extends React.Component {
                             this.props.navigation.dispatch(DrawerActions.toggleDrawer());
                         }}
                     >
-                        <Icon name="md-menu" size={30} />
+                    <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
                     {/* MAP CART */}
                     <View>
@@ -74,7 +90,6 @@ export default class Example extends React.Component {
                                             Price: {buttonInfo.price}{'\n'}
                                             Size: {buttonInfo.size}{'\n'}
                                             Total Price: {utils.calculatePrice(buttonInfo)}
-                                            
                                         </Text>
                                     </View>
                                 );
@@ -82,7 +97,7 @@ export default class Example extends React.Component {
                         </ScrollView>
                         
                         {/* mail */}
-                        <Anchor href={body_message} title="SEND ORDER" />
+                        <AnchorMail title="SEND ORDER" />
                     </View>
                     
                 </View>
@@ -137,6 +152,3 @@ const styles = StyleSheet.create({
 	}, 
     
     });
- 
- 
-//export default SecondActivity;

@@ -24,17 +24,14 @@ export function calculatePrice(item){
 // format description
 export function formatDesc(item){
     console.log('grabbing toppings...');
-    var topping_list = [];
-    if(item.toppings){
-        topping_list.append('Pizza 1: ' + item.toppings + '\n');
-        if(item.toppings2){
-            topping_list.append('Pizza 2: ' + item.toppings2 + '\n');
-            if(item.toppings3){
-                topping_list.append('Pizza 3: ' + item.toppings3);
-            }  
-        }
-    }  
-    return topping_list.toString();
+    var desc = [""];
+    desc.push(item.name + "\n");
+    desc.push("$" + item.price + "\n");
+    desc.push("____________________\n")
+    return desc;    
 }
 
 // emailer
+
+
+
