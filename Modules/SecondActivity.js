@@ -15,13 +15,20 @@ export default class SecondActivity extends Component
     deleteCart = () => {
         cartArr = [];
     }
-    deleteItem = () => {
-
+    deleteItem = (item) => {
+        var len = cartArr.length;
+        for(var j = 0; j < len; j++){
+            if(cartArr[j].id == item.id && cartArr[j].name == item.name){
+                cartArr.splice(j, 1);
+                break;
+            }
+        }
+        this.forceUpdate()
     }
-    editCart = () => {
+    editCart = (item) => {
         // onPress event fires with an event object
 		const { navigate } = this.props.navigation;
-		navigate('ToppingModal', { name: item.key, category: 'specialty' });
+		navigate('ToppingModal', { name: item.name, category: item.category, form: item.custom });
     }
     addtoCart= () => {
         if(cartArr.length == 0){
@@ -83,7 +90,7 @@ export default class SecondActivity extends Component
                                             {cart_items.name}{'\n'}
                                         </Text>
                                         <TouchableOpacity style={{alignItems: 'center'}}
-											onPress={this.editCart}>
+											onPress={this.editCart(cart_items)}>
                                             <Text style={styles.totals}>EDIT</Text>
                                         </TouchableOpacity>
                                         <Text style={styles.item}>
@@ -91,11 +98,7 @@ export default class SecondActivity extends Component
                                             Size: {cart_items.desc}{'\n'}
                                         </Text>
                                         <TouchableOpacity style={{alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'specialty' });
-										}}>
+											onPress={this.deleteItem(cart_items)}>
                                             <Text style={styles.totals}>DELETE</Text>
                                         </TouchableOpacity>
                                     </View>
