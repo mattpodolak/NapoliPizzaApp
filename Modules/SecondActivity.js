@@ -109,19 +109,19 @@ export default class SecondActivity extends Component
                             {this.cartUpdated.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
+                                        <View style={styles.cartButtonDiv}>
+                                                <TouchableOpacity style={{alignItems: 'center', width:80}}
+                                                    onPress={() => this._deleteItem(cart_items)}>
+                                                    <Text style={styles.cartButton}>DELETE</Text>
+                                                </TouchableOpacity>
+                                                <Text style={{color:'white'}}>{cart_items.name}</Text>
+                                                <TouchableOpacity style={{alignItems: 'center', width:80}}
+                                                    onPress={() => this._editCart(cart_items)}>
+                                                    <Text style={styles.cartButton}>EDIT</Text>
+                                                </TouchableOpacity>
+                                        </View>
                                         <Text style={styles.item}>
-                                            {cart_items.name}
-                                        </Text>
-                                        <TouchableOpacity style={{alignItems: 'center'}}
-                                            onPress={() => this._deleteItem(cart_items)}>
-                                            <Text style={styles.cartButton}>DELETE</Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity style={{alignItems: 'center'}}
-                                            onPress={() => this._editCart(cart_items)}>
-                                            <Text style={styles.cartButton}>EDIT</Text>
-                                        </TouchableOpacity>
-                                        <Text style={styles.item}>
-                                            {'\n'}
+                                            {cart_items.name}{'\n'}
                                             Price: {cart_items.price}{'\n'}
                                             Size: {cart_items.desc}{'\n'}
                                         </Text>
@@ -183,6 +183,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         backgroundColor: 'lightgrey',
         margin: 5,
+        marginTop: 0,
         textAlign: 'center',
 	},
 	price: {
@@ -204,7 +205,16 @@ const styles = StyleSheet.create({
     },
     cartButton: {
         fontSize: 15,
-        backgroundColor: 'lightgrey',
         marginBottom: 5,
+        color: 'white'
     },
+    cartButtonDiv: {
+        flex: 1, 
+        backgroundColor: 'dimgrey',
+        margin: 5,
+        marginBottom: 0,
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
+        flexDirection: 'row'
+    }
     });

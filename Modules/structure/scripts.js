@@ -170,6 +170,7 @@ export function totalPrice(cartCurrent){
     for(var j = 0; j < cartCurrent.length; j++){
         cart_total += Number(cartCurrent[j].price);
     }
+    cart_total = cart_total.toFixed(2);
     console.log(cart_total);
     return cart_total;
 }
