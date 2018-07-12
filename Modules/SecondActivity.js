@@ -4,28 +4,7 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
-export var cartArr = [];
-
-initialArr = [
-    {
-        id: 1,
-        price: 32.99,
-        name: "Mega Deal",
-        toppings: 3,
-        size: 'Medium',
-        addon: {
-            name: 'Upgrade to large',
-            price: 2
-
-        },
-        extras: {
-            wings: 10,
-            pop: 4,
-            dip: 2,
-            pasta: 'true'
-        }
-    }
-  ];
+var cartArr = [];
 
 class SecondActivity extends Component
 {  
@@ -34,16 +13,19 @@ class SecondActivity extends Component
         title: 'Cart',
     };
     addtoCart= () => {
-        this.category = this.props.navigation.state.params.category;
-        this.name = this.props.navigation.state.params.name;
-        this.custom = this.props.navigation.state.params.form;
-        cartArr.push(
-            {
-                name: this.name,
-                category: this.category,
-                custom: this.custom
-            },
-        );
+        if(this.props.navigation.state.params.category != undefined){
+            this.category = this.props.navigation.state.params.category;
+            this.name = this.props.navigation.state.params.name;
+            this.custom = this.props.navigation.state.params.form;
+            cartArr.push(
+                {
+                    name: this.name,
+                    category: this.category,
+                    custom: this.custom,
+                    price: utils.singlePrice(this.name, this.category, this.custom)
+                },
+            );
+        }
     }  
     render()
     {
@@ -60,7 +42,7 @@ class SecondActivity extends Component
                     </TouchableOpacity>
                     {/* MAP CART */}
                     <View>
-                        <ScrollView>
+                        {/*<ScrollView>
                             {cartArr.map((buttonInfo) => {
                                 return (
                                     <View key={buttonInfo.id}>
@@ -68,12 +50,12 @@ class SecondActivity extends Component
                                             {buttonInfo.name}{'\n'}
                                             Price: {buttonInfo.price}{'\n'}
                                             Size: {buttonInfo.size}{'\n'}
-                                            Total Price: {utils.calculatePrice()}  
+                                            Total Price: {utils.totalPrice(cartArr)} 
                                         </Text>
                                     </View>
                                 );
                             })}
-                        </ScrollView>
+                        </ScrollView>*/}
                     </View>       
                 </View>
             </View>

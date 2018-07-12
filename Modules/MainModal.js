@@ -172,11 +172,11 @@ var options = {
 
 class MainModal extends React.Component {
     handleSubmit = () => {
-      const value = this._form.getValue(); // use that ref to get the form value
+      var value = this._form.getValue(); // use that ref to get the form value
       console.log('value: ', value);  
       if(value != null){
         // goes to cart
-        const { navigate } = this.props.navigation;
+        var { navigate } = this.props.navigation;
         navigate('Cart', { name: this.name, category: this.cat, form: value });
       }
       else{

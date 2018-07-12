@@ -138,5 +138,43 @@
             "name" : "Pesto Sauce",
             "value" : "0"
         }          
+    ],
+    "Price": [
+        {
+            "name": "Medium",
+            "value": "1.5"
+        },
+        {
+            "name": "Large",
+            "value": "2"
+        },
+        {
+            "name": "X-Large",
+            "value": "2.5"
+        },
+        {
+            "name": "Party",
+            "value": "3.5"
+        },
+        {
+            "name": "Calzone",
+            "value": "1"
+        },
+        {
+            "name": "Panzo",
+            "value": "1"
+        }
+    ],
+    "Dip":[
+        {
+            "name": "Dip",
+            "value": "0.96"
+        }
+    ],
+    "Pop":[
+        {
+            "name": "Pop",
+            "value": "1.5"
+        }
     ]
 }
