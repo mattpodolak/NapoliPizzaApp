@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView, Linking} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
+import * as utils from './structure/scripts.js';
 
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
 
-
-var cartArr = this.state.params.cart;
+var cartArr = [];
 
 class AnchorMail extends Component {
     _handlePress = () => {
@@ -29,7 +29,13 @@ export default class ThirdActivity extends Component{
     static navigationOptions ={
         title: 'Payment',
     };
+    addtoCart= () => {
+        if (this.props.navigation.state.params.cart != undefined){
+            cartArr = this.props.navigation.state.params.cart;
+        }
+    }
     render(){
+        this.addtoCart();
         return (
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{height: 100}}></View>

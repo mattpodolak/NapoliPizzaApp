@@ -5,26 +5,6 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
 var cartArr = [];
-const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
-
-class AnchorMail extends Component {
-    _handlePress = () => {
-        this.props.onPress && this.props.onPress();
-        var msg = [];
-        cartArr.map((cart_info) => {
-            msg.push(utils.formatDesc(cart_info));
-        })
-        console.log("email sent...");
-        Linking.openURL(default_body + msg.toString().replace(new RegExp(',', 'g'), ''));
-    };
-
-render() {
-    return (
-        <Button title={this.props.title} onPress={this._handlePress} />
-        );
-    }
-}
-
 
 export default class SecondActivity extends Component{  
     static navigationOptions =
@@ -89,12 +69,12 @@ export default class SecondActivity extends Component{
                     <View>
                         <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
                                                 onPress={(event) => {
-                                                // onPress event fires with an event object
-                                                const { navigate } = this.props.navigation;
-                                                navigate('Payment', { cart: cartArr});
-                                            }}>
+                                                    // onPress event fires with an event object
+                                                    const { navigate } = this.props.navigation;
+                                                    navigate('Payment', { cart: cartArr});
+                                                }}>
+                            <Text>PAYMENT</Text>
                         </TouchableOpacity>
-                        <AnchorMail title="SEND ORDER" />
                     </View>
                 </View>
         </View>
