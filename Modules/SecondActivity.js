@@ -69,7 +69,7 @@ export default class SecondActivity extends Component{
                     <View>
                         <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
                                                 onPress={(event) => {
-                                                    // onPress event fires with an event object
+                                                    // send cart info
                                                     const { navigate } = this.props.navigation;
                                                     navigate('Payment', { cart: cartArr});
                                                 }}>

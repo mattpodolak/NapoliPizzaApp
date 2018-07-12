@@ -158,30 +158,21 @@ export function formatDesc(item){
     if(item.custom.toppings != null){
         desc.push("\nPIZZA 1 TOPPINGS: ")
         for (var i = 0; i < item.custom.toppings.length; i++){
-            desc.push(item.custom.toppings[i]);
-            if(i < item.custom.toppings.length - 1){
-                desc.push(' | ')
-                divider ++;
-            }
+            desc.push((i+1) + '. ' + item.custom.toppings[i] + ' ');
+            divider++;
         }
     }    // pizza 2 toppings
     if(item.custom.toppings2 != null){
         desc.push("\nPIZZA 2 TOPPINGS: ")
         for (var j = 0; j < item.custom.toppings2.length; j++){
-            desc.push(item.custom.toppings2[j]);
-            if(j < item.custom.toppings2.length - 1){
-                desc.push(' | ')
-            }
+            desc.push((j+1) + '. ' + item.custom.toppings2[j] + ' ');
         }
     }
     // pizza 3 toppings
     if(item.custom.toppings3 != null){
         desc.push("\nPIZZA 3 TOPPINGS: ")
         for (var k = 0; k < item.custom.toppings3.length; k++){
-            desc.push(item.custom.toppings3[k]);
-            if(k < item.custom.toppings3.length - 1){
-                desc.push(' | ')
-            }
+            desc.push((k+1) + '. ' + item.custom.toppings3[k] + ' ');
         }
     }
     // chips

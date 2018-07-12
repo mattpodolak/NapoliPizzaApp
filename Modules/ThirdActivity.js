@@ -4,10 +4,10 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
+// default email body
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
-
 var cartArr = [];
-
+// mail component
 class AnchorMail extends Component {
     _handlePress = () => {
         this.props.onPress && this.props.onPress();
@@ -24,7 +24,7 @@ render() {
         );
     }
 }
-
+// main screen
 export default class ThirdActivity extends Component{  
     static navigationOptions ={
         title: 'Payment',
@@ -40,12 +40,12 @@ export default class ThirdActivity extends Component{
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{height: 100}}></View>
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
-                <AnchorMail title="SEND ORDER" />
+                <AnchorMail title="SEND ORDER"/>
             </View>
         );
     }
 }
-
+// stylesheet
 const styles = StyleSheet.create({
     container: {
 		flex: 1,
@@ -55,11 +55,9 @@ const styles = StyleSheet.create({
     },
     header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
     MainContainer: {
-    
-        flex:1,
+        flex : 1,
         justifyContent: 'center',
         margin: 5
-      
      },
     
     ActivityNameTextCss: {
