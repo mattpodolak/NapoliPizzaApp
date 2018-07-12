@@ -175,9 +175,10 @@ class MainModal extends React.Component {
       var value = this._form.getValue(); // use that ref to get the form value
       console.log('value: ', value);  
       if(value != null){
+        var randInt = Math.floor(Math.random() * Math.floor(100000));
         // goes to cart
         var { navigate } = this.props.navigation;
-        navigate('Cart', { name: this.name, category: this.cat, form: value });
+        navigate('Cart', { id: randInt, name: this.name, category: this.cat, form: value });
       }
       else{
         Alert.alert(

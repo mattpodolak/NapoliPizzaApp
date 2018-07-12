@@ -131,6 +131,38 @@ export function singlePrice(name, category, custom){
     return total;
 }
 
+// calculate delivery
+export function deliveryCost(cartCurrent){
+    var deli = 0;
+
+    //check if non free delivery category
+    for(var j = 0; j < cartCurrent.length; j++){
+        if(cartCurrent[j].category != 'freedelivery'){
+            deli = 6.20;
+        }
+    }
+
+    //round to 2 decimal places
+    deli = deli.toFixed(2);
+    return deli;
+}
+
+// calculate tax
+export function taxCost(subtotal){
+    var tax = subtotal*0.13;
+
+    //round to 2 decimal places
+    tax = tax.toFixed(2);
+    return tax;
+}
+
+// calculate final
+export function finalPrice(subtotal, tax, delivery){
+    var final = Number(subtotal)+Number(tax)+Number(delivery);
+    final = final.toFixed(2);
+    return final;
+}
+
 // calculate price
 export function totalPrice(cartCurrent){
     console.log('calculating total price...');

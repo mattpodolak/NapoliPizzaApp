@@ -12,17 +12,26 @@ export default class SecondActivity extends Component
     {
         title: 'Cart',
     };
+    deleteCart = () => {
+        cartArr = [];
+    }
+    deleteItem = () => {
+
+    }
+    editCart = () => {
+        // onPress event fires with an event object
+		const { navigate } = this.props.navigation;
+		navigate('ToppingModal', { name: item.key, category: 'specialty' });
+    }
     addtoCart= () => {
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        if(this.props.navigation.state.params.category != undefined){
+        if(cartArr.length == 0){
+            this.id = this.props.navigation.state.params.id;
             this.category = this.props.navigation.state.params.category;
             this.name = this.props.navigation.state.params.name;
             this.custom = this.props.navigation.state.params.form;
             cartArr.push(
                 {
-                    id: getRandomInt(10000),
+                    id: this.id,
                     name: this.name,
                     category: this.category,
                     custom: this.custom,
@@ -30,6 +39,26 @@ export default class SecondActivity extends Component
                 },
             );
         }
+        //Avoid duplicate items being added if re-render occurs
+        else if(this.props.navigation.state.params.id != cartArr[cartArr.length-1].id){
+            this.id = this.props.navigation.state.params.id;
+            this.category = this.props.navigation.state.params.category;
+            this.name = this.props.navigation.state.params.name;
+            this.custom = this.props.navigation.state.params.form;
+            cartArr.push(
+                {
+                    id: this.id,
+                    name: this.name,
+                    category: this.category,
+                    custom: this.custom,
+                    price: utils.singlePrice(this.name, this.category, this.custom)
+                },
+            );
+        }
+        this.subtotal = utils.totalPrice(cartArr);
+        this.delivery = utils.deliveryCost(cartArr);
+        this.tax = utils.taxCost(this.subtotal);
+        this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
     }  
     render()
     {
@@ -52,17 +81,31 @@ export default class SecondActivity extends Component
                                     <View key={cart_items.id}>
                                         <Text style={styles.item}>
                                             {cart_items.name}{'\n'}
+                                        </Text>
+                                        <TouchableOpacity style={{alignItems: 'center'}}
+											onPress={this.editCart}>
+                                            <Text style={styles.totals}>EDIT</Text>
+                                        </TouchableOpacity>
+                                        <Text style={styles.item}>
                                             Price: {cart_items.price}{'\n'}
                                             Size: {cart_items.desc}{'\n'}
                                         </Text>
+                                        <TouchableOpacity style={{alignItems: 'center'}}
+											onPress={(event) => {
+											// onPress event fires with an event object
+											const { navigate } = this.props.navigation;
+											navigate('ToppingModal', { name: item.key, category: 'specialty' });
+										}}>
+                                            <Text style={styles.totals}>DELETE</Text>
+                                        </TouchableOpacity>
                                     </View>
                                 );
                             })}
                             <Text style={styles.divider}></Text>
-                            <Text style={styles.totals}>SUBTOTAL: </Text>
-                            <Text style={styles.totals}>DELIVERY: </Text>
-                            <Text style={styles.totals}>TAX: </Text>
-                            <Text style={styles.totals}>TOTAL: </Text>   
+                            <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
+                            <Text style={styles.totals}>TAX: {this.tax}</Text>
+                            <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
+                            <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
                         </ScrollView>
                     </View>
                     {/*<Button
