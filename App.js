@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainActivity from './Modules/MainActivity' ;
 import SecondActivity from './Modules/SecondActivity' ;
-import AnchorMail from './Modules/ThirdActivity';
+import ThirdActivity from './Modules/ThirdActivity';
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
 import CustomerModal from './Modules/CustomerModal' ;
@@ -13,6 +13,8 @@ const RootDrawer = createDrawerNavigator(
   Home: { screen: MainActivity },
    
   Cart: { screen: SecondActivity },
+
+  Payment: { screen: ThirdActivity},
   },
   {
 		// Custom rendering component of drawer panel
@@ -30,9 +32,6 @@ const RootStack = createStackNavigator(
     },
     ToppingModal: {
       screen: MainModal,
-    },
-    PaymentModal: {
-      screen: AnchorMail,
     },
   },
   {

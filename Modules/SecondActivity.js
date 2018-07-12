@@ -6,8 +6,29 @@ import * as utils from './structure/scripts.js';
 
 var cartArr = [];
 
-export default class SecondActivity extends Component
-{  
+
+const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
+
+class AnchorMail extends Component {
+    _handlePress = () => {
+        this.props.onPress && this.props.onPress();
+        var msg = [];
+        cartArr.map((cart_info) => {
+            msg.push(utils.formatDesc(cart_info));
+        })
+        console.log("email sent...");
+        Linking.openURL(default_body + msg.toString().replace(new RegExp(',', 'g'), ''));
+    };
+
+render() {
+    return (
+        <Button title={this.props.title} onPress={this._handlePress} />
+        );
+    }
+}
+
+
+export default class SecondActivity extends Component{  
     static navigationOptions =
     {
         title: 'Cart',
@@ -65,11 +86,9 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>TOTAL: </Text>   
                         </ScrollView>
                     </View>
-                    {/*<Button
-                        onPress={() => this.props.navigation.navigate('PaymentModal')}
-                        title="Go To Payment"
-                        color="#000"
-                    />*/}
+                    <View>
+                        <AnchorMail title="SEND ORDER" />
+                    </View>
                 </View>
         </View>
       );
