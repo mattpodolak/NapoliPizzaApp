@@ -13,12 +13,16 @@ export default class SecondActivity extends Component
         title: 'Cart',
     };
     addtoCart= () => {
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
         if(this.props.navigation.state.params.category != undefined){
             this.category = this.props.navigation.state.params.category;
             this.name = this.props.navigation.state.params.name;
             this.custom = this.props.navigation.state.params.form;
             cartArr.push(
                 {
+                    id: getRandomInt(10000),
                     name: this.name,
                     category: this.category,
                     custom: this.custom,
@@ -42,7 +46,7 @@ export default class SecondActivity extends Component
                     </TouchableOpacity>
                     {/* mapping cart */}
                     <View>
-                        {/*<ScrollView>
+                        <ScrollView>
                             {cartArr.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
@@ -50,7 +54,6 @@ export default class SecondActivity extends Component
                                             {cart_items.name}{'\n'}
                                             Price: {cart_items.price}{'\n'}
                                             Size: {cart_items.desc}{'\n'}
-                                            Price: {utils.calculatePrice(cart_Arr)}
                                         </Text>
                                     </View>
                                 );
@@ -60,13 +63,13 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>DELIVERY: </Text>
                             <Text style={styles.totals}>TAX: </Text>
                             <Text style={styles.totals}>TOTAL: </Text>   
-                        </ScrollView>*/}
+                        </ScrollView>
                     </View>
-                    <Button
+                    {/*<Button
                         onPress={() => this.props.navigation.navigate('PaymentModal')}
                         title="Go To Payment"
                         color="#000"
-                    />
+                    />*/}
                 </View>
         </View>
       );
