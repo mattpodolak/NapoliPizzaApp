@@ -36,7 +36,8 @@ export default class SecondActivity extends Component
                 [
                     {text: 'Continue', onPress: ()=> this.payConfirm},
                     {text: 'Cancel', onPress: ()=> console.log('Canceled payment')}
-                ]
+                ],
+                {cancelable: false}
             ); 
         }
         else{
