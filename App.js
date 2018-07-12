@@ -14,7 +14,6 @@ const RootDrawer = createDrawerNavigator(
    
   Cart: { screen: SecondActivity },
 
-  Payment: { screen: ThirdActivity},
   },
   {
 		// Custom rendering component of drawer panel

@@ -134,10 +134,7 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>TAX: {this.tax}</Text>
                             <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
                             <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
-                        </ScrollView>
-                    </View>
-                    <View>
-                        <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+                            <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
                                                 onPress={(event) => {
                                                     // send cart info
                                                     const { navigate } = this.props.navigation;
@@ -145,6 +142,7 @@ export default class SecondActivity extends Component
                                                 }}>
                             <Text>PAYMENT</Text>
                         </TouchableOpacity>
+                        </ScrollView>
                     </View>
                 </View>
         </View>

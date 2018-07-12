@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFF',
 	},
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
+	header: { paddingTop: Platform.OS === 'ios' ? 13 : 7 },
 	item: {
         fontSize: 14,
         margin: 5,
