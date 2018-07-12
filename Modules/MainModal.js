@@ -212,6 +212,12 @@ class MainModal extends React.Component {
         "specialNotes": null,
         "toppings": this.default_toppings,
       }
+
+      if(this.props.navigation.state.params.form != null){
+        console.log('WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOAH');
+        this.defaultToppings = this.props.navigation.state.params.form;
+        this.props.navigation.state.params.form = null;
+      }
       //Add extras to description
       if(this.extras.Wings != '0'){
         this.desc = this.desc + ', ' + this.extras.Wings + ' Wings'

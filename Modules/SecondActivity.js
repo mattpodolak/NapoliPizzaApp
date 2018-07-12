@@ -6,29 +6,43 @@ import * as utils from './structure/scripts.js';
 
 var cartArr = [];
 
+function deleteCart(){
+    cartArr = [];
+}
+
+function loadCart(){
+    return cartArr;
+}
 export default class SecondActivity extends Component
 {  
     static navigationOptions =
     {
         title: 'Cart',
     };
-    deleteCart = () => {
-        cartArr = [];
+    loadCart= () => {
+        this.cartUpdated = cartArr;
+        console.log('UPDATE')
     }
-    deleteItem = (item) => {
+    _deleteItem(item){
+        this.props.onPress && this.props.onPress();
         var len = cartArr.length;
         for(var j = 0; j < len; j++){
             if(cartArr[j].id == item.id && cartArr[j].name == item.name){
                 cartArr.splice(j, 1);
+                console.log('Post', cartArr)
                 break;
             }
         }
-        this.forceUpdate()
+        console.log('DELETE ', item)
+        this.props.navigation.state.params = null;
+        this.forceUpdate();
     }
-    editCart = (item) => {
-        // onPress event fires with an event object
-		const { navigate } = this.props.navigation;
-		navigate('ToppingModal', { name: item.name, category: item.category, form: item.custom });
+    _editCart(item){
+        this.props.onPress && this.props.onPress();
+        //onPress event fires with an event object
+        const { navigate } = this.props.navigation;
+        navigate('ToppingModal', { name: item.name, category: item.category, form: item.custom });
+        console.log('EDIT ', item)
     }
     addtoCart= () => {
         if(this.props.navigation.state.params !=null){
@@ -78,6 +92,7 @@ export default class SecondActivity extends Component
     render()
     {
     this.addtoCart()
+    this.loadCart()
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" />
@@ -91,24 +106,25 @@ export default class SecondActivity extends Component
                     {/* mapping cart */}
                     <View>
                         <ScrollView>
-                            {cartArr.map((cart_items) => {
+                            {this.cartUpdated.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
                                         <Text style={styles.item}>
-                                            {cart_items.name}{'\n'}
+                                            {cart_items.name}
                                         </Text>
                                         <TouchableOpacity style={{alignItems: 'center'}}
-											onPress={this.editCart(cart_items)}>
-                                            <Text style={styles.totals}>EDIT</Text>
+                                            onPress={() => this._deleteItem(cart_items)}>
+                                            <Text style={styles.cartButton}>DELETE</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={{alignItems: 'center'}}
+                                            onPress={() => this._editCart(cart_items)}>
+                                            <Text style={styles.cartButton}>EDIT</Text>
                                         </TouchableOpacity>
                                         <Text style={styles.item}>
+                                            {'\n'}
                                             Price: {cart_items.price}{'\n'}
                                             Size: {cart_items.desc}{'\n'}
                                         </Text>
-                                        <TouchableOpacity style={{alignItems: 'center'}}
-											onPress={this.deleteItem(cart_items)}>
-                                            <Text style={styles.totals}>DELETE</Text>
-                                        </TouchableOpacity>
                                     </View>
                                 );
                             })}
@@ -164,13 +180,13 @@ const styles = StyleSheet.create({
         alignContent : 'center'
     },    
 	item: {
-        fontSize: 10,
+        fontSize: 15,
         backgroundColor: 'lightgrey',
         margin: 5,
         textAlign: 'center',
 	},
 	price: {
-        fontSize: 10,
+        fontSize: 15,
         backgroundColor: 'lightgrey',
         fontWeight: 'bold',
     }, 
@@ -182,8 +198,13 @@ const styles = StyleSheet.create({
         height: 4,
     },
     totals: {
-        fontSize: 10,
+        fontSize: 20,
         margin: 3,
         textAlign: 'right',
+    },
+    cartButton: {
+        fontSize: 15,
+        backgroundColor: 'lightgrey',
+        marginBottom: 5,
     },
     });
