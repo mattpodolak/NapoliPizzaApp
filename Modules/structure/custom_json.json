@@ -461,7 +461,7 @@
 				"Garlic bread with cheese": "True",
 				"Pop": "4",
 				"Dip": "2",
-				"Pasta": null,
+				"Pasta": "False",
 				"Chips": "False"
 		  	}
 		},
@@ -479,7 +479,7 @@
 				"Garlic bread with cheese": null,
 				"Pop": "3",
 				"Dip": "2",
-				"Pasta": null,
+				"Pasta": "False",
 				"Chips": "False"
 		  	}
 		},

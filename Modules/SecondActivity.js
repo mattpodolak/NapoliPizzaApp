@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView, Linking} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
 var cartArr = [];
 
-class SecondActivity extends Component
+export default class SecondActivity extends Component
 {  
     static navigationOptions =
     {
@@ -29,10 +29,10 @@ class SecondActivity extends Component
     }  
     render()
     {
-        this.addtoCart()
-        return(
-            <View style={styles.container}>
-                <StatusBar barStyle="dark-content" />
+    this.addtoCart()
+    return (
+        <View style={styles.container}>
+            <StatusBar barStyle="dark-content" />
                 <View style={styles.header}>
                     <TouchableOpacity
                         onPress={() => {
@@ -40,29 +40,40 @@ class SecondActivity extends Component
                         }}>
                     <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
-                    {/* MAP CART */}
+                    {/* mapping cart */}
                     <View>
                         {/*<ScrollView>
-                            {cartArr.map((buttonInfo) => {
+                            {cartArr.map((cart_items) => {
                                 return (
-                                    <View key={buttonInfo.id}>
+                                    <View key={cart_items.id}>
                                         <Text style={styles.item}>
-                                            {buttonInfo.name}{'\n'}
-                                            Price: {buttonInfo.price}{'\n'}
-                                            Size: {buttonInfo.size}{'\n'}
-                                            Total Price: {utils.totalPrice(cartArr)} 
+                                            {cart_items.name}{'\n'}
+                                            Price: {cart_items.price}{'\n'}
+                                            Size: {cart_items.desc}{'\n'}
+                                            Price: {utils.calculatePrice(cart_Arr)}
                                         </Text>
                                     </View>
                                 );
                             })}
+                            <Text style={styles.divider}></Text>
+                            <Text style={styles.totals}>SUBTOTAL: </Text>
+                            <Text style={styles.totals}>DELIVERY: </Text>
+                            <Text style={styles.totals}>TAX: </Text>
+                            <Text style={styles.totals}>TOTAL: </Text>   
                         </ScrollView>*/}
-                    </View>       
+                    </View>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('PaymentModal')}
+                        title="Go To Payment"
+                        color="#000"
+                    />
                 </View>
-            </View>
-        );
+        </View>
+      );
+        
     }
 }
- 
+
 const styles = StyleSheet.create({
     container: {
 		flex: 1,
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
     },    
 	item: {
         fontSize: 10,
-        backgroundColor: 'dimgrey',
+        backgroundColor: 'lightgrey',
         margin: 5,
         textAlign: 'center',
 	},
@@ -105,9 +116,17 @@ const styles = StyleSheet.create({
         fontSize: 10,
         backgroundColor: 'lightgrey',
         fontWeight: 'bold',
-	}, 
-    
+    }, 
+    divider: {
+        fontSize: 10,
+        backgroundColor: 'dimgrey',
+        margin: 7,
+        textAlign: 'center',
+        height: 4,
+    },
+    totals: {
+        fontSize: 10,
+        margin: 3,
+        textAlign: 'right',
+    },
     });
- 
- 
-export default SecondActivity;
