@@ -5,8 +5,6 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
 var cartArr = [];
-
-
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
 
 class AnchorMail extends Component {
@@ -51,6 +49,8 @@ export default class SecondActivity extends Component{
                 },
             );
         }
+
+
     }  
     render()
     {
