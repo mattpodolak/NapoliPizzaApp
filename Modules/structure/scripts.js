@@ -1,3 +1,4 @@
+import {customerInfo as customer} from '../CustomerModal'
 // json
 const item_data = require('./custom_json.json');
 const topping_data = require('./topping_json.json');
@@ -140,6 +141,9 @@ export function deliveryCost(cartCurrent){
         if(cartCurrent[j].category != 'freedelivery'){
             deli = 6.20;
         }
+    }
+    if(customer.delivery == 'Pickup'){
+        deli = 0;
     }
 
     //round to 2 decimal places
