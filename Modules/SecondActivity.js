@@ -11,7 +11,7 @@ initialArr = [
         id: 1,
         price: 32.99,
         name: "Mega Deal",
-        toppings: 3,
+        toppings: ["Coke", "P00p", "Poop", "more poop"],
         size: 'Medium',
         addon: {
             name: 'Upgrade to large',
@@ -29,7 +29,7 @@ initialArr = [
         id: 2,
         price: 299,
         name: "Versace Pizza",
-        toppings: 3,
+        toppings: ["Pepperoni", "Bacon", "Tomatoes"],
         size: 'Gucci',
         addon: {
             name: 'Upgrade to large',
@@ -45,7 +45,7 @@ initialArr = [
     }
   ];
 
-const body_message = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZA&body=";
+const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZA&body=";
 
 // mail component
 class AnchorMail extends React.Component {
@@ -56,7 +56,7 @@ class AnchorMail extends React.Component {
             msg.push(utils.formatDesc(cart_info));
         })
         console.log("email sent...");
-        Linking.openURL(body_message + "ORDER: \n\n" + msg.toString().replace(new RegExp(',', 'g'), ''));
+        Linking.openURL(default_body + "ORDER: \n\n" + msg.toString().replace(new RegExp(',', 'g'), ''));
     };
 
 render() {
@@ -82,14 +82,14 @@ export default class Cart extends React.Component {
                     {/* MAP CART */}
                     <View>
                         <ScrollView>
-                            {initialArr.map((buttonInfo) => {
+                            {initialArr.map((cart_items) => {
                                 return (
-                                    <View key={buttonInfo.id}>
+                                    <View key={cart_items.id}>
                                         <Text style={styles.item}>
-                                            {buttonInfo.name}{'\n'}
-                                            Price: {buttonInfo.price}{'\n'}
-                                            Size: {buttonInfo.size}{'\n'}
-                                            Total Price: {utils.calculatePrice(buttonInfo)}
+                                            {cart_items.name}{'\n'}
+                                            Price: {cart_items.price}{'\n'}
+                                            Size: {cart_items.size}{'\n'}
+                                            Total Price: {utils.calculatePrice(cart_items)}
                                         </Text>
                                     </View>
                                 );
