@@ -121,6 +121,7 @@ export default class SecondActivity extends Component
                                                 </TouchableOpacity>
                                         </View>
                                         <Text style={styles.item}>
+                                            {/* Insert Description here instead of the stuff thats in here*/}
                                             {cart_items.name}{'\n'}
                                             Price: {cart_items.price}{'\n'}
                                             Size: {cart_items.desc}{'\n'}
