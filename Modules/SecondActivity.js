@@ -31,41 +31,49 @@ export default class SecondActivity extends Component
 		navigate('ToppingModal', { name: item.name, category: item.category, form: item.custom });
     }
     addtoCart= () => {
-        if(cartArr.length == 0){
-            this.id = this.props.navigation.state.params.id;
-            this.category = this.props.navigation.state.params.category;
-            this.name = this.props.navigation.state.params.name;
-            this.custom = this.props.navigation.state.params.form;
-            cartArr.push(
-                {
-                    id: this.id,
-                    name: this.name,
-                    category: this.category,
-                    custom: this.custom,
-                    price: utils.singlePrice(this.name, this.category, this.custom)
-                },
-            );
+        if(this.props.navigation.state.params !=null){
+            if(cartArr.length == 0){
+                this.id = this.props.navigation.state.params.id;
+                this.category = this.props.navigation.state.params.category;
+                this.name = this.props.navigation.state.params.name;
+                this.custom = this.props.navigation.state.params.form;
+                cartArr.push(
+                    {
+                        id: this.id,
+                        name: this.name,
+                        category: this.category,
+                        custom: this.custom,
+                        price: utils.singlePrice(this.name, this.category, this.custom)
+                    },
+                );
+            }
+            //Avoid duplicate items being added if re-render occurs
+            else if(this.props.navigation.state.params.id != cartArr[cartArr.length-1].id){
+                this.id = this.props.navigation.state.params.id;
+                this.category = this.props.navigation.state.params.category;
+                this.name = this.props.navigation.state.params.name;
+                this.custom = this.props.navigation.state.params.form;
+                cartArr.push(
+                    {
+                        id: this.id,
+                        name: this.name,
+                        category: this.category,
+                        custom: this.custom,
+                        price: utils.singlePrice(this.name, this.category, this.custom)
+                    },
+                );
+            }
+            this.subtotal = utils.totalPrice(cartArr);
+            this.delivery = utils.deliveryCost(cartArr);
+            this.tax = utils.taxCost(this.subtotal);
+            this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
         }
-        //Avoid duplicate items being added if re-render occurs
-        else if(this.props.navigation.state.params.id != cartArr[cartArr.length-1].id){
-            this.id = this.props.navigation.state.params.id;
-            this.category = this.props.navigation.state.params.category;
-            this.name = this.props.navigation.state.params.name;
-            this.custom = this.props.navigation.state.params.form;
-            cartArr.push(
-                {
-                    id: this.id,
-                    name: this.name,
-                    category: this.category,
-                    custom: this.custom,
-                    price: utils.singlePrice(this.name, this.category, this.custom)
-                },
-            );
+        else{
+            this.subtotal = '0.00';
+            this.delivery = '0.00';
+            this.tax = '0.00';
+            this.finalTotal = '0.00';            
         }
-        this.subtotal = utils.totalPrice(cartArr);
-        this.delivery = utils.deliveryCost(cartArr);
-        this.tax = utils.taxCost(this.subtotal);
-        this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
     }  
     render()
     {
