@@ -19,6 +19,34 @@ export default class SecondActivity extends Component
     {
         title: 'Cart',
     };
+    payConfirm = () => {
+        //empty cart
+        var tempCart = cartArr;
+        cartArr = [];
+
+        // send cart info to payment screen
+        const { navigate } = this.props.navigation;
+        navigate('Payment', { cart: tempCart});
+    }
+    goPay = () => {
+        if(cartArr.length > 0){
+            Alert.alert(
+                'WARNING',
+                'Are you sure you would like to proceed to payment, the cart will be emptied and it cannot be undone',
+                [
+                    {text: 'Continue', onPress: ()=> this.payConfirm},
+                    {text: 'Cancel', onPress: ()=> console.log('Canceled payment')}
+                ]
+            ); 
+        }
+        else{
+            //alert that cart is empty
+            Alert.alert(
+                'Cart is empty'
+            ) 
+        }
+          
+    }
     loadCart= () => {
         this.cartUpdated = cartArr;
         console.log('UPDATE')
@@ -135,13 +163,9 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
                             <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
                             <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-                                                onPress={(event) => {
-                                                    // send cart info
-                                                    const { navigate } = this.props.navigation;
-                                                    navigate('Payment', { cart: cartArr});
-                                                }}>
-                            <Text>PAYMENT</Text>
-                        </TouchableOpacity>
+                                onPress={this.goPay}>
+                                <Text>PAYMENT</Text>
+                            </TouchableOpacity>
                         </ScrollView>
                     </View>
                 </View>
