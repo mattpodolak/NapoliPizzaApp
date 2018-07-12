@@ -87,6 +87,13 @@ export default class SecondActivity extends Component{
                         </ScrollView>
                     </View>
                     <View>
+                        <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+                                                onPress={(event) => {
+                                                // onPress event fires with an event object
+                                                const { navigate } = this.props.navigation;
+                                                navigate('Payment', { cart: cartArr});
+                                            }}>
+                        </TouchableOpacity>
                         <AnchorMail title="SEND ORDER" />
                     </View>
                 </View>

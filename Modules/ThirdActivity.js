@@ -6,7 +6,7 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
 
 
-var cartArr = [];
+var cartArr = this.state.params.cart;
 
 class AnchorMail extends Component {
     _handlePress = () => {
