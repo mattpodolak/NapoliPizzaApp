@@ -5,42 +5,44 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
 
-
+// dummy order
 initialArr = [
     {
         id: 1,
         price: 32.99,
         name: "Mega Deal",
-        toppings: ["Coke", "P00p", "Poop", "more poop"],
+        default_toppings: ["Coke", "P00p", "Poop", "more poop"],
         size: 'Medium',
+        toppings: '3',
         addon: {
-            name: 'Upgrade to large',
+            name: 'make bick digger',
             price: 2
 
         },
         extras: {
-            wings: 10,
-            pop: 4,
-            dip: 2,
-            pasta: 'true'
+            Wings: 10,
+            Pop: 4,
+            Dip: 2,
+            Pasta: 'true',
+            Chips: 'False',
+            "Garlic bread with cheese" : "true"
         }
     },
     {
         id: 2,
         price: 299,
         name: "Versace Pizza",
-        toppings: ["Pepperoni", "Bacon", "Tomatoes"],
+        default_toppings: ["Pepperoni", "Bacon", "Tomatoes"],
         size: 'Gucci',
-        addon: {
-            name: 'Upgrade to large',
-            price: 2
-
-        },
+        toppings: 'a lot',
+        addon: null,
         extras: {
-            wings: 10,
-            pop: 4,
-            dip: 2,
-            pasta: 'true'
+            Wings: 10,
+            Pop: 4,
+            Dip: 2,
+            Pasta: 'true',
+            Chips: 'true',
+            "Garlic bread with cheese" : "true"
         }
     }
   ];
@@ -48,7 +50,7 @@ initialArr = [
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZA&body=";
 
 // mail component
-class AnchorMail extends React.Component {
+class AnchorMail extends Component {
     _handlePress = () => {
         this.props.onPress && this.props.onPress();
         var msg = [];
@@ -66,7 +68,7 @@ render() {
     }
 }
 
-export default class Cart extends React.Component {
+export default class Cart extends Component {
     render() {
       return (
         <View style={styles.container}>
@@ -79,7 +81,7 @@ export default class Cart extends React.Component {
                     >
                     <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
-                    {/* MAP CART */}
+                    {/* mapping cart */}
                     <View>
                         <ScrollView>
                             {initialArr.map((cart_items) => {
@@ -94,9 +96,14 @@ export default class Cart extends React.Component {
                                     </View>
                                 );
                             })}
+                            {/* show totals */}
+                            <Text style={styles.divider}></Text>
+                            <Text style={styles.totals}>SUBTOTAL: </Text>
+                            <Text style={styles.totals}>DELIVERY: </Text>
+                            <Text style={styles.totals}>TAX: </Text>
+                            <Text style={styles.totals}>TOTAL: </Text>   
                         </ScrollView>
-                        
-                        {/* mail */}
+                        {/* mail order */}
                         <AnchorMail title="SEND ORDER" />
                     </View>
                     
@@ -141,7 +148,7 @@ const styles = StyleSheet.create({
     },    
 	item: {
         fontSize: 10,
-        backgroundColor: 'dimgrey',
+        backgroundColor: 'lightgrey',
         margin: 5,
         textAlign: 'center',
 	},
@@ -149,6 +156,17 @@ const styles = StyleSheet.create({
         fontSize: 10,
         backgroundColor: 'lightgrey',
         fontWeight: 'bold',
-	}, 
-    
+    }, 
+    divider: {
+        fontSize: 10,
+        backgroundColor: 'dimgrey',
+        margin: 7,
+        textAlign: 'center',
+        height: 4,
+    },
+    totals: {
+        fontSize: 10,
+        margin: 3,
+        textAlign: 'right',
+    },
     });

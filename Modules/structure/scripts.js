@@ -7,21 +7,20 @@ export function calculatePrice(item){
     console.log('calculating price...');
     var total = 0;
     total += item.price;
-    console.log(total);
     // add on section
-    if (item.addon.price){
+    if (item.addon != null){
         total += item.addon.price;
-        console.log(total);
     }
     // check size
     if (item.size == 'Medium'){
         total += 100;
     }
-    console.log(total);
     return total;
 }
 
-// format desc for item
+// name, category, custom, price
+
+// format desc for item 
 export function formatDesc(item){
     /*
     var name = this.props.navigation.state.params.name;
@@ -29,6 +28,7 @@ export function formatDesc(item){
     var cat = category;
     for(var i = 0; i < item_data[category].length; i++){
         if (item_data[category][i].name == this.name){
+            // found item
             var desc = item_data[category][i].desc;
             var price = item_data[category][i].price;
             var num_pizzas = item_data[category][i].pizzas;
@@ -44,17 +44,26 @@ export function formatDesc(item){
 
     console.log('grabbing toppings for ' + item.name + '...');
     var desc = [];
-    var topp_list = [];
     desc.push(item.name + "\n");
     desc.push("ITEM PRICE: $" + item.price + "\n");
+
+    // toppings
     desc.push("TOPPINGS: ")
-    for (var i = 0; i < item.toppings.length; i++){
-        desc.push(item.toppings[i]);
-        if(i < (item.toppings.length - 1)){
+    for (var i = 0; i < item.default_toppings.length; i++){
+        desc.push(item.default_toppings[i]);
+        if(i < (item.default_toppings.length - 1)){
             desc.push(' | ');
         }
     }
-    desc.push("\n")
-    desc.push("_____________________________\n")
+    // addons
+    if (item.addon != null){
+        desc.push("\nADD-ONS: " + item.addon.name + " $" + item.addon.price);
+    }
+
+    // extras, maybe try mapping
+    desc.push("\nWings: " + item.extras.Wings + "\nPop: " + item.extras.Pop + "\nDip: " + item.extras.Dip + "\nChips: " + item.extras.Chips + "\nGarlic bread with cheese: " + item.extras['Garlic bread with cheese']);
+
+    desc.push("\n");
+    desc.push("_____________________________\n");
     return desc;    
 }
