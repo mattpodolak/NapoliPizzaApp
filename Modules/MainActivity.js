@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
 });
 
 
-
 export default class MainActivity extends React.Component {
 	render() {
 		return (
@@ -166,7 +165,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('Cart', { prices: '111111' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -218,7 +217,7 @@ export default class MainActivity extends React.Component {
 										const { navigate } = this.props.navigation;
 										navigate('ToppingModal', { name: item.key, category: 'pizza_deals' });
 									}}>
-										<Text style={styles.item}>
+										<Text style={styles.price}>
 											{item.key}
 										</Text>
 										<Image style={styles.image}
@@ -366,7 +365,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('ToppingModal', { name: item.key, category: 'freedelivery' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -443,7 +442,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('ToppingModal', { name: item.key, category: 'pitas' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -496,7 +495,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('ToppingModal', { name: item.key, category: 'sides' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
@@ -544,7 +543,7 @@ export default class MainActivity extends React.Component {
 											const { navigate } = this.props.navigation;
 											navigate('ToppingModal', { name: item.key, category: 'salads' });
 										}}>
-											<Text style={styles.item}>
+											<Text style={styles.price}>
 												{item.key}
 											</Text>
 											<Image style={styles.image}
