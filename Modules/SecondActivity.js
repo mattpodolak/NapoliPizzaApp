@@ -6,9 +6,6 @@ import * as utils from './structure/scripts.js';
 
 var cartArr = [];
 
-<<<<<<< HEAD
-export default class SecondActivity extends Component{  
-=======
 function deleteCart(){
     cartArr = [];
 }
@@ -18,7 +15,6 @@ function loadCart(){
 }
 export default class SecondActivity extends Component
 {  
->>>>>>> master
     static navigationOptions =
     {
         title: 'Cart',
