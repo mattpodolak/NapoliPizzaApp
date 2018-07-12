@@ -12,7 +12,9 @@ const User = t.struct({
   addressOne: t.String,
   addressTwo: t.maybe(t.String),
   postalCode: t.String,
-  city: t.String
+  city: t.String,
+  delivery: t.enums.of(['Pickup', 'Delivery'], 'Salads'),
+  payment: t.enums.of(['Cash', 'Debit', 'Credit'], 'Salads'),
 });
 
 export var customerInfo = {
@@ -22,7 +24,9 @@ export var customerInfo = {
     addressOne: null,
     addressTwo: null,
     postalCode: null,
-    city: null
+    city: null,
+    delivery: null,
+    payment: null
 };
 
 const options = {
@@ -42,6 +46,12 @@ const options = {
         postalCode: {
             label: 'Postal Code',
         },
+        delivery: {
+            label: 'Delivery or Pickup',
+        },
+        payment: {
+            label: 'Pick a payment option'
+        }
     },
 };
 
@@ -70,7 +80,9 @@ export default class CustomerModal extends Component {
             addressOne: null,
             addressTwo: null,
             postalCode: null,
-            city: null
+            city: null,
+            delivery: null,
+            payment: null
         };
         this.forceUpdate()
     }

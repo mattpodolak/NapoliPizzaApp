@@ -28,19 +28,18 @@ const styles = StyleSheet.create({
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 	header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
 	item: {
-        fontSize: 10,
-        backgroundColor: 'dimgrey',
+        fontSize: 14,
         margin: 5,
         textAlign: 'center',
 	},
 	price: {
-        fontSize: 10,
+        fontSize: 16,
         backgroundColor: 'lightgrey',
         fontWeight: 'bold',
 	},
 	image: {
-        height: 50,
-        width: 50,
+        height: 100,
+        width: 100,
         margin: 5,
     },
 });
@@ -92,7 +91,7 @@ export default class MainActivity extends React.Component {
                 <ScrollView style={styles.header}>
                     {/* SPECIALTY PIZZA */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
 						<FlatList horizontal={true}
                                 // data array 13 items
                                 data={[
@@ -188,7 +187,7 @@ export default class MainActivity extends React.Component {
 
                     {/* PIZZA DEALS ROW */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PIZZA DEALS</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
                         <FlatList horizontal={true}
 								// data array 10 items
                                 data={[
@@ -270,7 +269,7 @@ export default class MainActivity extends React.Component {
 
                     {/* WINGS AND SANDWICHES ROW */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>WINGS AND SANDWICHES</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
                         <FlatList horizontal={true}
 								// data array 8 items
                                 data={[
@@ -341,7 +340,7 @@ export default class MainActivity extends React.Component {
 
                     {/* FREE DELIVERY ROW */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>FREE DELIVERY</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
                         <FlatList horizontal={true}
 								// data array 9 items
                                 data={[
@@ -418,7 +417,7 @@ export default class MainActivity extends React.Component {
 
                     {/* PITAS ROW */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>PITAS</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
                         <FlatList horizontal={true}
 								// data array 7 items
 								data={[
@@ -486,7 +485,7 @@ export default class MainActivity extends React.Component {
 
                     {/* SIDES ROW */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SIDES</Text>
-                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5}}>
+                    <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
                         <FlatList horizontal={true}
 								// data array
 								data={[

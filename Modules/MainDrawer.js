@@ -49,7 +49,8 @@ class MainDrawer extends Component {
 
 	navigateToCallback = routeName => {
 		this.setState({ mainDrawer: true });
-		this.props.navigation.navigate(routeName);
+		const { navigate } = this.props.navigation;
+		navigate(routeName, { name: 'nothing'});
 	};
 
 	render() {

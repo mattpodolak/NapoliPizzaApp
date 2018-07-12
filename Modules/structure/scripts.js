@@ -1,3 +1,4 @@
+import {customerInfo as customer} from '../CustomerModal'
 // json
 const item_data = require('./custom_json.json');
 const topping_data = require('./topping_json.json');
@@ -130,6 +131,41 @@ export function singlePrice(name, category, custom){
     return total;
 }
 
+// calculate delivery
+export function deliveryCost(cartCurrent){
+    var deli = 0;
+
+    //check if non free delivery category
+    for(var j = 0; j < cartCurrent.length; j++){
+        if(cartCurrent[j].category != 'freedelivery'){
+            deli = 6.20;
+        }
+    }
+    if(customer.delivery == 'Pickup'){
+        deli = 0;
+    }
+
+    //round to 2 decimal places
+    deli = deli.toFixed(2);
+    return deli;
+}
+
+// calculate tax
+export function taxCost(subtotal){
+    var tax = subtotal*0.13;
+
+    //round to 2 decimal places
+    tax = tax.toFixed(2);
+    return tax;
+}
+
+// calculate final
+export function finalPrice(subtotal, tax, delivery){
+    var final = Number(subtotal)+Number(tax)+Number(delivery);
+    final = final.toFixed(2);
+    return final;
+}
+
 // calculate price
 export function totalPrice(cartCurrent){
     console.log('calculating total price...');
@@ -137,6 +173,7 @@ export function totalPrice(cartCurrent){
     for(var j = 0; j < cartCurrent.length; j++){
         cart_total += Number(cartCurrent[j].price);
     }
+    cart_total = cart_total.toFixed(2);
     console.log(cart_total);
     return cart_total;
 }

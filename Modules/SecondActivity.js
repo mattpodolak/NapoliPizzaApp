@@ -6,28 +6,91 @@ import * as utils from './structure/scripts.js';
 
 var cartArr = [];
 
+<<<<<<< HEAD
 export default class SecondActivity extends Component{  
+=======
+function deleteCart(){
+    cartArr = [];
+}
+
+function loadCart(){
+    return cartArr;
+}
+export default class SecondActivity extends Component
+{  
+>>>>>>> master
     static navigationOptions =
     {
         title: 'Cart',
     };
-    addtoCart= () => {
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
+    loadCart= () => {
+        this.cartUpdated = cartArr;
+        console.log('UPDATE')
+    }
+    _deleteItem(item){
+        this.props.onPress && this.props.onPress();
+        var len = cartArr.length;
+        for(var j = 0; j < len; j++){
+            if(cartArr[j].id == item.id && cartArr[j].name == item.name){
+                cartArr.splice(j, 1);
+                console.log('Post', cartArr)
+                break;
+            }
         }
-        if(this.props.navigation.state.params.category != undefined){
-            this.category = this.props.navigation.state.params.category;
-            this.name = this.props.navigation.state.params.name;
-            this.custom = this.props.navigation.state.params.form;
-            cartArr.push(
-                {
-                    id: getRandomInt(10000),
-                    name: this.name,
-                    category: this.category,
-                    custom: this.custom,
-                    price: utils.singlePrice(this.name, this.category, this.custom)
-                },
-            );
+        console.log('DELETE ', item)
+        this.props.navigation.state.params = null;
+        this.forceUpdate();
+    }
+    _editCart(item){
+        this.props.onPress && this.props.onPress();
+        //onPress event fires with an event object
+        const { navigate } = this.props.navigation;
+        navigate('ToppingModal', { name: item.name, category: item.category, form: item.custom });
+        console.log('EDIT ', item)
+    }
+    addtoCart= () => {
+        if(this.props.navigation.state.params !=null){
+            if(cartArr.length == 0){
+                this.id = this.props.navigation.state.params.id;
+                this.category = this.props.navigation.state.params.category;
+                this.name = this.props.navigation.state.params.name;
+                this.custom = this.props.navigation.state.params.form;
+                cartArr.push(
+                    {
+                        id: this.id,
+                        name: this.name,
+                        category: this.category,
+                        custom: this.custom,
+                        price: utils.singlePrice(this.name, this.category, this.custom)
+                    },
+                );
+            }
+            //Avoid duplicate items being added if re-render occurs
+            else if(this.props.navigation.state.params.id != cartArr[cartArr.length-1].id){
+                this.id = this.props.navigation.state.params.id;
+                this.category = this.props.navigation.state.params.category;
+                this.name = this.props.navigation.state.params.name;
+                this.custom = this.props.navigation.state.params.form;
+                cartArr.push(
+                    {
+                        id: this.id,
+                        name: this.name,
+                        category: this.category,
+                        custom: this.custom,
+                        price: utils.singlePrice(this.name, this.category, this.custom)
+                    },
+                );
+            }
+            this.subtotal = utils.totalPrice(cartArr);
+            this.delivery = utils.deliveryCost(cartArr);
+            this.tax = utils.taxCost(this.subtotal);
+            this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+        }
+        else{
+            this.subtotal = '0.00';
+            this.delivery = '0.00';
+            this.tax = '0.00';
+            this.finalTotal = '0.00';            
         }
 
 
@@ -35,6 +98,7 @@ export default class SecondActivity extends Component{
     render()
     {
     this.addtoCart()
+    this.loadCart()
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" />
@@ -48,22 +112,32 @@ export default class SecondActivity extends Component{
                     {/* mapping cart */}
                     <View>
                         <ScrollView>
-                            {cartArr.map((cart_items) => {
+                            {this.cartUpdated.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
+                                        <View style={styles.cartButtonDiv}>
+                                                <TouchableOpacity style={{alignItems: 'center', width:80}}
+                                                    onPress={() => this._deleteItem(cart_items)}>
+                                                    <Text style={styles.cartButton}>DELETE</Text>
+                                                </TouchableOpacity>
+                                                <Text style={{color:'white'}}>{cart_items.name}</Text>
+                                                <TouchableOpacity style={{alignItems: 'center', width:80}}
+                                                    onPress={() => this._editCart(cart_items)}>
+                                                    <Text style={styles.cartButton}>EDIT</Text>
+                                                </TouchableOpacity>
+                                        </View>
                                         <Text style={styles.item}>
-                                            {cart_items.name}{'\n'}
-                                            Price: {cart_items.price}{'\n'}
-                                            Size: {cart_items.desc}{'\n'}
+                                            {/* Insert Description here instead of the stuff thats in here*/}                                           
+                                            {utils.formatDesc(cart_items)}
                                         </Text>
                                     </View>
                                 );
                             })}
                             <Text style={styles.divider}></Text>
-                            <Text style={styles.totals}>SUBTOTAL: </Text>
-                            <Text style={styles.totals}>DELIVERY: </Text>
-                            <Text style={styles.totals}>TAX: </Text>
-                            <Text style={styles.totals}>TOTAL: </Text>   
+                            <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
+                            <Text style={styles.totals}>TAX: {this.tax}</Text>
+                            <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
+                            <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
                         </ScrollView>
                     </View>
                     <View>
@@ -116,13 +190,14 @@ const styles = StyleSheet.create({
         alignContent : 'center'
     },    
 	item: {
-        fontSize: 10,
+        fontSize: 15,
         backgroundColor: 'lightgrey',
         margin: 5,
+        marginTop: 0,
         textAlign: 'center',
 	},
 	price: {
-        fontSize: 10,
+        fontSize: 15,
         backgroundColor: 'lightgrey',
         fontWeight: 'bold',
     }, 
@@ -134,8 +209,22 @@ const styles = StyleSheet.create({
         height: 4,
     },
     totals: {
-        fontSize: 10,
+        fontSize: 20,
         margin: 3,
         textAlign: 'right',
     },
+    cartButton: {
+        fontSize: 15,
+        marginBottom: 5,
+        color: 'white'
+    },
+    cartButtonDiv: {
+        flex: 1, 
+        backgroundColor: 'dimgrey',
+        margin: 5,
+        marginBottom: 0,
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
+        flexDirection: 'row'
+    }
     });
