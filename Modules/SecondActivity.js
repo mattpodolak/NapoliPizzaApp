@@ -4,8 +4,62 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 
-
+// name category custom price
 // dummy order
+dummyArr = [
+    {
+        id: 1,
+        name: "Mega Deal",
+        category: "pizza_deals",
+        size : 'Medium',
+        custom: {
+            desc : "2 Medium Pizzas - 3 toppings each",
+            default_toppings: ["Coke", "P00p", "Poop", "more poop"],
+            extras: {
+                Wings: '10',
+                Pop: '4',
+                Dip: '2',
+                Pasta: 'true',
+                Chips: 'False',
+                "Garlic bread with cheese" : "true"
+            },
+            addon: {
+                name: 'make bick digger',
+                price: '2'
+    
+            },
+        },
+        price: '32.99'
+    },
+    {
+        id: 2,
+        name: "Meat Lovers",
+        category: "specialty",
+        size : 'Medium',
+        custom: {
+            desc : "meat lovers pizza",
+            default_toppings: ["Pepperoni", "Bacon", "Tomatoes"],
+            extras: {
+                Wings: '0',
+                Pop: '0',
+                Dip: '0',
+                Pasta: 'true',
+                Chips: 'False',
+                "Garlic bread with cheese" : "False"
+            },
+            addon: {
+                name: 'make bick digger',
+                price: '2'
+            },
+        },
+        price: '12.99'
+    },
+
+]
+
+
+
+/*
 initialArr = [
     {
         id: 1,
@@ -46,6 +100,7 @@ initialArr = [
         }
     }
   ];
+  */
 
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZA&body=";
 
@@ -54,10 +109,11 @@ class AnchorMail extends Component {
     _handlePress = () => {
         this.props.onPress && this.props.onPress();
         var msg = [];
-        initialArr.map((cart_info) => {
+        dummyArr.map((cart_info) => {
             msg.push(utils.formatDesc(cart_info));
+            console.log("mapping...");
         })
-        console.log("email sent...");
+        console.log("email sent..");
         Linking.openURL(default_body + "ORDER: \n\n" + msg.toString().replace(new RegExp(',', 'g'), ''));
     };
 
@@ -84,14 +140,14 @@ export default class Cart extends Component {
                     {/* mapping cart */}
                     <View>
                         <ScrollView>
-                            {initialArr.map((cart_items) => {
+                            {dummyArr.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
                                         <Text style={styles.item}>
                                             {cart_items.name}{'\n'}
                                             Price: {cart_items.price}{'\n'}
-                                            Size: {cart_items.size}{'\n'}
-                                            Total Price: {utils.calculatePrice(cart_items)}
+                                            Size: {cart_items.desc}{'\n'}
+                                            Price: {utils.calculatePrice(cart_items)}
                                         </Text>
                                     </View>
                                 );

@@ -6,10 +6,10 @@ const topping_data = require('./topping_json.json');
 export function calculatePrice(item){
     console.log('calculating price...');
     var total = 0;
-    total += item.price;
+    total += Number(item.price);
     // add on section
     if (item.addon != null){
-        total += item.addon.price;
+        total += Number(item.addon.price);
     }
     // check size
     if (item.size == 'Medium'){
@@ -18,8 +18,7 @@ export function calculatePrice(item){
     return total;
 }
 
-// name, category, custom, price
-
+// name category custom price
 // format desc for item 
 export function formatDesc(item){
     /*
@@ -49,21 +48,21 @@ export function formatDesc(item){
 
     // toppings
     desc.push("TOPPINGS: ")
-    for (var i = 0; i < item.default_toppings.length; i++){
-        desc.push(item.default_toppings[i]);
-        if(i < (item.default_toppings.length - 1)){
+    for (var i = 0; i < item.custom.default_toppings.length; i++){
+        desc.push(item.custom.default_toppings[i]);
+        if(i < (item.custom.default_toppings.length - 1)){
             desc.push(' | ');
         }
     }
     // addons
     if (item.addon != null){
-        desc.push("\nADD-ONS: " + item.addon.name + " $" + item.addon.price);
+        desc.push("\nADD-ONS: " + item.custom.addon.name + " $" + item.custom.addon.price);
     }
 
     // extras, maybe try mapping
-    desc.push("\nWings: " + item.extras.Wings + "\nPop: " + item.extras.Pop + "\nDip: " + item.extras.Dip + "\nChips: " + item.extras.Chips + "\nGarlic bread with cheese: " + item.extras['Garlic bread with cheese']);
+    desc.push("\nWings: " + item.custom.extras.Wings + "\nPop: " + item.custom.extras.Pop + "\nDip: " + item.custom.extras.Dip + "\nChips: " + item.custom.extras.Chips + "\nGarlic bread with cheese: " + item.custom.extras['Garlic bread with cheese']);
 
     desc.push("\n");
     desc.push("_____________________________\n");
-    return desc;    
+    return desc; 
 }
