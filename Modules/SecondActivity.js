@@ -26,7 +26,7 @@ export default class SecondActivity extends Component
 
         // send cart info to payment screen
         const { navigate } = this.props.navigation;
-        navigate('Payment', { cart: tempCart});
+        navigate('PaymentModal', { cart: tempCart});
     }
     goPay = () => {
         if(cartArr.length > 0){

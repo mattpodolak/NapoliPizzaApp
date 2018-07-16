@@ -32,6 +32,9 @@ const RootStack = createStackNavigator(
     ToppingModal: {
       screen: MainModal,
     },
+    PaymentModal: {
+      screen: ThirdActivity,
+    },
   },
   {
     mode: 'modal',

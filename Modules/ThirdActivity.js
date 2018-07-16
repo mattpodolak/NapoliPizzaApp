@@ -46,7 +46,7 @@ render() {
 // main screen
 export default class ThirdActivity extends Component{  
     static navigationOptions ={
-        title: 'Payment',
+        title: 'PaymentModal',
     };
     addtoCart= () => {
         if (this.props.navigation.state.params.cart != undefined){
