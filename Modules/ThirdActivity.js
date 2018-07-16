@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
+import {customerInfo as customer} from './CustomerModal'
 import * as utils from './structure/scripts.js';
 
 // default email body
@@ -52,10 +53,21 @@ export default class ThirdActivity extends Component{
             this.delivery = utils.deliveryCost(cartArr);
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+
+            //Customer info
+            var firstName = customer.firstName.substring(0, 30);
+            var lastName = customer.lastName.substring(0, 30);
+            var address = customer.addressOne.substring(0, 30);
+            var postal = customer.postalCode;
+            var city = customer.city;
+            var country = 'Canada';
+            
+            //Moneris dev and prod store info
             this.store_id = '89BCM08126'
             this.test_id = 'JMCMNtore3'
             this.hpp = 'hpBQQ66YSF59'
             this.test_hpp = 'hpSN6OEJRM13'
+
             // dev URL
             this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.test_id + '&hpp_key=' + this.test_hpp + '&charge_total=' + this.finalTotal;
             
@@ -72,6 +84,11 @@ export default class ThirdActivity extends Component{
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{height: 100}}></View>
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
+                <Button
+                        onPress={() => this.props.navigation.navigate('MyModal')}
+                        title="Edit Customer Info"
+                        color="#000"
+                />
                 <WebView
                     style={{marginBottom: 20, marginTop: 20}}
                     ref={this.WEBVIEW_REF}
