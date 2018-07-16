@@ -63,6 +63,7 @@ export default class ThirdActivity extends Component{
             var city = customer.city;
             var country = 'Canada';
             var province = 'Ontario';
+            this.payment = customer.payment;
 
             //Moneris dev and prod store info
             this.store_id = '89BCM08126'
@@ -92,11 +93,6 @@ export default class ThirdActivity extends Component{
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{height: 100}}></View>
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
-                <Button
-                        onPress={() => this.props.navigation.navigate('MyModal')}
-                        title="Edit Customer Info"
-                        color="#000"
-                />
                 <WebView
                     style={{marginBottom: 20, marginTop: 20}}
                     ref={this.WEBVIEW_REF}
