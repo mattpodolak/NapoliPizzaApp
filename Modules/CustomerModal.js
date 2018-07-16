@@ -29,6 +29,18 @@ export var customerInfo = {
     payment: null
 };
 
+customerInfo = {
+    firstName: "Matthew",
+    lastName: "Podolak",
+    email: "mpodola2@gmail.com",
+    addressOne: "138 Wharncliffe Rd N",
+    addressTwo: null,
+    postalCode: "N6H2B2",
+    city: "London",
+    delivery: "Delivery",
+    payment: "Credit"
+};
+
 const options = {
     fields: {
         firstName: {
