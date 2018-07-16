@@ -30,6 +30,7 @@
     "mongoose": "^5.2.1",
     "node-mandrill": "^1.0.1",
     "nodemailer": "^4.6.7",
+    "npm": "^6.2.0",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-mail": "^3.0.6",
