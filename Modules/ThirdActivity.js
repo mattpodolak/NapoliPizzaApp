@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, Alert, ScrollView, Linking} from 'react-native';
+import { 
+    StyleSheet, 
+    Text, 
+    View, 
+    Button, 
+    StatusBar, 
+    TouchableOpacity, 
+    Platform, 
+    Alert, 
+    ScrollView, 
+    Linking, 
+    Platform, 
+    WebView
+} from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
@@ -11,12 +24,18 @@ var cartArr = [];
 class AnchorMail extends Component {
     _handlePress = () => {
         this.props.onPress && this.props.onPress();
-        var msg = [];
-        cartArr.map((cart_info) => {
-            msg.push(utils.formatDesc(cart_info));
-        })
-        console.log("email sent...");
-        Linking.openURL(default_body + msg.toString().replace(new RegExp(',', 'g'), ''));
+        if(Platform.OS === 'ios'){
+            var msg = [];
+            cartArr.map((cart_info) => {
+                msg.push(utils.formatDesc(cart_info));
+            })
+            console.log("email sent...");
+            Linking.openURL(default_body + msg.toString().replace(new RegExp(',', 'g'), ''));  
+        }
+        else{
+            console.log("Android email code not yet implemented");
+        }
+        
     };
 render() {
     return (
