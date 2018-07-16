@@ -53,8 +53,14 @@ export default class ThirdActivity extends Component{
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
             this.store_id = '89BCM08126'
+            this.test_id = 'JMCMNtore3'
             this.hpp = 'hpBQQ66YSF59'
-            this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp + '&charge_total=' + this.finalTotal;
+            this.test_hpp = 'hpSN6OEJRM13'
+            // dev URL
+            this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.test_id + '&hpp_key=' + this.test_hpp + '&charge_total=' + this.finalTotal;
+            
+            // prod URL
+            //this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp + '&charge_total=' + this.finalTotal;
             this.TEXT_INPUT_REF = 'urlInput';
             this.WEBVIEW_REF = 'webview';
             console.log(this.DEFAULT_URL);
