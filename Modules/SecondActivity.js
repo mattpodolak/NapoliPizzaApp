@@ -23,6 +23,7 @@ export default class SecondActivity extends Component
         //empty cart
         var tempCart = cartArr;
         cartArr = [];
+        console.log('Deleted cart')
 
         // send cart info to payment screen
         const { navigate } = this.props.navigation;
@@ -34,7 +35,7 @@ export default class SecondActivity extends Component
                 'WARNING',
                 'Are you sure you would like to proceed to payment, the cart will be emptied and it cannot be undone',
                 [
-                    {text: 'Continue', onPress: ()=> this.payConfirm},
+                    {text: 'Continue', onPress: ()=> this.payConfirm()},
                     {text: 'Cancel', onPress: ()=> console.log('Canceled payment')}
                 ],
                 {cancelable: false}

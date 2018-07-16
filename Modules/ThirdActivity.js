@@ -10,7 +10,6 @@ import {
     Alert, 
     ScrollView, 
     Linking, 
-    Platform, 
     WebView
 } from 'react-native';
 import {DrawerActions} from 'react-navigation';
@@ -45,9 +44,6 @@ render() {
 }
 // main screen
 export default class ThirdActivity extends Component{  
-    static navigationOptions ={
-        title: 'PaymentModal',
-    };
     addtoCart= () => {
         if (this.props.navigation.state.params.cart != undefined){
             cartArr = this.props.navigation.state.params.cart;
@@ -59,6 +55,9 @@ export default class ThirdActivity extends Component{
             this.store_id = '89BCM08126'
             this.hpp = 'hpBQQ66YSF59'
             this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp + '&charge_total=' + this.finalTotal;
+            this.TEXT_INPUT_REF = 'urlInput';
+            this.WEBVIEW_REF = 'webview';
+            console.log(this.DEFAULT_URL);
         }
     }
     render(){
@@ -69,14 +68,14 @@ export default class ThirdActivity extends Component{
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
                 <WebView
                     style={{marginBottom: 20, marginTop: 20}}
-                    ref={WEBVIEW_REF}
+                    ref={this.WEBVIEW_REF}
                     automaticallyAdjustContentInsets={false}
                     source={{uri: this.DEFAULT_URL}}
                     javaScriptEnabled={true}
                     domStorageEnabled={true}
                     decelerationRate="normal"
                     startInLoadingState={true}
-                    scalesPageToFit={this.state.scalesPageToFit}
+                    scalesPageToFit={true}
                 />
                 <Text style={styles.divider}></Text>
                 <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
