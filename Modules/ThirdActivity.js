@@ -20,8 +20,9 @@ import * as utils from './structure/scripts.js';
 // default email body
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
 var cartArr = [];
-// mail component
-class AnchorMail extends Component {
+
+// main screen
+export default class ThirdActivity extends Component{
     _handlePress = () => {
         this.props.onPress && this.props.onPress();
         if(Platform.OS === 'ios'){
@@ -35,16 +36,12 @@ class AnchorMail extends Component {
         else{
             console.log("Android email code not yet implemented");
         }
+        this.props.navigation.navigate('Home')
+        Alert.alert(
+            'Order Sent!'
+        )
         
-    };
-render() {
-    return (
-        <Button title={this.props.title} onPress={this._handlePress} />
-        );
-    }
-}
-// main screen
-export default class ThirdActivity extends Component{  
+    };  
     addtoCart= () => {
         if (this.props.navigation.state.params.cart != undefined){
             cartArr = this.props.navigation.state.params.cart;
@@ -108,8 +105,8 @@ export default class ThirdActivity extends Component{
                 <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
                 <Text style={styles.totals}>TAX: {this.tax}</Text>
                 <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
-                <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>  
-                <AnchorMail title="SEND ORDER"/>
+                <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
+                <Button title="SEND ORDER" onPress={this._handlePress} /> 
             </View>
         );
     }
