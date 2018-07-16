@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+	Alert,
 	Image,
 	StatusBar,
 	StyleSheet,
@@ -12,6 +13,7 @@ import {
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
 import {ScrollView, FlatList} from 'react-native';
+import {customerInfo as customer} from './CustomerModal'
  
 const LOGO_URL = 'https://i.imgur.com/BbYaucd.png';
 
@@ -47,6 +49,21 @@ const styles = StyleSheet.create({
 
 
 export default class MainActivity extends React.Component {
+	_handleSubmit(itemName, itemCategory){
+		console.log('Checking for customer data');
+		const { navigate } = this.props.navigation;
+		if(customer.firstName != null){
+			navigate('ToppingModal', { name: itemName, category: itemCategory });
+		}
+		else{
+			this.props
+			navigate('MyModal');
+			Alert.alert(
+                'Missing: Customer Info'
+            )
+		}
+
+	}
 	importData = () => {
 		this.specialty = [];
 		for(var i=0; i<custom_data.specialty.length; i++){
@@ -157,33 +174,23 @@ export default class MainActivity extends React.Component {
 				>
 					{/* ADD HERE */}
 					<View style={{
-                flex: 1,
-                // row or column
-                flexDirection: 'column',
-                // top to bottom
-                justifyContent: 'space-between',
-                // left to right
-                margin: 'auto',
-                flexWrap: 'wrap',
-            }}>
-
-
+						flex: 1,
+						flexDirection: 'column',
+						justifyContent: 'space-between',
+						margin: 'auto',
+						flexWrap: 'wrap',
+					}}>
                 <ScrollView style={styles.header}>
                     {/* SPECIALTY PIZZA */}
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>SPECIALTY PIZZA</Text>
                     <View style={{flex: 1, backgroundColor: 'lightgrey', paddingBottom: 5, paddingTop: 5, marginBottom: 10}}>
 						<FlatList horizontal={true}
-                                // data array 13 items
                                 data={this.specialty}
 								// render items
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'specialty' });
-										}}>
+											onPress={() => this._handleSubmit(item.key, 'specialty')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>
@@ -210,11 +217,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 								<View>
 									<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-										onPress={(event) => {
-										// onPress event fires with an event object
-										const { navigate } = this.props.navigation;
-										navigate('ToppingModal', { name: item.key, category: 'pizza_deals' });
-									}}>
+										onPress={() => this._handleSubmit(item.key, 'pizza_deals')}>
 										<Text style={styles.item}>
 											{item.key}
 										</Text>
@@ -240,11 +243,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'wingsandsandwiches' });
-										}}>
+											onPress={() => this._handleSubmit(item.key, 'wingsandsandwiches')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>
@@ -271,11 +270,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'freedelivery' });
-										}}>
+											onPress={() => this._handleSubmit(item.key, 'freedelivery')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>
@@ -302,11 +297,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'pitas' });
-										}}>
+										onPress={() => this._handleSubmit(item.key, 'pitas')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>
@@ -334,11 +325,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'sides' });
-										}}>
+											onPress={() => this._handleSubmit(item.key, 'sides')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>
@@ -366,11 +353,7 @@ export default class MainActivity extends React.Component {
                                 renderItem={({item, index}) => 
 									<View>
 										<TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
-											onPress={(event) => {
-											// onPress event fires with an event object
-											const { navigate } = this.props.navigation;
-											navigate('ToppingModal', { name: item.key, category: 'salads' });
-										}}>
+											onPress={() => this._handleSubmit(item.key, 'salads')}>
 											<Text style={styles.item}>
 												{item.key}
 											</Text>

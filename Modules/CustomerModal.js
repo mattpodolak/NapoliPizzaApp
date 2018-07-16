@@ -29,17 +29,17 @@ export var customerInfo = {
     payment: null
 };
 
-customerInfo = {
-    firstName: "Matthew",
-    lastName: "Podolak",
-    email: "mpodola2@gmail.com",
-    addressOne: "138 Wharncliffe Rd N",
+/*customerInfo = {
+    firstName: "John",
+    lastName: "Smith",
+    email: "test@gmail.com",
+    addressOne: "123 Fake St",
     addressTwo: null,
-    postalCode: "N6H2B2",
-    city: "London",
+    postalCode: "A1B2C3",
+    city: "Wonderland",
     delivery: "Delivery",
     payment: "Credit"
-};
+};*/
 
 const options = {
     fields: {
