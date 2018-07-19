@@ -78,8 +78,12 @@ export default class ThirdActivity extends Component{
             + '&email='+email + '&bill_first_name='+firstName + '&bill_last_name='+lastName + '&bill_address_one='+address
             + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
 
-            // prod URL
-            //this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp + '&charge_total=' + this.finalTotal;
+            // prod URL with more info
+            this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
+            + '&charge_total='+this.finalTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
+            + '&email='+email + '&bill_first_name='+firstName + '&bill_last_name='+lastName + '&bill_address_one='+address
+            + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
+
             this.TEXT_INPUT_REF = 'urlInput';
             this.WEBVIEW_REF = 'webview';
             console.log(this.DEFAULT_URL);

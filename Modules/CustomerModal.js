@@ -160,7 +160,7 @@ export default class CustomerModal extends Component {
                     //Add to data file here
                     _storeData = async () => {
                         try {
-                          await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+                          await AsyncStorage.setItem(phone, 'I like to save it.');
                         } 
                         catch (error) {
                           // Error saving data
