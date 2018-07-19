@@ -138,7 +138,13 @@ export function deliveryCost(cartCurrent){
     //check if non free delivery category
     for(var j = 0; j < cartCurrent.length; j++){
         if(cartCurrent[j].category != 'freedelivery'){
-            deli = 6.20;
+            // if a non free delivery item, check what delivery charge to apply
+            if(customer.delivery == 'Local Delivery: $7'){
+                deli = 7;
+            }
+            else{
+                deli = 10;
+            }
         }
     }
     if(customer.delivery == 'Pickup'){
