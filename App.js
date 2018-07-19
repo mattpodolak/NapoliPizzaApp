@@ -10,6 +10,8 @@ import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
 const RootDrawer = createDrawerNavigator(
   {
+  Info: {screen: CustomerModal},
+
   Home: { screen: MainActivity },
    
   Cart: { screen: SecondActivity },
@@ -25,9 +27,6 @@ const RootStack = createStackNavigator(
   {
     Main: {
       screen: RootDrawer,
-    },
-    MyModal: {
-      screen: CustomerModal,
     },
     ToppingModal: {
       screen: MainModal,

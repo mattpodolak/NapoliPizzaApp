@@ -8,11 +8,12 @@ import {
 	TouchableOpacity,
 	View,
     Platform,
-    Button,
+	Button,
+	ScrollView,
+	FlatList
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
-import {ScrollView, FlatList} from 'react-native';
 import {customerInfo as customer} from './CustomerModal'
  
 const LOGO_URL = 'https://i.imgur.com/BbYaucd.png';
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: StatusBar.currentHeight,
 		backgroundColor: '#FFF',
+		padding: 20,
 	},
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 	header: { paddingTop: Platform.OS === 'ios' ? 13 : 7 },
@@ -57,7 +59,7 @@ export default class MainActivity extends React.Component {
 		}
 		else{
 			this.props
-			navigate('MyModal');
+			navigate('Info');
 			Alert.alert(
                 'Missing: Customer Info'
             )
@@ -159,7 +161,7 @@ export default class MainActivity extends React.Component {
 				</View>
                 <View>
                     <Button
-                        onPress={() => this.props.navigation.navigate('MyModal')}
+                        onPress={() => this.props.navigation.navigate('Info')}
                         title="Edit Customer Info"
                         color="#000"
                     />

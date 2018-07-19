@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
-import { Alert, Button, View, StyleSheet, ScrollView, Text } from 'react-native';
+import {
+	Alert,
+	Image,
+	StatusBar,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+    Platform,
+    Button,
+    ScrollView,
+    AsyncStorage
+} from 'react-native';
+import { Ionicons as Icon } from '@expo/vector-icons';
+import { DrawerActions } from 'react-navigation';
 
 import t from 'tcomb-form-native';
 
@@ -52,6 +66,14 @@ phoneNum = {
 
 */
 
+const phoneOptions = {
+    fields: {
+        phone: {
+            label: 'Phone number (ie 7057654321)',
+        }
+    }
+}
+
 const options = {
     fields: {
         firstName: {
@@ -80,24 +102,80 @@ const options = {
 
 export default class CustomerModal extends Component {
     autofill = () => {
-        const value = this._form2.getValue(); // use that ref to get the form value
-        console.log('value: ', value); 
-    }
-    handleSubmit = () => {
-        const value = this._form.getValue(); // use that ref to get the form value
-        console.log('value: ', value);  
-        customerInfo = value
-        if(value != null){
-            this.props.navigation.goBack()
+        var value = this._form2.getValue(); // use that ref to get the form value
+        //replace white spaces
+        phone = value.phone.replace(/\s/g,'');
+        phone = phone.replace("-", "");
+        console.log('phone num: ', phone); 
+        if(phone.length < 10){
             Alert.alert(
-                'Customer data saved'
+                'Please enter a 10 digit phone number'
             )
         }
         else{
-            Alert.alert(
-                'Required fields missing'
-            ) 
+            //If here is a valid phone number
+            _retrieveData = async () => {
+                try {
+                    const value = await AsyncStorage.getItem(value);
+                    if (value !== null) {
+                        // We have data!!
+                        console.log(value);
+                    }
+                } 
+                catch (error) {
+                   // Error retrieving data
+                   Alert.alert(
+                    'Phone number not previously used on this device'
+                    )
+                }
+            }
         }
+    }
+    handleSubmit = () => {
+        const value = this._form.getValue(); // use that ref to get the form value
+        var value2 = this._form2.getValue();
+        phone = value2.phone;
+        if(phone == null){
+            Alert.alert(
+                'Please enter a phone number'
+            )
+        }
+        else{
+            phone = phone.replace(/\s/g,'');
+            phone = phone.replace("-", "");
+            if(phone.length < 10){
+                Alert.alert(
+                    'Please enter a 10 digit phone number'
+                )
+            }
+            else{
+                console.log('value: ', value);  
+                customerInfo = value
+                phoneNum = phone
+                if(value != null){
+                    this.props.navigation.goBack()
+                    Alert.alert(
+                        'Customer data saved'
+                    )
+                    //Add to data file here
+                    _storeData = async () => {
+                        try {
+                          await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+                        } 
+                        catch (error) {
+                          // Error saving data
+                          console.log('Error saving customer data to file, OH NO ', error)
+                        }
+                    }
+                }
+                else{
+                    Alert.alert(
+                        'Required fields missing'
+                    ) 
+                }
+            }
+        }
+        
     }
     clearData = () => {
         customerInfo = {
@@ -115,10 +193,23 @@ export default class CustomerModal extends Component {
         };
         this.forceUpdate()
     }
+    navBack = () => {
+        this.props.navigation.navigate('Home')
+    }
     render() {
         return (
         <ScrollView>
             <View style={styles.container}>
+            <StatusBar barStyle="dark-content" />
+				<View style={styles.header}>
+					<TouchableOpacity
+						onPress={() => {
+							this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+						}}
+					>
+						<Icon name="md-menu" size={30} />
+					</TouchableOpacity>
+				</View>
                 <Text style={{ fontSize: 25 }}>Customer Info Form</Text>
                 <Form
                     ref={c => this._form2 = c} // assign a ref
@@ -141,7 +232,7 @@ export default class CustomerModal extends Component {
                 />
                 <View style={{marginBottom: 15}} />
                 <Button 
-                    onPress={() => this.props.navigation.goBack()}
+                    onPress={this.navBack}
                     title="Go Back"
                 />
                 <View style={{marginBottom: 15}} />
@@ -158,9 +249,9 @@ export default class CustomerModal extends Component {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    marginTop: 50,
     marginBottom: 150,
     padding: 20,
     backgroundColor: '#ffffff',
   },
+  header: { paddingTop: Platform.OS === 'ios' ? 13 : 7 },
 });
