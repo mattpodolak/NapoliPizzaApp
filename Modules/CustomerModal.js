@@ -5,10 +5,13 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
+const Phone = t.struct({
+    phone: t.String,
+})
+
 const User = t.struct({
   firstName: t.String,
   lastName: t.String,
-  email: t.String,
   addressOne: t.String,
   addressTwo: t.maybe(t.String),
   postalCode: t.String,
@@ -20,7 +23,6 @@ const User = t.struct({
 export var customerInfo = {
     firstName: null,
     lastName: null,
-    email: null,
     addressOne: null,
     addressTwo: null,
     postalCode: null,
@@ -29,17 +31,26 @@ export var customerInfo = {
     payment: null
 };
 
+export var phoneNum = {
+    phone: null
+};
+
 /*customerInfo = {
     firstName: "John",
     lastName: "Smith",
-    email: "test@gmail.com",
     addressOne: "123 Fake St",
     addressTwo: null,
     postalCode: "A1B2C3",
     city: "Wonderland",
     delivery: "Delivery",
     payment: "Credit"
-};*/
+};
+
+phoneNum = {
+    phone: "1234567"
+};
+
+*/
 
 const options = {
     fields: {
@@ -68,6 +79,10 @@ const options = {
 };
 
 export default class CustomerModal extends Component {
+    autofill = () => {
+        const value = this._form2.getValue(); // use that ref to get the form value
+        console.log('value: ', value); 
+    }
     handleSubmit = () => {
         const value = this._form.getValue(); // use that ref to get the form value
         console.log('value: ', value);  
@@ -88,13 +103,15 @@ export default class CustomerModal extends Component {
         customerInfo = {
             firstName: null,
             lastName: null,
-            email: null,
             addressOne: null,
             addressTwo: null,
             postalCode: null,
             city: null,
             delivery: null,
             payment: null
+        };
+        phoneNum = {
+            phone: null
         };
         this.forceUpdate()
     }
@@ -103,6 +120,15 @@ export default class CustomerModal extends Component {
         <ScrollView>
             <View style={styles.container}>
                 <Text style={{ fontSize: 25 }}>Customer Info Form</Text>
+                <Form
+                    ref={c => this._form2 = c} // assign a ref
+                    type={Phone} 
+                    value={phoneNum}
+                />
+                <Button
+                    title="Autofill"
+                    onPress={this.autofill}
+                />
                 <Form 
                 ref={c => this._form = c} // assign a ref
                 type={User} 

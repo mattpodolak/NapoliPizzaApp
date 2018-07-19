@@ -55,7 +55,8 @@ export default class ThirdActivity extends Component{
             var firstName = customer.firstName.substring(0, 30);
             var lastName = customer.lastName.substring(0, 30);
             var address = customer.addressOne.substring(0, 30);
-            var email = customer.email.substring(0, 50);
+            var email = 'mpodola2@gmail.com';
+            var phone = customer.phone.substring(0, 50);
             var postal = customer.postalCode;
             var city = customer.city;
             var country = 'Canada';
