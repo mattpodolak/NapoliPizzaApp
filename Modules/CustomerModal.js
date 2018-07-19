@@ -16,7 +16,7 @@ const User = t.struct({
   addressTwo: t.maybe(t.String),
   postalCode: t.String,
   city: t.String,
-  delivery: t.enums.of(['Pickup', 'Delivery'], 'Salads'),
+  delivery: t.enums.of(['Pickup', 'Local Delivery: $7', 'Non-local Delivery: $10'], 'Salads'),
   payment: t.enums.of(['Cash', 'Debit', 'Credit'], 'Salads'),
 });
 
