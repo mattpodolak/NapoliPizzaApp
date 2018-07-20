@@ -49,17 +49,17 @@ export var phoneNum = {
     phone: null
 };
 
-/*customerInfo = {
+customerInfo = {
     firstName: "John",
     lastName: "Smith",
     addressOne: "123 Fake St",
     addressTwo: null,
     postalCode: "A1B2C3",
     city: "Wonderland",
-    delivery: "Delivery",
+    delivery: "Pickup",
     payment: "Credit"
 };
-
+/*
 phoneNum = {
     phone: "1234567"
 };
@@ -107,43 +107,58 @@ export default class CustomerModal extends Component {
         phone = value.phone.replace(/\s/g,'');
         phone = phone.replace("-", "");
         console.log('phone num: ', phone); 
-        if(phone.length < 10){
+        if(phone.length != 10){
             Alert.alert(
                 'Please enter a 10 digit phone number'
             )
         }
         else{
             //If here is a valid phone number
-            _retrieveData = async () => {
-                try {
-                    const value = await AsyncStorage.getItem(value);
-                    if (value !== null) {
-                        // We have data!!
-                        console.log(value);
-                    }
-                } 
-                catch (error) {
-                   // Error retrieving data
-                   Alert.alert(
-                    'Phone number not previously used on this device'
+            try {
+                const itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
+                    console.log(keyValue) //Display key value
+                    phoneNum = keyValue.phone
+                    customerInfo = keyValue.customer
+                    this.forceUpdate()
+                    Alert.alert(
+                        'Loaded and Saved customer data from phone number'
+                    )
+                    }, (error) => {
+                    console.log(error) //Display error
+                  });
+                if (itemStored != null) {
+                    // We have data!!
+                    console.log(itemStored);
+                }
+                else{
+                    // data is null or undefined
+                    Alert.alert(
+                        'Phone number not previously used on this device'
                     )
                 }
+            } 
+            catch (error) {
+                // Error retrieving data
+                Alert.alert(
+                    'Error: ', error
+                )
             }
+            
         }
     }
     handleSubmit = () => {
         const value = this._form.getValue(); // use that ref to get the form value
         var value2 = this._form2.getValue();
-        phone = value2.phone;
-        if(phone == null){
+        if(value2 == null){
             Alert.alert(
                 'Please enter a phone number'
             )
         }
         else{
+            phone = value2.phone
             phone = phone.replace(/\s/g,'');
             phone = phone.replace("-", "");
-            if(phone.length < 10){
+            if(phone.length != 10){
                 Alert.alert(
                     'Please enter a 10 digit phone number'
                 )
@@ -153,19 +168,21 @@ export default class CustomerModal extends Component {
                 customerInfo = value
                 phoneNum = phone
                 if(value != null){
-                    this.props.navigation.goBack()
+                    this.navBack
                     Alert.alert(
                         'Customer data saved'
                     )
+                    let storeData = {
+                        'phone': phone,
+                        'customer': customerInfo
+                    }
                     //Add to data file here
-                    _storeData = async () => {
-                        try {
-                          await AsyncStorage.setItem(phone, 'I like to save it.');
-                        } 
-                        catch (error) {
-                          // Error saving data
-                          console.log('Error saving customer data to file, OH NO ', error)
-                        }
+                    try {
+                        AsyncStorage.setItem(phoneNum, JSON.stringify(storeData));
+                    } 
+                    catch (error) {
+                        // Error saving data
+                        console.log('Error saving customer data to file, OH NO ', error)
                     }
                 }
                 else{
@@ -214,6 +231,7 @@ export default class CustomerModal extends Component {
                 <Form
                     ref={c => this._form2 = c} // assign a ref
                     type={Phone} 
+                    options={phoneOptions} // pass the options via pro
                     value={phoneNum}
                 />
                 <Button
