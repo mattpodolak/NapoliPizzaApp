@@ -116,13 +116,7 @@ export default class CustomerModal extends Component {
             //If here is a valid phone number
             try {
                 const itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
-                    console.log(keyValue) //Display key value
-                    phoneNum = keyValue.phone
-                    customerInfo = keyValue.customer
-                    this.forceUpdate()
-                    Alert.alert(
-                        'Loaded and Saved customer data from phone number'
-                    )
+                    console.log(JSON.parse(keyValue)) //Display key value
                     }, (error) => {
                     console.log(error) //Display error
                   });
@@ -231,7 +225,6 @@ export default class CustomerModal extends Component {
                 <Form
                     ref={c => this._form2 = c} // assign a ref
                     type={Phone} 
-                    options={phoneOptions} // pass the options via pro
                     value={phoneNum}
                 />
                 <Button
