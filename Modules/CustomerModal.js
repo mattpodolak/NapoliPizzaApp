@@ -59,12 +59,12 @@ customerInfo = {
     delivery: "Pickup",
     payment: "Credit"
 };
-/*
+
 phoneNum = {
-    phone: "1234567"
+    phone: "1234567890"
 };
 
-*/
+
 
 const phoneOptions = {
     fields: {
@@ -115,21 +115,19 @@ export default class CustomerModal extends Component {
         else{
             //If here is a valid phone number
             try {
-                const itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
-                    console.log(JSON.parse(keyValue)) //Display key value
+                let itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
+                    //console.log(JSON.parse(keyValue)); //Display key value
+                    return keyValue
+                    //keyValue = JSON.parse(keyValue);
+                    //callback(keyValue)
+                    //let potato = JSON.parse(keyValue);
+                    //console.log('Hello ', JSON.stringify(potato.phone));
                     }, (error) => {
-                    console.log(error) //Display error
+                    //console.log(error) //Display error
                   });
-                if (itemStored != null) {
-                    // We have data!!
-                    console.log(itemStored);
-                }
-                else{
-                    // data is null or undefined
-                    Alert.alert(
-                        'Phone number not previously used on this device'
-                    )
-                }
+
+                //keyValue = JSON.parse(keyValue);
+                console.log(itemStored);
             } 
             catch (error) {
                 // Error retrieving data
