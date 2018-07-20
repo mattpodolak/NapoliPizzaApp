@@ -116,8 +116,8 @@ export default class CustomerModal extends Component {
             //If here is a valid phone number
             try {
                 let itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
-                    //console.log(JSON.parse(keyValue)); //Display key value
-                    return keyValue
+                    console.log(JSON.parse(keyValue)); //Display key value
+                    //return keyValue
                     //keyValue = JSON.parse(keyValue);
                     //callback(keyValue)
                     //let potato = JSON.parse(keyValue);
@@ -127,7 +127,7 @@ export default class CustomerModal extends Component {
                   });
 
                 //keyValue = JSON.parse(keyValue);
-                console.log(itemStored);
+                console.log(itemStored.then);
             } 
             catch (error) {
                 // Error retrieving data
