@@ -10,7 +10,6 @@ import {
     Platform,
     Button,
     ScrollView,
-    AsyncStorage
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
@@ -110,32 +109,13 @@ export default class CustomerModal extends Component {
         if(phone.length != 10){
             Alert.alert(
                 'Please enter a 10 digit phone number'
-            )
+            );
         }
         else{
             //If here is a valid phone number
-            try {
-                let itemStored = AsyncStorage.getItem(phoneNum).then((keyValue) => {
-                    console.log(JSON.parse(keyValue)); //Display key value
-                    //return keyValue
-                    //keyValue = JSON.parse(keyValue);
-                    //callback(keyValue)
-                    //let potato = JSON.parse(keyValue);
-                    //console.log('Hello ', JSON.stringify(potato.phone));
-                    }, (error) => {
-                    //console.log(error) //Display error
-                  });
-
-                //keyValue = JSON.parse(keyValue);
-                console.log(itemStored.then);
-            } 
-            catch (error) {
-                // Error retrieving data
-                Alert.alert(
-                    'Error: ', error
-                )
-            }
-            
+            Alert.alert(
+                'Autofill'
+            );    
         }
     }
     handleSubmit = () => {
