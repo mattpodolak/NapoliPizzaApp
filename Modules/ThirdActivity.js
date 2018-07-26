@@ -16,6 +16,7 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import {customerInfo as customer} from './CustomerModal'
 import * as utils from './structure/scripts.js';
+import {phoneNum } from './CustomerModal'
 
 // default email body
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
@@ -56,7 +57,7 @@ export default class ThirdActivity extends Component{
             var lastName = customer.lastName.substring(0, 30);
             var address = customer.addressOne.substring(0, 30);
             var email = 'mpodola2@gmail.com';
-            var phone = customer.phone.substring(0, 50);
+            var phone = phoneNum.phone.substring(0, 50);
             var postal = customer.postalCode;
             var city = customer.city;
             var country = 'Canada';

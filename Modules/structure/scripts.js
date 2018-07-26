@@ -187,35 +187,67 @@ export function totalPrice(cartCurrent){
 
 export function formatDesc(item){
 
+    var num_pizzas;
+    // find number of pizzas
+    for(var i = 0; i < item_data[item.category].length; i++)
+    {
+        if (item_data[item.category][i].name == item.name){
+        var num_pizzas = item_data[item.category][i].pizzas;
+        //convert string to numbers
+        num_pizzas = parseInt(num_pizzas);
+        break;
+        }
+    }
+
     var desc = [];
     var divider = 0;
     // name and price
     var item_name = item.name.replace(new RegExp('&', 'g'), 'and');
     console.log(item_name);
     desc.push("\n-" + item_name + "- $" + item.price);
+    // special notes
+    if (item.custom.specialNotes != null){
+        desc.push('\nNOTES: ' + item.custom.specialNotes);
+    }
     // addon
     if (item.custom.addOns != null){
         desc.push("\nADD-ONS: " + item.custom.addOns);
     }
     // pizza 1 toppings
-    if(item.custom.toppings != null){
+    if(num_pizzas > 0){
         desc.push("\nPIZZA 1 TOPPINGS: ")
-        for (var i = 0; i < item.custom.toppings.length; i++){
-            desc.push((i+1) + '. ' + item.custom.toppings[i] + ' ');
-            divider++;
+        if(item.custom.toppings != null){
+            for (var i = 0; i < item.custom.toppings.length; i++){
+                desc.push((i+1) + '. ' + item.custom.toppings[i] + ' ');
+                divider++;
+            }  
         }
-    }    // pizza 2 toppings
-    if(item.custom.toppings2 != null){
-        desc.push("\nPIZZA 2 TOPPINGS: ")
-        for (var j = 0; j < item.custom.toppings2.length; j++){
-            desc.push((j+1) + '. ' + item.custom.toppings2[j] + ' ');
+        else{
+            desc.push("no toppings");
+        }
+    }
+    // pizza 2 toppings
+    if(num_pizzas > 1){
+        desc.push("\nPIZZA 2 TOPPINGS: ");
+        if(item.custom.toppings2 != null){
+            for (var j = 0; j < item.custom.toppings2.length; j++){
+                desc.push((j+1) + '. ' + item.custom.toppings2[j] + ' ');
+            }
+        }
+        else{
+            desc.push("no toppings");
         }
     }
     // pizza 3 toppings
-    if(item.custom.toppings3 != null){
+    if(num_pizzas > 2){
         desc.push("\nPIZZA 3 TOPPINGS: ")
-        for (var k = 0; k < item.custom.toppings3.length; k++){
-            desc.push((k+1) + '. ' + item.custom.toppings3[k] + ' ');
+        if(item.custom.toppings3 != null){
+            for (var k = 0; k < item.custom.toppings3.length; k++){
+                desc.push((k+1) + '. ' + item.custom.toppings3[k] + ' ');
+            }
+        }
+        else{
+            desc.push("no toppings");
         }
     }
     // chips
@@ -239,10 +271,6 @@ export function formatDesc(item){
     // pasta
     if (item.custom.pasta != null){
         desc.push("\nPASTA: " + item.custom.pasta);
-    }
-    // special notes
-    if (item.custom.specialNotes != null){
-        desc.push('\nNOTES: ' + item.custom.specialNotes);
     }
     // wings
     if (item.custom.wings != null){
