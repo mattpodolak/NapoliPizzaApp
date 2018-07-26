@@ -200,15 +200,10 @@ export function formatDesc(item){
     }
 
     var desc = [];
-    var divider = 0;
     // name and price
     var item_name = item.name.replace(new RegExp('&', 'g'), 'and');
     console.log(item_name);
     desc.push("\n-" + item_name + "- $" + item.price);
-    // special notes
-    if (item.custom.specialNotes != null){
-        desc.push('\nNOTES: ' + item.custom.specialNotes);
-    }
     // addon
     if (item.custom.addOns != null){
         desc.push("\nADD-ONS: " + item.custom.addOns);
@@ -219,7 +214,6 @@ export function formatDesc(item){
         if(item.custom.toppings != null){
             for (var i = 0; i < item.custom.toppings.length; i++){
                 desc.push((i+1) + '. ' + item.custom.toppings[i] + ' ');
-                divider++;
             }  
         }
         else{
@@ -277,12 +271,12 @@ export function formatDesc(item){
         desc.push('\nWINGS: ' + item.custom.wings);
     }
 
-    if(divider == 0){divider == 3};
+    // special notes
+    if (item.custom.specialNotes != null){
+        desc.push('\nNOTES: ' + item.custom.specialNotes);
+    }
 
     desc.push('\n')
-    for (var i = divider; i > 0; i--){
-        desc.push('_______________________');
-    }
     
     return desc; 
 }
