@@ -159,6 +159,7 @@ export default class MainActivity extends React.Component {
 						<Icon name="md-menu" size={30} />
 					</TouchableOpacity>
 				</View>
+				<View style={{marginBottom: 15}} />
                 <View>
                     <Button
                         onPress={() => this.props.navigation.navigate('Info')}

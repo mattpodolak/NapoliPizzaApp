@@ -20,7 +20,7 @@ const options = {
 }
 
 var defaultTip = {
-    tipAmount: '18%'
+    tipAmount: '0%'
 }
 
 var cartArr = [];
@@ -142,25 +142,22 @@ export default class SecondActivity extends Component
                     },
                 );
             }
+        }
+        if(cartArr.length > 0){
             this.subtotal = utils.totalPrice(cartArr);
             this.delivery = utils.deliveryCost(cartArr);
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
-            this.updateTip
-
         }
-        else{
-            this.subtotal = '0.00';
-            this.delivery = '0.00';
-            this.tax = '0.00';
-            this.finalTotal = '0.00';
-            this.grandTotal = '0.00';
-            this.tip = '0.00';            
-        }
-
-
     }  
     updateTip= () => {
+        if(cartArr.length > 0){
+            this.subtotal = utils.totalPrice(cartArr);
+            this.delivery = utils.deliveryCost(cartArr);
+            this.tax = utils.taxCost(this.subtotal);
+            this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+        }
+
         const value = this._form.getValue();
         //'0%', '5%', '10%', '15%', '18%', '20%'
         if(value == null){
@@ -188,10 +185,11 @@ export default class SecondActivity extends Component
             this.tip = this.finalTotal*0.20; 
         }
             
-        this.tip.toFixed(2);
-        this.grandTotal = this.tip+this.finalTotal;
+        this.tip = this.tip.toFixed(2);
+        var tempVal = Number(this.finalTotal)
+        this.grandTotal = this.tip+tempVal;
         this.props.navigation.state.params = null;
-        this.forceUpdate();
+        this.forceUpdate()
     }
     render()
     {
@@ -207,6 +205,7 @@ export default class SecondActivity extends Component
                         }}>
                     <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
+                    <View style={{marginBottom: 15}} />
                     {/* mapping cart */}
                     <View>
                         <ScrollView>
@@ -235,8 +234,8 @@ export default class SecondActivity extends Component
                                 title="Clear Cart"
                                 onPress={this.clearCart}
                             />
-                            <View style={{marginBottom: 15}} />
-                            <Text style={styles.divider}></Text>
+                            {/**<View style={{marginBottom: 15}} />
+                            <Text style={styles.divider}></Text>**/}
                             <Form 
                                 ref={c => this._form = c} // assign a ref
                                 type={Tip} 
@@ -253,10 +252,10 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
                             <Text style={styles.totals}>TIP: {this.tip}</Text>
                             <Text style={styles.totals}>GRAND TOTAL: {this.grandTotal}</Text>  
-                            <TouchableOpacity style={{paddingRight: 10, alignItems: 'center', marginBottom: 10}}
-                                onPress={this.goPay}>
-                                <Text>PAYMENT</Text>
-                            </TouchableOpacity>
+                            <Button style={{paddingRight: 10, alignItems: 'center', marginBottom: 10}}
+                                title="PAYMENT"
+                                onPress={this.goPay}
+                            />
                         </ScrollView>
                     </View>
                 </View>
