@@ -146,16 +146,53 @@ export default class SecondActivity extends Component
             this.delivery = utils.deliveryCost(cartArr);
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+            this.updateTip
+
         }
         else{
             this.subtotal = '0.00';
             this.delivery = '0.00';
             this.tax = '0.00';
-            this.finalTotal = '0.00';            
+            this.finalTotal = '0.00';
+            this.grandTotal = '0.00';
+            this.tip = '0.00';            
         }
 
 
     }  
+    updateTip= () => {
+        const value = this._form.getValue();
+        //'0%', '5%', '10%', '15%', '18%', '20%'
+        if(value == null){
+            this.tip = 0;
+        }
+        else if(value.tipAmount == null){
+            this.tip = 0;
+        }
+        else if(value.tipAmount == '0%'){
+            this.tip = 0; 
+        }
+        else if(value.tipAmount == '5%'){
+            this.tip = this.finalTotal*0.05; 
+        }
+        else if(value.tipAmount == '10%'){
+            this.tip = this.finalTotal*0.1; 
+        }
+        else if(value.tipAmount == '15%'){
+        this.tip = this.finalTotal*0.15; 
+        }
+        else if(value.tipAmount == '18%'){
+            this.tip = this.finalTotal*0.20; 
+        }
+        else if(value.tipAmount == '20%'){
+            this.tip = this.finalTotal*0.20; 
+        }
+            
+        this.tip.toFixed(2);
+        this.grandTotal = this.tip+this.finalTotal;
+        this.props.navigation.state.params = null;
+        this.forceUpdate();
+    }
     render()
     {
     this.addtoCart()
@@ -206,10 +243,16 @@ export default class SecondActivity extends Component
                                 options={options} // pass the options via props
                                 value={defaultTip}
                             />
+                            <Button 
+                                title="Update Tip"
+                                onPress={this.updateTip}
+                            />
                             <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
                             <Text style={styles.totals}>TAX: {this.tax}</Text>
                             <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
-                            <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
+                            <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
+                            <Text style={styles.totals}>TIP: {this.tip}</Text>
+                            <Text style={styles.totals}>GRAND TOTAL: {this.grandTotal}</Text>  
                             <TouchableOpacity style={{paddingRight: 10, alignItems: 'center', marginBottom: 10}}
                                 onPress={this.goPay}>
                                 <Text>PAYMENT</Text>
