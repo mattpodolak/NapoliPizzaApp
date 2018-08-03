@@ -82,6 +82,7 @@ export default class SecondActivity extends Component
         cartArr = [];
         console.log('Cleared cart')
         this.props.navigation.state.params = null;
+        this.updateTip();
         this.forceUpdate();
     }
     loadCart= () => {
@@ -100,6 +101,7 @@ export default class SecondActivity extends Component
         }
         console.log('DELETE ', item)
         this.props.navigation.state.params = null;
+        this.updateTip();
         this.forceUpdate();
     }
     _editCart(item){
@@ -157,8 +159,15 @@ export default class SecondActivity extends Component
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
         }
+        else{
+            this.subtotal = '0.00';
+            this.delivery = '0.00';
+            this.tax = '0.00';
+            this.finalTotal = '0.00';
+        }
 
         const value = this._form.getValue();
+        defaultTip = value
         //'0%', '5%', '10%', '15%', '18%', '20%'
         if(value == null){
             this.tip = 0;
@@ -187,7 +196,8 @@ export default class SecondActivity extends Component
             
         this.tip = this.tip.toFixed(2);
         var tempVal = Number(this.finalTotal)
-        this.grandTotal = this.tip+tempVal;
+        this.grandTotal = Number(this.tip)+Number(tempVal);
+        this.grandTotal = this.grandTotal.toFixed(2);
         this.props.navigation.state.params = null;
         this.forceUpdate()
     }
