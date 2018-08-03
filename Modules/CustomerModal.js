@@ -14,6 +14,7 @@ import {
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
 
+
 import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
@@ -97,6 +98,18 @@ const options = {
     },
 };
 
+// require the module
+const Frisbee = require('frisbee');
+
+// create a new instance of Frisbee
+const api = new Frisbee({
+  baseURI: 'https://pizza-admin.herokuapp.com/api',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
+});
+
 export default class CustomerModal extends Component {
     autofill = () => {
         var value = this._form2.getValue(); // use that ref to get the form value
@@ -111,9 +124,56 @@ export default class CustomerModal extends Component {
         }
         else{
             //If here is a valid phone number
-            Alert.alert(
-                'Autofill'
-            );    
+            // function invoked immediately with async/await
+            (async () => {
+                // log in to our API with a user/pass
+                try {
+                // make the request
+                let res = await api.post('/login', {
+                    body:{ 
+                    username: 'Napoli', 
+                    password: 'pizzapizza'
+                    }
+                });
+                console.log('response', res.body);
+            
+                // handle HTTP or API errors
+                if (res.body.status == "error"){
+                    //throw res.body.message;
+                    Alert.alert(
+                        res.body.message
+                    );
+                } 
+                
+                // set basic auth headers for all
+                if (res.body.status == "success"){
+                    var authToken = res.body.data.authToken
+                    var userId = res.body.data.userId
+                    console.log('auth ', authToken)
+                    console.log('id ', userId)
+                }
+
+                //Check if phone number is in database
+                res = await api.get('/check/Napoli/'+phone, {
+                    headers: {
+                        'X-Auth-Token': authToken, 
+                        'X-User-Id': userId
+                    }
+                });
+                console.log('response', res.body);
+
+                // handle HTTP or API errors
+                if (res.body.status == "error"){
+                    //throw res.body.message;
+                    Alert.alert(
+                        res.body.message
+                    );
+                }
+            
+                } catch (err) {
+                throw err;
+                }
+            })();    
         }
     }
     handleSubmit = () => {
@@ -147,13 +207,7 @@ export default class CustomerModal extends Component {
                         'customer': customerInfo
                     }
                     //Add to data file here
-                    try {
-                        AsyncStorage.setItem(phoneNum, JSON.stringify(storeData));
-                    } 
-                    catch (error) {
-                        // Error saving data
-                        console.log('Error saving customer data to file, OH NO ', error)
-                    }
+                   
                 }
                 else{
                     Alert.alert(

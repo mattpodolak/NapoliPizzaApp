@@ -27,6 +27,7 @@
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
     "firebase": "^5.2.0",
+    "frisbee": "^2.0.5",
     "mongoose": "^5.2.1",
     "node-mandrill": "^1.0.1",
     "nodemailer": "^4.6.7",
