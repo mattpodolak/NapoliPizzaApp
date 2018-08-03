@@ -46,7 +46,7 @@ export default class SecondActivity extends Component
 
         // send cart info to payment screen
         const { navigate } = this.props.navigation;
-        navigate('PaymentModal', { cart: tempCart});
+        navigate('PaymentModal', { cart: tempCart, tip:this.tip});
     }
     goPay = () => {
         if(cartArr.length > 0){
@@ -150,6 +150,10 @@ export default class SecondActivity extends Component
             this.delivery = utils.deliveryCost(cartArr);
             this.tax = utils.taxCost(this.subtotal);
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+            if(defaultTip.tipAmount == '0%'){
+                this.tip = '0.00';
+                this.grandTotal = this.finalTotal;
+            }
         }
     }  
     updateTip= () => {
