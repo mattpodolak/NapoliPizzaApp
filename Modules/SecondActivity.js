@@ -60,6 +60,11 @@ export default class SecondActivity extends Component
         }
           
     }
+    clearCart= () => {
+        cartArr = [];
+        console.log('Cleared cart')
+        this.forceUpdate();
+    }
     loadCart= () => {
         this.cartUpdated = cartArr;
         console.log('UPDATE')
@@ -175,10 +180,14 @@ export default class SecondActivity extends Component
                             <Text style={styles.totals}>TAX: {this.tax}</Text>
                             <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
                             <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text>   
-                            <TouchableOpacity style={{paddingRight: 10, alignItems: 'center'}}
+                            <TouchableOpacity style={{paddingRight: 10, alignItems: 'center', marginBottom: 10}}
                                 onPress={this.goPay}>
                                 <Text>PAYMENT</Text>
                             </TouchableOpacity>
+                            <Button 
+                                title="Clear Cart"
+                                onPress={this.clearCart}
+                            />
                         </ScrollView>
                     </View>
                 </View>
