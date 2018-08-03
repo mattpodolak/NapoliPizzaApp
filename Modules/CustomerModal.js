@@ -212,6 +212,7 @@ export default class CustomerModal extends Component {
                     title="Clear Data"
                     onPress={this.clearData}
                 />
+                <View style={{marginBottom: 15}} />
                 <Form 
                 ref={c => this._form = c} // assign a ref
                 type={User} 

@@ -4,6 +4,24 @@ import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
 import {customerInfo as customer} from './CustomerModal'
+import t from 'tcomb-form-native';
+
+const Form = t.form.Form;
+const Tip = t.struct({
+    tipAmount: t.enums.of(['0%', '5%', '10%', '15%', '18%', '20%'], 'Tip Percent'),
+});
+
+const options = {
+    fields: {
+        tipAmount: {
+            label: 'Tip Percent',
+        },
+    }
+}
+
+var defaultTip = {
+    tipAmount: '18%'
+}
 
 var cartArr = [];
 
@@ -63,6 +81,7 @@ export default class SecondActivity extends Component
     clearCart= () => {
         cartArr = [];
         console.log('Cleared cart')
+        this.props.navigation.state.params = null;
         this.forceUpdate();
     }
     loadCart= () => {
@@ -175,7 +194,18 @@ export default class SecondActivity extends Component
                                     </View>
                                 );
                             })}
+                            <Button 
+                                title="Clear Cart"
+                                onPress={this.clearCart}
+                            />
+                            <View style={{marginBottom: 15}} />
                             <Text style={styles.divider}></Text>
+                            <Form 
+                                ref={c => this._form = c} // assign a ref
+                                type={Tip} 
+                                options={options} // pass the options via props
+                                value={defaultTip}
+                            />
                             <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
                             <Text style={styles.totals}>TAX: {this.tax}</Text>
                             <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
@@ -184,10 +214,6 @@ export default class SecondActivity extends Component
                                 onPress={this.goPay}>
                                 <Text>PAYMENT</Text>
                             </TouchableOpacity>
-                            <Button 
-                                title="Clear Cart"
-                                onPress={this.clearCart}
-                            />
                         </ScrollView>
                     </View>
                 </View>
