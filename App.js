@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainActivity from './Modules/MainActivity' ;
 import SecondActivity from './Modules/SecondActivity' ;
 import ThirdActivity from './Modules/ThirdActivity';
+import FourthActivity from './Modules/FourthActivity';
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
 import CustomerModal from './Modules/CustomerModal' ;
@@ -33,6 +34,9 @@ const RootStack = createStackNavigator(
     },
     PaymentModal: {
       screen: ThirdActivity,
+    },
+    CompleteModal:{
+      screen: FourthActivity,
     },
   },
   {

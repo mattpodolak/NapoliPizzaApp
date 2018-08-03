@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, StatusBar, TouchableOpacity, Platform, 
 import {DrawerActions} from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import * as utils from './structure/scripts.js';
+import {customerInfo as customer} from './CustomerModal'
 
 var cartArr = [];
 
@@ -31,15 +32,25 @@ export default class SecondActivity extends Component
     }
     goPay = () => {
         if(cartArr.length > 0){
-            Alert.alert(
-                'WARNING',
-                'Are you sure you would like to proceed to payment, the cart will be emptied and it cannot be undone',
-                [
-                    {text: 'Continue', onPress: ()=> this.payConfirm()},
-                    {text: 'Cancel', onPress: ()=> console.log('Canceled payment')}
-                ],
-                {cancelable: false}
-            ); 
+            if(customer.firstName != null){
+                Alert.alert(
+                    'WARNING',
+                    'Are you sure you would like to proceed to payment, the cart will be emptied and it cannot be undone',
+                    [
+                        {text: 'Continue', onPress: ()=> this.payConfirm()},
+                        {text: 'Cancel', onPress: ()=> console.log('Canceled payment')}
+                    ],
+                    {cancelable: false}
+                ); 
+            }
+            else{
+                this.props
+                navigate('Info');
+                //alert that customer info is empty
+                Alert.alert(
+                    'Missing customer info'
+                ) 
+            }           
         }
         else{
             //alert that cart is empty

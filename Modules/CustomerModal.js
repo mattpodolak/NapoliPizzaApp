@@ -63,8 +63,6 @@ phoneNum = {
     phone: "1234567890"
 };
 
-
-
 const phoneOptions = {
     fields: {
         phone: {

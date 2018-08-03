@@ -37,7 +37,7 @@ export default class ThirdActivity extends Component{
         else{
             console.log("Android email code not yet implemented");
         }
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('CompleteModal')
         Alert.alert(
             'Order Sent!'
         )
@@ -74,10 +74,10 @@ export default class ThirdActivity extends Component{
             //this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.test_id + '&hpp_key=' + this.test_hpp + '&charge_total=' + this.finalTotal;
             
             //dev URL with more info
-            this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id='+this.test_id 
-            + '&hpp_key='+this.test_hpp + '&charge_total='+this.finalTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
-            + '&email='+email + '&bill_first_name='+firstName + '&bill_last_name='+lastName + '&bill_address_one='+address
-            + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
+            // this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id='+this.test_id 
+            // + '&hpp_key='+this.test_hpp + '&charge_total='+this.finalTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
+            // + '&email='+email + '&bill_first_name='+firstName + '&bill_last_name='+lastName + '&bill_address_one='+address
+            // + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
 
             // prod URL with more info
             this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
