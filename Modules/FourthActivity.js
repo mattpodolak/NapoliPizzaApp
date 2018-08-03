@@ -64,6 +64,7 @@ export default class FourthActivity extends Component{
                     </TouchableOpacity>
                 </View>
                 <View>
+                    <Text style={styles.totals}>Successfully Sent Order!</Text>
                     <Text style={styles.totals}>Order Number: </Text>
                     <Button
                     
