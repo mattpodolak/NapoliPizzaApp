@@ -39,10 +39,17 @@ const styles = StyleSheet.create({
         width: 100,
         margin: 5,
     },
+    totals: {
+        marginBottom: 10,
+    }
 });
 
 
 export default class FourthActivity extends Component{
+    _handlePress = () => {
+        const { navigate } = this.props.navigation;
+        navigate('Info');
+    }
     render(){
         return (
             <View style={styles.container}>
@@ -57,8 +64,10 @@ export default class FourthActivity extends Component{
                     </TouchableOpacity>
                 </View>
                 <View>
+                    <Text style={styles.totals}>Order Number: </Text>
                     <Button
-                        onPress={() => this.props.navigation.navigate('Info')}
+                    
+                        onPress={this._handlePress}
                         title="New Order"
                         color="#000"
                     />

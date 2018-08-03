@@ -207,6 +207,11 @@ export default class CustomerModal extends Component {
                     title="Autofill"
                     onPress={this.autofill}
                 />
+                <View style={{marginBottom: 15}} />
+                <Button 
+                    title="Clear Data"
+                    onPress={this.clearData}
+                />
                 <Form 
                 ref={c => this._form = c} // assign a ref
                 type={User} 
@@ -223,10 +228,6 @@ export default class CustomerModal extends Component {
                     title="Go Back"
                 />
                 <View style={{marginBottom: 15}} />
-                <Button 
-                    title="Clear Data"
-                    onPress={this.clearData}
-                />
             </View>
         </ScrollView>
         );
