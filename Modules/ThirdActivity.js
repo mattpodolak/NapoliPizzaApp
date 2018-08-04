@@ -50,7 +50,9 @@ export default class ThirdActivity extends Component{
             this.subtotal = utils.totalPrice(cartArr);
             this.delivery = utils.deliveryCost(cartArr);
             this.tax = utils.taxCost(this.subtotal);
+            this.tip = this.props.navigation.state.params.tip;
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
+            this.grandTotal = Number(this.tip)+Number(this.finalTotal)
 
             //Customer info
             var firstName = customer.firstName.substring(0, 30);
@@ -81,7 +83,7 @@ export default class ThirdActivity extends Component{
 
             // prod URL with more info
             this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
-            + '&charge_total='+this.finalTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
+            + '&charge_total='+this.grandTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
             + '&email='+email + '&bill_first_name='+firstName + '&bill_last_name='+lastName + '&bill_address_one='+address
             + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
 
