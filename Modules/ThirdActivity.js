@@ -97,38 +97,37 @@ export default class ThirdActivity extends Component{
     render(){
         this.addtoCart();
         return (
-            <View style={styles.container}>
-                <StatusBar barStyle="dark-content" />
-                <View style={styles.header}>
-                    <TouchableOpacity
-                        onPress={() => {
-                            this.props.navigation.dispatch(DrawerActions.toggleDrawer());
-                        }}
-                    >
-                        <Icon name="md-menu" size={30} />
-                    </TouchableOpacity>
+            <View style={{flex: 1, flexDirection: 'column'}}>
+                <View style={styles.container}>
+                    <StatusBar barStyle="dark-content" />
+                    <View style={styles.header}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+                            }}
+                        >
+                            <Icon name="md-menu" size={30} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={{flex: 1, flexDirection: 'column'}}>
-                    <View style={{height: 100}}></View>
-                    <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
-                    <WebView
-                        style={{marginBottom: 20, marginTop: 20}}
-                        ref={this.WEBVIEW_REF}
-                        automaticallyAdjustContentInsets={false}
-                        source={{uri: this.DEFAULT_URL}}
-                        javaScriptEnabled={true}
-                        domStorageEnabled={true}
-                        decelerationRate="normal"
-                        startInLoadingState={true}
-                        scalesPageToFit={true}
-                    />
-                    <Text style={styles.divider}></Text>
-                    <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
-                    <Text style={styles.totals}>TAX: {this.tax}</Text>
-                    <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
-                    <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
-                    <Button title="SEND ORDER" onPress={this._handlePress} /> 
-                </View>
+                <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
+                <WebView
+                    style={{marginBottom: 20, marginTop: 20}}
+                    ref={this.WEBVIEW_REF}
+                    automaticallyAdjustContentInsets={false}
+                    source={{uri: this.DEFAULT_URL}}
+                    javaScriptEnabled={true}
+                    domStorageEnabled={true}
+                    decelerationRate="normal"
+                    startInLoadingState={true}
+                    scalesPageToFit={true}
+                />
+                <Text style={styles.divider}></Text>
+                <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
+                <Text style={styles.totals}>TAX: {this.tax}</Text>
+                <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
+                <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
+                <Button title="SEND ORDER" onPress={this._handlePress} /> 
             </View>
         );
     }
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: StatusBar.currentHeight,
         backgroundColor: '#FFF',
-        alignItems: 'center'
+        alignItems: 'flex-start'
     },
     header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
     MainContainer: {
