@@ -49,6 +49,7 @@ export var phoneNum = {
     phone: null
 };
 
+// for testing purposes
 customerInfo = {
     firstName: "John",
     lastName: "Smith",
