@@ -50,7 +50,16 @@ export default class FourthActivity extends Component{
         const { navigate } = this.props.navigation;
         navigate('Info');
     }
+    importNum = () => {
+        if(this.props.navigation.state.params.order != null){
+            this.orderNum = this.props.navigation.state.params.order
+        }
+        else{
+            this.orderNum = '0'
+        }
+    }
     render(){
+        this.importNum()
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
@@ -63,9 +72,10 @@ export default class FourthActivity extends Component{
                         <Icon name="md-menu" size={30} />
                     </TouchableOpacity>
                 </View>
+                <View style={{marginBottom: 15}} />
                 <View>
                     <Text style={styles.totals}>Successfully Sent Order!</Text>
-                    <Text style={styles.totals}>Order Number: </Text>
+                    <Text style={styles.totals}>Order Number: {this.orderNum}</Text>
                     <Button
                     
                         onPress={this._handlePress}

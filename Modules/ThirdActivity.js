@@ -25,6 +25,7 @@ var cartArr = [];
 // main screen
 export default class ThirdActivity extends Component{
     _handlePress = () => {
+        this.orderNum = Math.floor((Math.random() * 1000) + 500);
         this.props.onPress && this.props.onPress();
         if(Platform.OS === 'ios'){
             var msg = [];
@@ -37,7 +38,7 @@ export default class ThirdActivity extends Component{
         else{
             console.log("Android email code not yet implemented");
         }
-        this.props.navigation.navigate('CompleteModal')
+        this.props.navigation.navigate('CompleteModal',{ order: this.orderNum })
         Alert.alert(
             'Order Sent!'
         )
@@ -53,6 +54,7 @@ export default class ThirdActivity extends Component{
             this.tip = this.props.navigation.state.params.tip;
             this.finalTotal = utils.finalPrice(this.subtotal, this.tax, this.delivery);
             this.grandTotal = Number(this.tip)+Number(this.finalTotal)
+            this.grandTotal = Number(this.grandTotal.toFixed(2));
 
             //Customer info
             var firstName = customer.firstName.substring(0, 30);
@@ -95,26 +97,38 @@ export default class ThirdActivity extends Component{
     render(){
         this.addtoCart();
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
-                <View style={{height: 100}}></View>
-                <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
-                <WebView
-                    style={{marginBottom: 20, marginTop: 20}}
-                    ref={this.WEBVIEW_REF}
-                    automaticallyAdjustContentInsets={false}
-                    source={{uri: this.DEFAULT_URL}}
-                    javaScriptEnabled={true}
-                    domStorageEnabled={true}
-                    decelerationRate="normal"
-                    startInLoadingState={true}
-                    scalesPageToFit={true}
-                />
-                <Text style={styles.divider}></Text>
-                <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
-                <Text style={styles.totals}>TAX: {this.tax}</Text>
-                <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
-                <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
-                <Button title="SEND ORDER" onPress={this._handlePress} /> 
+            <View style={styles.container}>
+                <StatusBar barStyle="dark-content" />
+                <View style={styles.header}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+                        }}
+                    >
+                        <Icon name="md-menu" size={30} />
+                    </TouchableOpacity>
+                </View>
+                <View style={{flex: 1, flexDirection: 'column'}}>
+                    <View style={{height: 100}}></View>
+                    <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
+                    <WebView
+                        style={{marginBottom: 20, marginTop: 20}}
+                        ref={this.WEBVIEW_REF}
+                        automaticallyAdjustContentInsets={false}
+                        source={{uri: this.DEFAULT_URL}}
+                        javaScriptEnabled={true}
+                        domStorageEnabled={true}
+                        decelerationRate="normal"
+                        startInLoadingState={true}
+                        scalesPageToFit={true}
+                    />
+                    <Text style={styles.divider}></Text>
+                    <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
+                    <Text style={styles.totals}>TAX: {this.tax}</Text>
+                    <Text style={styles.totals}>DELIVERY: {this.delivery}</Text>
+                    <Text style={styles.totals}>TOTAL: {this.finalTotal}</Text> 
+                    <Button title="SEND ORDER" onPress={this._handlePress} /> 
+                </View>
             </View>
         );
     }
