@@ -223,6 +223,7 @@ export default class SecondActivity extends Component
                     {/* mapping cart */}
                     <View>
                         <ScrollView>
+                            <View style={{paddingBottom: 100}}>
                             {this.cartUpdated.map((cart_items) => {
                                 return (
                                     <View key={cart_items.id}>
@@ -270,6 +271,7 @@ export default class SecondActivity extends Component
                                 title="PAYMENT"
                                 onPress={this.goPay}
                             />
+                            </View>
                         </ScrollView>
                     </View>
                 </View>

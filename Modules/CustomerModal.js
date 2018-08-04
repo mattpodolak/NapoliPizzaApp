@@ -144,9 +144,8 @@ export default class CustomerModal extends Component {
                         res.body.message
                     );
                 } 
-                
-                // set basic auth headers for all
-                if (res.body.status == "success"){
+                else if (res.body.status == "success"){
+                    // set basic auth headers for all
                     var authToken = res.body.data.authToken
                     var userId = res.body.data.userId
                     console.log('auth ', authToken)
@@ -168,6 +167,19 @@ export default class CustomerModal extends Component {
                     Alert.alert(
                         res.body.message
                     );
+                }
+                else if (res.body.status == "success"){
+                    Alert.alert(
+                        'Autofilled'
+                    )
+                    customerInfo = {
+                        firstName: res.body.data.first_name,
+                        lastName: res.body.data.last_name,
+                        addressOne: res.body.data.address_one,
+                        addressTwo: res.body.data.address_two,
+                        postalCode: res.body.data.postal_code,
+                        city: res.body.data.city,
+                    };
                 }
             
                 } catch (err) {
@@ -197,17 +209,76 @@ export default class CustomerModal extends Component {
                 console.log('value: ', value);  
                 customerInfo = value
                 phoneNum = phone
+                if(customerInfo.addressTwo == null){
+                    customerInfo.addressTwo = ''
+                }
                 if(value != null){
-                    this.navBack
-                    Alert.alert(
-                        'Customer data saved'
-                    )
-                    let storeData = {
-                        'phone': phone,
-                        'customer': customerInfo
-                    }
-                    //Add to data file here
-                   
+                    //send data to database
+                    // function invoked immediately with async/await
+                    (async () => {
+                        // log in to our API with a user/pass
+                        try {
+                        // make the request
+                        let res = await api.post('/login', {
+                            body:{ 
+                                username: 'Napoli', 
+                                password: 'pizzapizza'
+                            }
+                        });
+                        console.log('response', res.body);
+                    
+                        // handle HTTP or API errors
+                        if (res.body.status == "error"){
+                            //throw res.body.message;
+                            Alert.alert(
+                                res.body.message
+                            );
+                        } 
+                        else if (res.body.status == "success"){
+                            // set basic auth headers for all
+                            var authToken = res.body.data.authToken
+                            var userId = res.body.data.userId
+                            console.log('auth ', authToken)
+                            console.log('id ', userId)
+                        }
+
+                        //Send customer info to database
+                        res = await api.post('/add', {
+                            headers: {
+                                'X-Auth-Token': authToken, 
+                                'X-User-Id': userId
+                            },
+                            body: { 
+                                'first_name': 'John',
+                                'last_name': 'Smith',
+                                'phone': '1234567890',
+                                'address_one': '123 Fake St',
+                                'address_two': '',
+                                'postal_code': 'A1B2C3',
+                                'city': 'Pizzaville',
+                                'user': 'Napoli',
+                            }
+                        });
+                        console.log('response', res.body);
+
+                        // handle HTTP or API errors
+                        if (res.body.status == "error"){
+                            //throw res.body.message;
+                            Alert.alert(
+                                res.body.message
+                            );
+                        }
+                        else if (res.body.status == "success"){
+                            this.navBack
+                            Alert.alert(
+                                'Saved Customer Data Successfully'
+                            )
+                        }
+                    
+                        } catch (err) {
+                        throw err;
+                        }
+                    })();  
                 }
                 else{
                     Alert.alert(
