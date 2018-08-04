@@ -172,6 +172,7 @@ export default class CustomerModal extends Component {
                     Alert.alert(
                         'Autofilled'
                     )
+                    phoneNum = phone
                     customerInfo = {
                         firstName: res.body.data.first_name,
                         lastName: res.body.data.last_name,
@@ -180,6 +181,7 @@ export default class CustomerModal extends Component {
                         postalCode: res.body.data.postal_code,
                         city: res.body.data.city,
                     };
+                    this.forceUpdate()
                 }
             
                 } catch (err) {
@@ -208,9 +210,18 @@ export default class CustomerModal extends Component {
             else{
                 console.log('value: ', value);  
                 customerInfo = value
-                phoneNum = phone
+                var phoneNum = String(phone)
+                var first_name = String(customerInfo.firstName)
+                var last_name = String(customerInfo.lastName)
+                var address_one = String(customerInfo.addressOne)
+                var postal_code = String(customerInfo.postalCode)
+                var city = String(customerInfo.city)
+                
                 if(customerInfo.addressTwo == null){
-                    customerInfo.addressTwo = ''
+                    var address_two = ''
+                }
+                else{
+                    var address_two = String(customerInfo.addressTwo)
                 }
                 if(value != null){
                     //send data to database
@@ -249,13 +260,13 @@ export default class CustomerModal extends Component {
                                 'X-User-Id': userId
                             },
                             body: { 
-                                'first_name': 'John',
-                                'last_name': 'Smith',
-                                'phone': '1234567890',
-                                'address_one': '123 Fake St',
-                                'address_two': '',
-                                'postal_code': 'A1B2C3',
-                                'city': 'Pizzaville',
+                                'first_name': first_name,
+                                'last_name': last_name,
+                                'phone': phoneNum,
+                                'address_one': address_one,
+                                'address_two': address_two,
+                                'postal_code': postal_code,
+                                'city': city,
                                 'user': 'Napoli',
                             }
                         });
