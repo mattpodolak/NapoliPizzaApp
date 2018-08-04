@@ -97,7 +97,7 @@ export default class ThirdActivity extends Component{
     render(){
         this.addtoCart();
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
+            <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
                 <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
                     <View style={styles.header}>
@@ -110,6 +110,14 @@ export default class ThirdActivity extends Component{
                         </TouchableOpacity>
                     </View>
                 </View>
+                <View>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Info')}
+                        title="Edit Customer Info"
+                        color="#000"
+                    />
+                </View>
+                <View style={{marginBottom: 15}} />
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
                 <WebView
                     style={{marginBottom: 20, marginTop: 20}}
@@ -147,10 +155,8 @@ const styles = StyleSheet.create({
         textAlign: 'right',
     },
     container: {
-		flex: 1,
 		paddingTop: StatusBar.currentHeight,
         backgroundColor: '#FFF',
-        alignItems: 'flex-start'
     },
     header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
     MainContainer: {
