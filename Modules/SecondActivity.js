@@ -127,6 +127,7 @@ export default class SecondActivity extends Component
                         price: utils.singlePrice(this.name, this.category, this.custom)
                     },
                 );
+                console.log('CART: ', cartArr)
             }
             //Avoid duplicate items being added if re-render occurs
             else if(this.props.navigation.state.params.id != cartArr[cartArr.length-1].id){
