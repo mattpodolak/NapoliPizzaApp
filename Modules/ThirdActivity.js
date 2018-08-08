@@ -22,6 +22,18 @@ import * as utils from './structure/scripts.js';
 const default_body = "mailto://napolipizzabarrie@gmail.com?subject=NAPOLIPIZZAORDER&body=";
 var cartArr = [];
 
+// require the module
+const Frisbee = require('frisbee');
+
+// create a new instance of Frisbee
+const api = new Frisbee({
+  baseURI: 'https://pizza-admin.herokuapp.com/api',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
+});
+
 // main screen
 export default class ThirdActivity extends Component{
     _handlePress = () => {
@@ -38,6 +50,65 @@ export default class ThirdActivity extends Component{
         else{
             console.log("Android email code not yet implemented");
         }
+        // function invoked immediately with async/await
+        (async () => {
+            // log in to our API with a user/pass
+            try {
+                // make the request
+                let res = await api.post('/login', {
+                    body:{ 
+                        username: 'Napoli', 
+                        password: 'pizzapizza'
+                    }
+                });
+                console.log('response', res.body);
+            
+                // handle HTTP or API errors
+                if (res.body.status == "error"){
+                    //throw res.body.message;
+                    Alert.alert(
+                        res.body.message
+                    );
+                } 
+                else if (res.body.status == "success"){
+                    // set basic auth headers for all
+                    var authToken = res.body.data.authToken
+                    var userId = res.body.data.userId
+                    console.log('auth ', authToken)
+                    console.log('id ', userId)
+                }
+
+                //Add order to database
+                res = await api.post('/order', {
+                    headers: {
+                        'X-Auth-Token': authToken, 
+                        'X-User-Id': userId
+                    },
+                    body:{ 
+                        phone: this.phoneNumProp, 
+                        cart: cartArr, 
+                        orderNum: this.orderNum, 
+                        deliveryType: this.deliveryType, 
+                        subtotal: this.subtotal, 
+                        tax: this.tax, 
+                        delivery: this.delivery, 
+                        tip: this.tip,
+                        user: 'Napoli', 
+                    }
+                });
+                console.log('response', res.body);
+
+                // handle HTTP or API errors
+                if (res.body.status == "error"){
+                    //throw res.body.message;
+                    Alert.alert(
+                        res.body.message
+                    );
+                }       
+            } catch (err) {
+            throw err;
+            }
+        })(); 
         this.props.navigation.navigate('CompleteModal',{ order: this.orderNum })
         Alert.alert(
             'Order Sent!'
@@ -67,6 +138,8 @@ export default class ThirdActivity extends Component{
             var country = 'Canada';
             var province = 'Ontario';
             this.payment = customer.payment;
+            this.deliveryType = customer.delivery;
+            this.phoneNumProp = phone
 
             //Moneris dev and prod store info
             this.store_id = '89BCM08126'

@@ -113,7 +113,7 @@ const api = new Frisbee({
   }
 });
 
-export default class CustomerModal extends Component {
+export default class AutofillModal extends Component {
     autofill = () => {
         var value = this._form2.getValue(); // use that ref to get the form value
         //replace white spaces
@@ -322,9 +322,6 @@ export default class CustomerModal extends Component {
     navBack = () => {
         this.props.navigation.navigate('Home')
     }
-    navBack = () => {
-        this.props.navigation.navigate('AutofillModal')
-    }
     loadData = () => {
         if(this.props.navigation.state.params.customer !=null){
             customerInfo = this.props.navigation.state.params.customer
@@ -349,11 +346,6 @@ export default class CustomerModal extends Component {
 					</TouchableOpacity>
 				</View>
                 <Text style={{ fontSize: 25 }}>Customer Info Form</Text>
-                <Button 
-                    onPress={this.navAuto}
-                    title="Autofill"
-                />
-                <View style={{marginBottom: 15}} />
                 <Form
                     ref={c => this._form2 = c} // assign a ref
                     type={Phone} 
