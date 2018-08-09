@@ -144,16 +144,7 @@ export default class AutofillModal extends Component {
         return (
         <ScrollView>
             <View style={styles.container}>
-            <StatusBar barStyle="dark-content" />
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.dispatch(DrawerActions.toggleDrawer());
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
+				<View style={styles.header}/>
                 <Text style={{ fontSize: 25 }}>Autofill Customer Info</Text>
                 <Form
                     ref={c => this._form2 = c} // assign a ref

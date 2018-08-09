@@ -13,8 +13,6 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
-import * as utils from './structure/scripts.js';
-
 
 import t from 'tcomb-form-native';
 
@@ -46,7 +44,7 @@ export var customerInfo = {
     payment: null
 };
 
-var cart = []
+export var cart = []
 
 export var phoneNum = {
     phone: null
@@ -115,6 +113,12 @@ const api = new Frisbee({
 });
 
 export default class CustomerModal extends Component {
+    navBack = () => {
+        this.props.navigation.navigate('Home');
+    }
+    next = () => {
+        this.props.navigation.navigate('PastOrderModal');
+    }
     handleSubmit = () => {
         const value = this._form.getValue(); // use that ref to get the form value
         var value2 = this._form2.getValue();
@@ -206,10 +210,15 @@ export default class CustomerModal extends Component {
                             );
                         }
                         else if (res.body.status == "success"){
-                            this.navBack
                             Alert.alert(
-                                'Saved Customer Data Successfully'
-                            )
+                                'IMPORTANT',
+                                'Saved Customer Data Successfully',
+                                [
+                                    {text: 'Continue', onPress: ()=> this.next()},
+                                    {text: 'Home', onPress: ()=> this.navBack()}
+                                ],
+                                {cancelable: false}
+                            ); 
                         }
                     
                         } catch (err) {
@@ -241,9 +250,6 @@ export default class CustomerModal extends Component {
             phone: null
         };
         this.forceUpdate()
-    }
-    navBack = () => {
-        this.props.navigation.navigate('Home')
     }
     navAuto = () => {
         this.props.navigation.navigate('AutofillModal')

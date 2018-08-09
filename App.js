@@ -7,6 +7,7 @@ import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
 import CustomerModal from './Modules/CustomerModal' ;
 import AutofillModal from './Modules/AutofillModal' ;
+import PastOrderModal from './Modules/PastOrderModal' ;
 import {StyleSheet, Dimensions} from 'react-native';
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
@@ -41,6 +42,9 @@ const RootStack = createStackNavigator(
     },
     AutofillModal:{
       screen: AutofillModal,
+    },
+    PastOrderModal:{
+      screen: PastOrderModal,
     },
   },
   {
