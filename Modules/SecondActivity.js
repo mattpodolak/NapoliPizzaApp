@@ -112,6 +112,14 @@ export default class SecondActivity extends Component
         console.log('EDIT ', item)
     }
     addtoCart= () => {
+        try{
+            //Try to load past order
+            if(this.props.navigation.state.params.newCart != null){
+                cartArr = this.props.navigation.state.params.newCart;
+                this.props.navigation.state.params = null;
+            }
+        }catch(err){
+        }
         if(this.props.navigation.state.params !=null){
             if(cartArr.length == 0){
                 this.id = this.props.navigation.state.params.id;
