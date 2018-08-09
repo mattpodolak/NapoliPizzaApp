@@ -135,7 +135,8 @@ export default class CustomerModal extends Component {
             else{
                 console.log('value: ', value);  
                 customerInfo = value
-                var phoneNum = String(phone)
+                phoneNum = value2
+                var phoneNum2 = String(phone)
                 var first_name = String(customerInfo.firstName)
                 var last_name = String(customerInfo.lastName)
                 var address_one = String(customerInfo.addressOne)
@@ -187,7 +188,7 @@ export default class CustomerModal extends Component {
                             body: { 
                                 'first_name': first_name,
                                 'last_name': last_name,
-                                'phone': phoneNum,
+                                'phone': phoneNum2,
                                 'address_one': address_one,
                                 'address_two': address_two,
                                 'postal_code': postal_code,
@@ -249,15 +250,20 @@ export default class CustomerModal extends Component {
     }
     loadData = () => {
         if(this.props.navigation.state.params !=null){
-            customerInfo = this.props.navigation.state.params.customer
-            phoneNum = this.props.navigation.state.params.phone
-            if(this.props.navigation.state.params.order == "nothing"){
-                cart = null
+            try{
+                customerInfo = this.props.navigation.state.params.customer
+                customerInfo.delivery = 'Local Delivery: $7'
+                customerInfo.payment = 'Credit'
+                phoneNum = this.props.navigation.state.params.phone
+                if(this.props.navigation.state.params.order == "nothing"){
+                    cart = []
+                }
+                else{
+                    cart = this.props.navigation.state.params.order
+                }
+            } catch (err) {
+                this.props.navigation.state.params = null
             }
-            else{
-                cart = this.props.navigation.state.params.order
-            }
-            console.log(cart)
             this.props.navigation.state.params = null
         }
     }

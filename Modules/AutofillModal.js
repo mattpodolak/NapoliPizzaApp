@@ -117,7 +117,7 @@ export default class AutofillModal extends Component {
                     Alert.alert(
                         'Autofilled'
                     )
-                    phoneNum = String(phone)
+                    phoneNum.phone = phone
                     var customerInfo = {
                         firstName: res.body.data.first_name,
                         lastName: res.body.data.last_name,
