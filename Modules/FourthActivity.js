@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 export default class FourthActivity extends Component{
     _handlePress = () => {
         const { navigate } = this.props.navigation;
-        navigate('Info');
+        navigate('AutofillModal');
     }
     importNum = () => {
         if(this.props.navigation.state.params.order != null){

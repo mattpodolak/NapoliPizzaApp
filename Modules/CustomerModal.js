@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
+import * as utils from './structure/scripts.js';
 
 
 import t from 'tcomb-form-native';
@@ -114,85 +115,6 @@ const api = new Frisbee({
 });
 
 export default class CustomerModal extends Component {
-    autofill = () => {
-        var value = this._form2.getValue(); // use that ref to get the form value
-        //replace white spaces
-        phone = value.phone.replace(/\s/g,'');
-        phone = phone.replace("-", "");
-        console.log('phone num: ', phone); 
-        if(phone.length != 10){
-            Alert.alert(
-                'Please enter a 10 digit phone number'
-            );
-        }
-        else{
-            //If here is a valid phone number
-            // function invoked immediately with async/await
-            (async () => {
-                // log in to our API with a user/pass
-                try {
-                // make the request
-                let res = await api.post('/login', {
-                    body:{ 
-                    username: 'Napoli', 
-                    password: 'pizzapizza'
-                    }
-                });
-                console.log('response', res.body);
-            
-                // handle HTTP or API errors
-                if (res.body.status == "error"){
-                    //throw res.body.message;
-                    Alert.alert(
-                        res.body.message
-                    );
-                } 
-                else if (res.body.status == "success"){
-                    // set basic auth headers for all
-                    var authToken = res.body.data.authToken
-                    var userId = res.body.data.userId
-                    console.log('auth ', authToken)
-                    console.log('id ', userId)
-                }
-
-                //Check if phone number is in database
-                res = await api.get('/check/Napoli/'+phone, {
-                    headers: {
-                        'X-Auth-Token': authToken, 
-                        'X-User-Id': userId
-                    }
-                });
-                console.log('response', res.body);
-
-                // handle HTTP or API errors
-                if (res.body.status == "error"){
-                    //throw res.body.message;
-                    Alert.alert(
-                        res.body.message
-                    );
-                }
-                else if (res.body.status == "success"){
-                    Alert.alert(
-                        'Autofilled'
-                    )
-                    phoneNum = phone
-                    customerInfo = {
-                        firstName: res.body.data.first_name,
-                        lastName: res.body.data.last_name,
-                        addressOne: res.body.data.address_one,
-                        addressTwo: res.body.data.address_two,
-                        postalCode: res.body.data.postal_code,
-                        city: res.body.data.city,
-                    };
-                    this.forceUpdate()
-                }
-            
-                } catch (err) {
-                throw err;
-                }
-            })();    
-        }
-    }
     handleSubmit = () => {
         const value = this._form.getValue(); // use that ref to get the form value
         var value2 = this._form2.getValue();
@@ -322,15 +244,21 @@ export default class CustomerModal extends Component {
     navBack = () => {
         this.props.navigation.navigate('Home')
     }
-    navBack = () => {
+    navAuto = () => {
         this.props.navigation.navigate('AutofillModal')
     }
     loadData = () => {
         if(this.props.navigation.state.params.customer !=null){
             customerInfo = this.props.navigation.state.params.customer
-            cart = this.props.navigation.state.params.order
+            phoneNum = this.props.navigation.state.params.phone
+            if(this.props.navigation.state.params.order == "nothing"){
+                cart = null
+            }
+            else{
+                cart = this.props.navigation.state.params.order
+            }
             console.log(cart)
-            this.props.navigation.state.params.customer = null
+            this.props.navigation.state.params = null
         }
     }
     render() {
@@ -351,17 +279,13 @@ export default class CustomerModal extends Component {
                 <Text style={{ fontSize: 25 }}>Customer Info Form</Text>
                 <Button 
                     onPress={this.navAuto}
-                    title="Autofill"
+                    title="Autofill Data"
                 />
                 <View style={{marginBottom: 15}} />
                 <Form
                     ref={c => this._form2 = c} // assign a ref
                     type={Phone} 
                     value={phoneNum}
-                />
-                <Button
-                    title="Autofill"
-                    onPress={this.autofill}
                 />
                 <View style={{marginBottom: 15}} />
                 <Button 
