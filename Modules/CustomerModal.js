@@ -248,7 +248,7 @@ export default class CustomerModal extends Component {
         this.props.navigation.navigate('AutofillModal')
     }
     loadData = () => {
-        if(this.props.navigation.state.params.customer !=null){
+        if(this.props.navigation.state.params !=null){
             customerInfo = this.props.navigation.state.params.customer
             phoneNum = this.props.navigation.state.params.phone
             if(this.props.navigation.state.params.order == "nothing"){
