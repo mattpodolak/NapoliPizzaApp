@@ -141,10 +141,10 @@ export default class ThirdActivity extends Component{
             // + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
 
             // prod URL with less info
-            this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
+            this.DEFAULT_URL = 'https://esplus.moneris.com/DPHPP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
             + '&charge_total='+this.grandTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
             + '&email='+email;
-            
+
             this.TEXT_INPUT_REF = 'urlInput';
             this.WEBVIEW_REF = 'webview';
             console.log(this.DEFAULT_URL);

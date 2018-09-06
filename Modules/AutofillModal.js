@@ -59,15 +59,20 @@ export default class AutofillModal extends Component {
     autofill = () => {
         var value = this._form2.getValue(); // use that ref to get the form value
         //replace white spaces
-        phone = value.phone.replace(/\s/g,'');
-        phone = phone.replace("-", "");
-        console.log('phone num: ', phone); 
-        if(phone.length != 10){
+        if(value == null){
+            Alert.alert(
+                'Please enter a 10 digit phone number'
+            );
+        }
+        else if(value.phone.length != 10){
             Alert.alert(
                 'Please enter a 10 digit phone number'
             );
         }
         else{
+            phone = value.phone.replace(/\s/g,'');
+            phone = phone.replace("-", "");
+            console.log('phone num: ', phone); 
             //If here is a valid phone number
             // function invoked immediately with async/await
             (async () => {
@@ -134,7 +139,6 @@ export default class AutofillModal extends Component {
                 <Form
                     ref={c => this._form2 = c} // assign a ref
                     type={Phone} 
-                    value={phoneNum}
                 />
                 <Button
                     title="Autofill (Existing Customer)"

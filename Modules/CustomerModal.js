@@ -138,15 +138,21 @@ export default class CustomerModal extends Component {
                 )
             }
             else{
-                console.log('value: ', value);  
-                customerInfo = value
-                phoneNum = value2
-                var phoneNum2 = String(phone)
-                var first_name = String(customerInfo.firstName)
-                var last_name = String(customerInfo.lastName)
-                var address_one = String(customerInfo.addressOne)
-                var postal_code = String(customerInfo.postalCode)
-                var city = String(customerInfo.city)
+                try{
+                    console.log('value: ', value);  
+                    customerInfo = value
+                    phoneNum = value2
+                    var phoneNum2 = String(phone)
+                    var first_name = String(customerInfo.firstName)
+                    var last_name = String(customerInfo.lastName)
+                    var address_one = String(customerInfo.addressOne)
+                    var postal_code = String(customerInfo.postalCode)
+                    var city = String(customerInfo.city)
+                }catch (err) {
+                    Alert.alert(
+                        'Please all customer info required'
+                    );   
+                }
                 
                 if(customerInfo.addressTwo == null){
                     var address_two = ''
