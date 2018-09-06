@@ -33,8 +33,18 @@ export default class PastOrderModal extends Component {
     render() {
         this.updateCart();
         return (
+            <ScrollView>
             <View style={styles.container}>
-                <View style={styles.header}/>
+            <StatusBar barStyle="dark-content" />
+				<View style={styles.header}>
+					<TouchableOpacity
+						onPress={() => {
+							this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+						}}
+					>
+						<Icon name="md-menu" size={30} />
+					</TouchableOpacity>
+				</View>
                 <Text style={{ fontSize: 25 }}>Most Recent Customer Order</Text>
                 <Button
                     onPress={this.loadCart}
@@ -65,6 +75,7 @@ export default class PastOrderModal extends Component {
                     </ScrollView>
                 </View>
             </View>
+            </ScrollView>
         );
     }
 }

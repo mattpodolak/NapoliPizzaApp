@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
+import {auth, userId} from './Login';
 
 import t from 'tcomb-form-native';
 
@@ -51,20 +52,20 @@ export var phoneNum = {
 };
 
 // for testing purposes
-customerInfo = {
-    firstName: "John",
-    lastName: "Smith",
-    addressOne: "123 Fake St",
-    addressTwo: null,
-    postalCode: "A1B2C3",
-    city: "Wonderland",
-    delivery: "Pickup",
-    payment: "Credit"
-};
+// customerInfo = {
+//     firstName: "John",
+//     lastName: "Smith",
+//     addressOne: "123 Fake St",
+//     addressTwo: null,
+//     postalCode: "A1B2C3",
+//     city: "Wonderland",
+//     delivery: "Pickup",
+//     payment: "Credit"
+// };
 
-phoneNum = {
-    phone: "1234567890"
-};
+// phoneNum = {
+//     phone: "1234567890"
+// };
 
 const phoneOptions = {
     fields: {
@@ -159,34 +160,10 @@ export default class CustomerModal extends Component {
                     (async () => {
                         // log in to our API with a user/pass
                         try {
-                        // make the request
-                        let res = await api.post('/login', {
-                            body:{ 
-                                username: 'Napoli', 
-                                password: 'pizzapizza'
-                            }
-                        });
-                        console.log('response', res.body);
-                    
-                        // handle HTTP or API errors
-                        if (res.body.status == "error"){
-                            //throw res.body.message;
-                            Alert.alert(
-                                res.body.message
-                            );
-                        } 
-                        else if (res.body.status == "success"){
-                            // set basic auth headers for all
-                            var authToken = res.body.data.authToken
-                            var userId = res.body.data.userId
-                            console.log('auth ', authToken)
-                            console.log('id ', userId)
-                        }
-
                         //Send customer info to database
                         res = await api.post('/add', {
                             headers: {
-                                'X-Auth-Token': authToken, 
+                                'X-Auth-Token': auth, 
                                 'X-User-Id': userId
                             },
                             body: { 

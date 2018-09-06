@@ -5,6 +5,7 @@ import ThirdActivity from './Modules/ThirdActivity';
 import FourthActivity from './Modules/FourthActivity';
 import MainDrawer from './Modules/MainDrawer' ;
 import MainModal from './Modules/MainModal' ;
+import Login from './Modules/Login' ;
 import CustomerModal from './Modules/CustomerModal' ;
 import AutofillModal from './Modules/AutofillModal' ;
 import PastOrderModal from './Modules/PastOrderModal' ;
@@ -13,7 +14,9 @@ import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
 const RootDrawer = createDrawerNavigator(
   {
-  Info: {screen: CustomerModal},
+  Login: { screen: Login },
+
+  Info: { screen: CustomerModal },
 
   Home: { screen: MainActivity },
    

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerActions } from 'react-navigation';
-
+import {auth, userId} from './Login';
 
 import t from 'tcomb-form-native';
 
@@ -31,9 +31,9 @@ export var phoneNum = {
 };
 
 //testing purposes
-phoneNum = {
-    phone: "1234567890"
-};
+// phoneNum = {
+//     phone: "1234567890"
+// };
 
 const phoneOptions = {
     fields: {
@@ -73,34 +73,10 @@ export default class AutofillModal extends Component {
             (async () => {
                 // log in to our API with a user/pass
                 try {
-                // make the request
-                let res = await api.post('/login', {
-                    body:{ 
-                    username: 'Napoli', 
-                    password: 'pizzapizza'
-                    }
-                });
-                console.log('response', res.body);
-            
-                // handle HTTP or API errors
-                if (res.body.status == "error"){
-                    //throw res.body.message;
-                    Alert.alert(
-                        res.body.message
-                    );
-                } 
-                else if (res.body.status == "success"){
-                    // set basic auth headers for all
-                    var authToken = res.body.data.authToken
-                    var userId = res.body.data.userId
-                    console.log('auth ', authToken)
-                    console.log('id ', userId)
-                }
-
                 //Check if phone number is in database
                 res = await api.get('/check/Napoli/'+phone, {
                     headers: {
-                        'X-Auth-Token': authToken, 
+                        'X-Auth-Token': auth, 
                         'X-User-Id': userId
                     }
                 });
@@ -142,9 +118,18 @@ export default class AutofillModal extends Component {
     }
     render() {
         return (
-        <ScrollView>
+            <ScrollView>
             <View style={styles.container}>
-				<View style={styles.header}/>
+            <StatusBar barStyle="dark-content" />
+				<View style={styles.header}>
+					<TouchableOpacity
+						onPress={() => {
+							this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+						}}
+					>
+						<Icon name="md-menu" size={30} />
+					</TouchableOpacity>
+				</View>
                 <Text style={{ fontSize: 25 }}>Autofill Customer Info</Text>
                 <Form
                     ref={c => this._form2 = c} // assign a ref
