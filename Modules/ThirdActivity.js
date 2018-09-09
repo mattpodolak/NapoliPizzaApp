@@ -141,7 +141,7 @@ export default class ThirdActivity extends Component{
             // + '&bill_city='+city + '&bill_state_or_province='+province + '&bill_postal_code='+postal + '&bill_country='+country;
 
             // prod URL with less info
-            this.DEFAULT_URL = 'https://esplus.moneris.com/DPHPP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
+            this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
             + '&charge_total='+this.grandTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
             + '&email='+email;
 
@@ -175,17 +175,7 @@ export default class ThirdActivity extends Component{
                 </View>
                 <View style={{marginBottom: 15}} />
                 <Text style={{textAlign: 'center', fontSize: 14}}>PAYMENT</Text>
-                <WebView
-                    style={{marginBottom: 20, marginTop: 20}}
-                    ref={this.WEBVIEW_REF}
-                    automaticallyAdjustContentInsets={false}
-                    source={{uri: this.DEFAULT_URL}}
-                    javaScriptEnabled={true}
-                    domStorageEnabled={true}
-                    decelerationRate="normal"
-                    startInLoadingState={true}
-                    scalesPageToFit={true}
-                />
+                <Button title="Process Payment" onPress={ ()=>{ Linking.openURL(this.DEFAULT_URL)}} />
                 <Text style={styles.divider}></Text>
                 <Text style={styles.totals}>SUBTOTAL: {this.subtotal}</Text>
                 <Text style={styles.totals}>TAX: {this.tax}</Text>
