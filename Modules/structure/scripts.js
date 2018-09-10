@@ -259,7 +259,7 @@ export function formatDesc(item){
     return desc; 
 }
 
-export var MD5 = function (string) {
+export function MD5(string) {
 
     function RotateLeft(lValue, iShiftBits) {
             return (lValue<<iShiftBits) | (lValue>>>(32-iShiftBits));
