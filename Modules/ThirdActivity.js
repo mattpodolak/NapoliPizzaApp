@@ -38,7 +38,6 @@ const api = new Frisbee({
 // main screen
 export default class ThirdActivity extends Component{
     _handlePress = () => {
-        this.orderNum = Math.floor((Math.random() * 1000) + 500);
         this.props.onPress && this.props.onPress();
         // temporarily removing email code
         // if(Platform.OS === 'ios'){
@@ -109,7 +108,7 @@ export default class ThirdActivity extends Component{
             var firstName = customer.firstName.substring(0, 30);
             var lastName = customer.lastName.substring(0, 30);
             var address = customer.addressOne.substring(0, 30);
-            var email = 'mpodola2@gmail.com';
+            var email = 'f7059888997@yahoo.com';
             var phone = phoneNum.phone.substring(0, 50);
             var postal = customer.postalCode;
             var city = customer.city;
@@ -124,6 +123,9 @@ export default class ThirdActivity extends Component{
             this.test_id = 'JMCMNtore3'
             this.hpp = 'hpBQQ66YSF59'
             this.test_hpp = 'hpSN6OEJRM13'
+            var d = new Date();
+            var n = d.getTime();
+            this.orderNum = utils.MD5(toString(n))
 
             // dev URL
             //this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.test_id + '&hpp_key=' + this.test_hpp + '&charge_total=' + this.finalTotal;
@@ -143,7 +145,7 @@ export default class ThirdActivity extends Component{
             // prod URL with less info
             this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
             + '&charge_total='+this.grandTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
-            + '&email='+email;
+            + '&email='+email + '&order_id'+this.orderNum;
 
             this.TEXT_INPUT_REF = 'urlInput';
             this.WEBVIEW_REF = 'webview';
