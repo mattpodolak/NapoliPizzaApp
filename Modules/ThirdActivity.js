@@ -145,7 +145,7 @@ export default class ThirdActivity extends Component{
             // prod URL with less info
             this.DEFAULT_URL = 'https://www3.moneris.com/HPPDP/index.php?' + 'ps_store_id=' + this.store_id + '&hpp_key=' + this.hpp 
             + '&charge_total='+this.grandTotal + '&hst='+this.tax + '&shipping_cost='+this.delivery
-            + '&email='+email + '&order_id'+this.orderNum;
+            + '&email='+email + '&order_id='+this.orderNum;
 
             this.TEXT_INPUT_REF = 'urlInput';
             this.WEBVIEW_REF = 'webview';
