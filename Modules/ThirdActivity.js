@@ -125,8 +125,7 @@ export default class ThirdActivity extends Component{
             this.test_hpp = 'hpSN6OEJRM13'
             var d = new Date();
             var n = d.getTime();
-            this.orderNum = utils.MD5(toString(n))
-            this.orderNum = toString(this.orderNum)
+            this.orderNum = utils.MD5(n.toString())
 
             // dev URL
             //this.DEFAULT_URL = 'https://esqa.moneris.com/HPPDP/index.php/?' + 'ps_store_id=' + this.test_id + '&hpp_key=' + this.test_hpp + '&charge_total=' + this.finalTotal;
